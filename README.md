@@ -74,7 +74,7 @@ Add an upstream remote by visiting the ga-students WDI repo on Github, and copyi
 ```shell
     $ git remote -v
     # Shows current remotes; you will have two named 'origin'
-    $ git remote add upstream git@github.com:YourGitHubName/WDI_LDN_5_Classnotes.git # enter your own clone URL
+    $ git remote add upstream git@github.com:YourGitHubName/WDI_LDN_5_Assignments.git # enter your own clone URL
     $ git remote -v
     # You should see your upstream remote added.
 ```
