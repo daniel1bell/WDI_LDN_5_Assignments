@@ -117,7 +117,40 @@ def mortgage_calc
 end
 
 def bmi_calc
-  puts "(i)mperial or (m)etric: "
+  puts "(m)etric, (i)mperial: "
+  operation = gets.chomp.downcase
+  case operation
+  when "m"
+    puts "Mass (in kg)"
+    mass = number_get_and_confirm
+    puts "Height (in m)"
+    height = number_get_and_confirm
+  when "i"
+    puts "Mass (in lbs)"
+    mass = number_get_and_confirm
+    puts "Height (in in)"
+    height = number_get_and_confirm
+  end
+  bmi_total = mass / (height**height)
+  puts "Your BMI is #{bmi_total}."
+end
+
+def trip_calc
+  puts "Distance"
+  distance = number_get_and_confirm
+  puts "Vehicle efficiency (mpg)"
+  mpg_of_vehicle = number_get_and_confirm
+  puts "Cost of gas per gallon (in dollars)"
+  cost_of_gas = number_get_and_confirm
+  puts "Expected average speed (mph)?"
+  speed = number_get_and_confirm
+  if speed > 60
+    mpg_of_vehicle = mpg_of_vehicle - (2 * (speed - 60))
+  end
+  trip_time = distance / speed
+  trip_cost = (distance / mpg_of_vehicle) * cost_of_gas
+  puts "Your trip will take #{trip_time} hour and cost $#{trip_cost}."
+end
 
 
 
