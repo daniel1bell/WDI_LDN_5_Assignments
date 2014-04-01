@@ -1,4 +1,5 @@
 # Function definitions first
+
 def menu
   # Clear the screen, and present the user with a menu
   puts `clear`
@@ -32,7 +33,7 @@ end
 
 def advanced_calc
   # ask the user which operation they want to perform
-  print "(p)ower, (s)quare root: "
+  print "(p)ower, (s)quare root, (m)ortgage calculation, (b)mi, (t)rip: "
   operation = gets.chomp.downcase
 
   case operation
@@ -47,6 +48,54 @@ def advanced_calc
     print "Number to be square rooted? "
     num1 = gets.chomp.to_f
     puts Math.sqrt(num1)
+  when "m"
+    print "Principal? "
+    principal = gets.chomp.to_f
+    print "Yearly interest rate in %? "
+    interest_rate = gets.chomp.to_f
+    monthly_interest_rate = (interest_rate/100)/12
+    print "Number of monthly payments? "
+    number_of_payments = gets.chomp.to_f
+    # M = P[i(1+i)^n]/[(1+i)^n -1] from http://www.wikihow.com/Calculate-Mortgage-Payments
+    monthly_payment = principal * (monthly_interest_rate * (1 + monthly_interest_rate)**number_of_payments)  /  ( (1 + monthly_interest_rate)**number_of_payments - 1)
+    puts "Monthly payment is #{monthly_payment}"
+  when "b"
+    print "(m)etric or (i)mperial? "
+    if gets.chomp == "m"
+      print "Height in meters? "
+      metric_height = gets.chomp.to_f
+      print "Weight in kg? "
+      metric_weight = gets.chomp.to_f
+    else
+      print "Height in feet (inches next question)? "
+      feet = gets.chomp.to_f
+      print "and in inches? "
+      inches = gets.chomp.to_f
+      metric_height = (feet * 30.48 + inches * 2.54) / 100
+      print "Weight in stone? "
+      stone = gets.chomp.to_f
+      metric_weight = stone * 6.35029
+    end
+
+    bmi = metric_weight/((metric_height)**2)
+    puts "bmi is #{bmi}"
+
+  when "t"
+    print "distance, how far will you drive? "
+    distance = gets.chomp.to_f
+    print "MPG, fuel efficiency of the car? "
+    mpg = gets.chomp.to_f
+    print "$PG, how much does gas cost per gallon? "
+    cpg = gets.chomp.to_f
+    print "Speed, how fast will you drive? "
+    speed = gets.chomp.to_f
+    if speed >= 60
+      reduce = 2 * (speed - 60)
+      mpg = mpg - reduce
+    end
+    hours = distance / speed
+    cost =  (distance / mpg) * cpg
+    puts "Your trip will take #{hours} hours and cost #{cost}"
   end
 end
 
