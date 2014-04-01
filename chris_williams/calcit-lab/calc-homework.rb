@@ -113,7 +113,7 @@ while response != 'q'
   when 'a'
     advanced_calc
   when 'm'
-    mortgage_calc12
+    mortgage_calc
   when 'bm'
     bmi_calc
   when 't'
