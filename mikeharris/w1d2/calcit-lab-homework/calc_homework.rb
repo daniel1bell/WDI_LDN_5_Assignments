@@ -118,31 +118,45 @@ end
 
 
 def bmi
-  print "Would you like (i)mperial or (m)etric?"
+  print "Would you like (i)mperial or (m)etric? "
   units = gets.chomp.to_s
+  valid_units = ["i", "m"]
 
-  case units 
-  when 'm'
-    unit_weight = 'kg'
-    unit_height = 'm'
-    factor = 1
-  when 'i'
-    unit_weight = 'lb'
-    unit_height = 'in'
-    factor = 703
+  if valid_units.include?(units) 
+    case units 
+    when 'm'
+      unit_weight = 'kg'
+      unit_height = 'm'
+      factor = 1
+    when 'i'
+      unit_weight = 'lb'
+      unit_height = 'in'
+      factor = 703
+    else 
+      
+    end
+
+
+    print "Input your weight (#{unit_weight}): "
+    mass = input_number
+    print "Input your height (#{unit_height}): "
+    height = input_number
+
+    bmi_value = (mass / height ** 2 * factor).round(2)
+
+    puts "Your bmi is #{bmi_value}"
+
+    pause
+  else
+    puts "Not a valid unit - try again please."
+    sleep(1)
+    puts "Try reading the question this time."
+    sleep(1)
+    puts "Or get smaller fingers."
+    sleep(1)
+
+    bmi
   end
-
-
-  print "Input your weight (#{unit_weight}): "
-  mass = input_number
-  print "Input your height (#{unit_height}): "
-  height = input_number
-
-  bmi_value = mass / height ** 2 * factor
-
-  puts "Your bmi is #{bmi_value}"
-
-  pause
 
 end
 
