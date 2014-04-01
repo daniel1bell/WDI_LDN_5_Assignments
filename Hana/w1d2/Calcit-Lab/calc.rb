@@ -7,16 +7,66 @@ def menu
   gets.chomp.downcase
 end
 
+
 def basic_calc
+  
+
   # ask the user which operation they want to perform
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-  operation = gets.chomp.downcase
+  b_operation = gets.chomp.downcase
 
-  # insert magic incatation here....
-  puts "gotta replace this with some code to do the '#{operation}' operation..."
+ #our code
 
+#Asking for numbers
+if (b_operation == 'a'||b_operation =='s'||b_operation =='m'||b_operation =='d')
+puts "First number: "
+b_number_one = gets.chomp.to_f
+puts "Second number: "
+b_number_two = gets.chomp.to_f
+else
+  result = "Invalid"
 end
 
+case b_operation
+  when 'a'
+    result = b_number_one + b_number_two
+  when 's'
+    result = b_number_one - b_number_two
+  when 'm'
+    result = b_number_one * b_number_two
+  when 'd'
+    result = b_number_one / b_number_two
+ 
+  end
+puts result.to_s
+end
+
+
+def advanced_calc
+  
+
+  # ask the user which operation they want to perform
+  print "(p)ower, (s)quare root: "
+  a_operation = gets.chomp.downcase
+
+  case a_operation
+  when 'p'
+  puts "First number: "
+  a_number_one = gets.chomp.to_f
+  puts "Second number: "
+  a_number_two = gets.chomp.to_f
+  result = a_number_one ** a_number_two
+
+when 's'
+  puts "Number to be squared-rooted: "
+  a_number_one = gets.chomp.to_f
+  result = Math.sqrt(a_number_one)
+
+else
+  result = "Invalid"
+end
+puts result.to_s
+end
 
 # run the app...
 
@@ -29,7 +79,8 @@ while response != 'q'
   when 'a'
     advanced_calc
   end
-
+  puts "Press any key to return to the menu."
+  gets
   response = menu
 end
 
