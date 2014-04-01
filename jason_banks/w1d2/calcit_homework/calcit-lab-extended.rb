@@ -1,4 +1,19 @@
 # Function definitions first
+
+def is_a_number(s)
+  s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+end
+
+def number_get_and_confirm
+  puts "Please enter the number: "
+  number = gets.chomp
+  while !is_a_number(number)
+    puts "Please enter a number: "
+    number = gets.chomp
+  end
+  number.to_f
+end
+
 def menu
   # Clear the screen, and present the user with a menu
   puts `clear`
@@ -7,45 +22,53 @@ def menu
   gets.chomp.downcase
 end
 
+=begin
+def basic_calc_confirm(x)
+  while x != "a" || "s" || "m" || "d"
+    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
+    x = gets.chomp
+  end
+  x
+end
+
+def advanced_calc_confirm(x)
+  while x != "p" || "s"
+    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
+    x = gets.chomp
+  end
+  x
+end
+
+def other_calcs_confirm(x)
+  while x != "p" || "s"
+    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
+    x = gets.chomp
+  end
+  x
+end
+=end
+
 
 def basic_calc
   # ask the user which operation they want to perform
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
   operation = gets.chomp.downcase
 
-# def number_1
-#  print "First number? "
-  
-#  while true 
-#    num1 = gets.chomp
-#    break if num1.is_a? Numeric
-#  end
+  puts "First Number"
+  num1 = number_get_and_confirm
+  puts "Second Number"
+  num2 = number_get_and_confirm
 
-#    puts "Please give me a number..."
-#    gets.chomp
-#  end
-#  num1.to_f
-# end
-
-  print "First Number? "
-  num1 = gets.chomp.to_f
-  print "Second Number? "
-  num2 = gets.chomp.to_f
-
-
-
-case operation
-when "a"
-  puts  num1 + num2
-when "s"
-  puts num1 - num2
-when "m"
-  puts num1 * num2
-when "d"
-  puts num1 / num2
-end
-
-
+  case operation
+  when "a"
+    puts num1 + num2
+  when "s"
+    puts num1 - num2
+  when "m"
+    puts num1 * num2
+  when "d"
+    puts num1 / num2
+  end
 end
 
 def advanced_calc
@@ -53,10 +76,22 @@ def advanced_calc
   print "(p)ower, (s)quare root: "
   operation = gets.chomp.downcase
 
-case operation
+  case operation
+  when "p"
+    print "First Number? "
+    num1 = gets.chomp.to_f
+    print "Second Number? "
+    num2 = gets.chomp.to_f
+    puts num1**num2
+  when "s"
+    print "Number to be square rooted? "
+    num1 = gets.chomp.to_f
+    puts Math.sqrt(num1)
+  end
+end
 
 def other_calcs
-  print "(m)ortgage, (b)mi or (t)rip:"
+  print "(m)ortgage, (b)mi or (t)rip: "
   operation = gets.chomp.downcase
   case operation
   when "m"
@@ -66,33 +101,38 @@ def other_calcs
   when "t"
     trip_calc
   else
-    "Please choose one of (m)ortgage, (b)mi or (t)rip:"
-
-when "p"
-  print "First Number? "
-  num1 = gets.chomp.to_f
-  print "Second Number? "
-  num2 = gets.chomp.to_f
-  puts  num1 ** num2
-when "s"
-  print "Number to be square rooted? "
-  num1 = gets.chomp.to_f
-  puts Math.sqrt(num1)
+    puts "Please choose one of the provided operations."
+  end
 end
 
+def mortgage_calc
+  puts "Principal"
+  principal = number_get_and_confirm
+  puts "Interest rate"
+  interest = (number_get_and_confirm / 100) / 12
+  puts "Number of payments"
+  number_of_payments = number_get_and_confirm
+  monthly = principal * ((interest * ((1 + interest)**number_of_payments)) / (((1 + interest)**number_of_payments) - 1))
+  puts "Your monthly payment is #{monthly}."
 end
+
+def bmi_calc
+  puts "(i)mperial or (m)etric: "
+
 
 
 # run the app...
 
 response = menu
 
-while response != 'q'
+while response != "q"
   case response
-  when 'b'
+  when "b"
     basic_calc
-  when 'a'
+  when "a"
     advanced_calc
+  when "o"
+    other_calcs
   end
 
 puts "Hit enter to continue..."
