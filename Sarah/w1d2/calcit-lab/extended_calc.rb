@@ -93,9 +93,11 @@ end
       puts "Invalid - Please enter m or f"
       height_system = gets.chomp
     end
+
     if height_system == 'm'
       puts "Please enter your height in meters"
       height = gets.chomp.to_f
+
     elsif height_system == 'f'
       puts "We will ask you how many feet and how many inches you measure"
       puts "How many feet?"
@@ -109,15 +111,24 @@ end
     result = weight / ((height)**2)
     puts "Your BMI index is #{result.round(2)}"
 
+# Trip calculator
   when 't'
     puts "How far do you want to drive?"
     miles = gets.chomp.to_f
-    puts "what is the fuel efficiency of the car? (in MPG)"
-    miles_per_gallon = gets.chomp.to_f
-    puts "how much does gas cost per gallon?"
-    cost_per_gallon = gets.chomp.to_f
+
     puts "how fast will you drive (in MPH)?"
     speed = gets.chomp.to_f
+
+    puts "what is the fuel efficiency of the car? (in MPG)"
+    if speed < 61
+    miles_per_gallon = gets.chomp.to_f
+    else miles_per_gallon = gets.chomp.to_f - ((speed - 60) * 2)
+    end
+    miles_per_gallon = 1 if miles_per_gallon < 1
+
+    puts "how much does gas cost per gallon?"
+    cost_per_gallon = gets.chomp.to_f
+
 
     time = miles / speed
     cost = miles / miles_per_gallon * cost_per_gallon
