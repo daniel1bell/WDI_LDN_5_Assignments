@@ -19,40 +19,23 @@ def menu
   puts `clear`
   puts "***CalcIt***"
   print "(b)asic, (a)dvanced, (o)ther or (q)uit: "
-  gets.chomp.downcase
-end
-
-=begin
-def basic_calc_confirm(x)
-  while x != "a" || "s" || "m" || "d"
-    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-    x = gets.chomp
+  operation = gets.chomp.downcase
+  while operation != "b" && operation != "a" && operation != "o" && operation != "q"
+    puts "Invalid. Please choose (b)asic, (a)dvanced, (o)ther or (q)uit: "
+    operation = gets.chomp.downcase
   end
-  x
-end
+  operation
 
-def advanced_calc_confirm(x)
-  while x != "p" || "s"
-    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-    x = gets.chomp
-  end
-  x
 end
-
-def other_calcs_confirm(x)
-  while x != "p" || "s"
-    puts "Invalid. Choose (a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-    x = gets.chomp
-  end
-  x
-end
-=end
-
 
 def basic_calc
   # ask the user which operation they want to perform
-  print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
+  print "(a)dd, (s)ubtract, (m)ultiply, or (d)ivide: "
   operation = gets.chomp.downcase
+  while operation != "a" && operation != "s" && operation != "m" && operation != "d"
+    puts "Invalid. Please choose (a)dd, (s)ubtract, (m)ultiply, or (d)ivide: "
+    operation = gets.chomp.downcase
+  end
 
   puts "First Number"
   num1 = number_get_and_confirm
@@ -73,8 +56,12 @@ end
 
 def advanced_calc
   # ask the user which operation they want to perform
-  print "(p)ower, (s)quare root: "
+  print "(p)ower, or (s)quare root: "
   operation = gets.chomp.downcase
+  while operation != "p" && operation != "s"
+    puts "Invalid. Please choose (p)ower, or (s)quare root: "
+    operation = gets.chomp.downcase
+  end
 
   case operation
   when "p"
@@ -91,8 +78,13 @@ def advanced_calc
 end
 
 def other_calcs
-  print "(m)ortgage, (b)mi or (t)rip: "
+  print "(m)ortgage, (b)mi, or (t)rip: "
   operation = gets.chomp.downcase
+  while operation != "m" && operation != "b" && operation != "t"
+    puts "Invalid. Please choose (m)ortgage, (b)mi, or (t)rip: "
+    operation = gets.chomp.downcase
+  end
+
   case operation
   when "m"
     mortgage_calc
@@ -117,21 +109,28 @@ def mortgage_calc
 end
 
 def bmi_calc
-  puts "(m)etric, (i)mperial: "
+  puts "(m)etric, or (i)mperial: "
   operation = gets.chomp.downcase
+  while operation != "m" && operation != "i"
+    puts "Invalid. Please choose (m)etric, or (i)mperial: "
+    operation = gets.chomp.downcase
+  end
+
   case operation
   when "m"
     puts "Mass (in kg)"
     mass = number_get_and_confirm
     puts "Height (in m)"
     height = number_get_and_confirm
+    bmi_total = (mass / (height**2)).round(2)
   when "i"
     puts "Mass (in lbs)"
     mass = number_get_and_confirm
     puts "Height (in in)"
     height = number_get_and_confirm
+    bmi_total = ((mass / (height**2)) * 703).round(2)
   end
-  bmi_total = mass / (height**height)
+  
   puts "Your BMI is #{bmi_total}."
 end
 
@@ -147,9 +146,9 @@ def trip_calc
   if speed > 60
     mpg_of_vehicle = mpg_of_vehicle - (2 * (speed - 60))
   end
-  trip_time = distance / speed
-  trip_cost = (distance / mpg_of_vehicle) * cost_of_gas
-  puts "Your trip will take #{trip_time} hour and cost $#{trip_cost}."
+  trip_time = (distance / speed).round(2)
+  trip_cost = ((distance / mpg_of_vehicle) * cost_of_gas).round(2)
+  puts "Your trip will take #{trip_time} hour(s) and cost #{trip_cost}."
 end
 
 
@@ -159,6 +158,7 @@ end
 response = menu
 
 while response != "q"
+
   case response
   when "b"
     basic_calc
