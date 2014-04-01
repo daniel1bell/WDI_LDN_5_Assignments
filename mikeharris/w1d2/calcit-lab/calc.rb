@@ -95,8 +95,32 @@ def input_number
 
 end
 
+# def mortgage_calc
+#   print("Input the mortgage principal")
+#   principal = input_number
+#   print("Input the yearly interest rate as a number( 7% is 7")
+#   yearly_interest_rate = input_number /100 /12
+#   print("Input the number of years")
+#   number_of_payments = input_number * 12
+
+#   monthly_payment = principal * yearly_interest_rate  * ((1 + yearly_interest_rate)**number_of_payments) / ((1 + yearly_interest_rate)**number_of_payments - 1)
+
+#   print monthly_payment
+
+
+
+# end
+
+
+
+
+
+
+
+
 # run the app...
 
+mortgage_calc
 response = menu
 
 while response != 'q'
