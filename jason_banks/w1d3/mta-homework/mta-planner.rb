@@ -14,11 +14,29 @@ def confirm_choice(x, y)
   y
 end
 
+def determine_distance
+  if beginning_line == ending_line
+    total_stops = ending_stop_index - beginning_stop_index
+    if total_stops < 0
+      total_stops *= -1
+    end
+  elsif beginning_stop_index == ending_stop_index
+    total_stops = 0
+  else 
+    first_leg = beginning_line_array.index("Union Square") - beginning_stop_index
+      if first_leg < 0
+        first_leg *= -1
+      end
+    second_leg = ending_line_array.index("Union Square") - ending_stop_index
+      if second_leg < 0
+        second_leg *= -1
+      end
+
+
 
 n_line = [:"Times Square", :"N: 34th", :"N: 28th", :"N: 23rd", :"Union Square", :"N: 8th"]
 l_line = [:"L: 8th", :"L: 6th", :"Union Square", :"L: 3rd", :"L: 1st"]
-six_line = [:"Grand Central", :"6: 33rd", :"6: 28th",
-  :"6: 23rd", :"Union Square", :"Astor Place"]
+six_line = [:"Grand Central", :"6: 33rd", :"6: 28th",:"6: 23rd", :"Union Square", :"Astor Place"]
 
 mta_lines = {:"N line" => n_line, :"L line" => l_line, :"6 line" => six_line}
 
@@ -46,6 +64,7 @@ puts "\nAnd which stop on the #{ending_line}:"
 print_options(ending_line_array)
 ending_stop = confirm_choice(ending_line_array, gets.chomp)
 ending_stop_index = ending_line_array.index(ending_stop)
+
 
 total_stops = ending_stop_index - beginning_stop_index
 if total_stops < 0
