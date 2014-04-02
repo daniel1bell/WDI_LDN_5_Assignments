@@ -1,6 +1,3 @@
-require "pry"
-require "pry-byebug"
-
 def print_options(x)
   x.each { |i| print i, "   "}
   puts "?\n\n"
@@ -14,29 +11,9 @@ def confirm_choice(x, y)
   y
 end
 
-def determine_distance
-  if beginning_line == ending_line
-    total_stops = ending_stop_index - beginning_stop_index
-    if total_stops < 0
-      total_stops *= -1
-    end
-  elsif beginning_stop_index == ending_stop_index
-    total_stops = 0
-  else 
-    first_leg = beginning_line_array.index("Union Square") - beginning_stop_index
-      if first_leg < 0
-        first_leg *= -1
-      end
-    second_leg = ending_line_array.index("Union Square") - ending_stop_index
-      if second_leg < 0
-        second_leg *= -1
-      end
-
-
-
-n_line = [:"Times Square", :"N: 34th", :"N: 28th", :"N: 23rd", :"Union Square", :"N: 8th"]
-l_line = [:"L: 8th", :"L: 6th", :"Union Square", :"L: 3rd", :"L: 1st"]
-six_line = [:"Grand Central", :"6: 33rd", :"6: 28th",:"6: 23rd", :"Union Square", :"Astor Place"]
+n_line = [:"Times Square", :"34th", :"28th", :"23rd", :"Union Square", :"8th"]
+l_line = [:"8th", :"6th", :"Union Square", :"3rd", :"1st"]
+six_line = [:"Grand Central", :"33rd", :"28th",:"23rd", :"Union Square", :"Astor Place"]
 
 mta_lines = {:"N line" => n_line, :"L line" => l_line, :"6 line" => six_line}
 
@@ -52,7 +29,7 @@ beginning_line_array = mta_lines[beginning_line]
 
 puts "\nAnd which stop on the #{beginning_line}:"
 print_options(beginning_line_array)
-beginning_stop = confirm_choice(beginning_line_array, gets.chomp)
+beginning_stop = confirm_choice(beginning_line_array, gets.chomp.to_sym)
 beginning_stop_index = beginning_line_array.index(beginning_stop)
 
 puts "\nOn which line will your journey END:"
@@ -62,13 +39,27 @@ ending_line_array = mta_lines[ending_line]
 
 puts "\nAnd which stop on the #{ending_line}:"
 print_options(ending_line_array)
-ending_stop = confirm_choice(ending_line_array, gets.chomp)
+ending_stop = confirm_choice(ending_line_array, gets.chomp.to_sym)
 ending_stop_index = ending_line_array.index(ending_stop)
 
 
-total_stops = ending_stop_index - beginning_stop_index
-if total_stops < 0
-  total_stops = total_stops * -1
+if beginning_line.to_s == ending_line.to_s
+  total_stops = ending_stop_index - beginning_stop_index
+  if total_stops < 0
+    total_stops *= -1
+  end
+elsif beginning_stop_index == ending_stop_index
+  total_stops = 0
+else 
+  first_leg = beginning_line_array.index(:"Union Square") - beginning_stop_index
+    if first_leg < 0
+      first_leg *= -1
+    end
+  second_leg = ending_line_array.index(:"Union Square") - ending_stop_index
+    if second_leg < 0
+      second_leg *= -1
+    end
+  total_stops = first_leg + second_leg
 end
 
 if total_stops > 0
@@ -76,7 +67,7 @@ if total_stops > 0
   puts "Godspeed, you world-weary traveler, you.\n\n"
 else
   puts "\nYour journey starts and ends in the same location."
-  puts "Are you a tourist?\n\n"
+  puts "I bet you are a tourist.  Please visit the MTA website at http://new.mta.info for further assistance.\n\n"
 end
 
 
