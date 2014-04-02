@@ -43,9 +43,9 @@ def get_stop (message, lines, line)
 end
 
 def mta (lines)
-   puts `clear`
+  puts `clear`
 
-   availiable_lines = lines.keys   
+  availiable_lines = lines.keys   
 
   get_on_line = get_line("on" , availiable_lines)
 
@@ -60,12 +60,14 @@ def mta (lines)
   else 
     #asssuming only one intersecting staion
     intersect_station = (lines[get_on_line] & lines[get_off_line])[0]
-    distance_travelled = (lines[get_on_line].index(intersect_station) + 1 - get_on_stop).abs + (lines[get_off_line].index(intersect_station) + 1 - get_off_stop).abs 
+    distance_travelled_first_line = (lines[get_on_line].index(intersect_station) + 1 - get_on_stop).abs 
+    distance_travelled_second_line = (lines[get_off_line].index(intersect_station) + 1 - get_off_stop).abs 
+    distance_travelled = distance_travelled_first_line + distance_travelled_second_line
   end
 
   puts "Number of stops travelled #{distance_travelled}"
   
-  puts "Hit q to exit - othewise enter to plan another journey"
+  puts "Hit q to exit - otherwise enter to plan another journey"
   continue = gets.chomp
 
   unless continue == "q"
