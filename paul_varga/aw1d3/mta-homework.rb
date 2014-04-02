@@ -24,16 +24,19 @@ end
 case starting_line
 when "n"
   puts "Which station do you want to start?"
+  puts "ts, 34th, 28th, n23rd, us, 8th"
   starting_station = gets.chomp
   # puts "Which station do you want to get off?"
   # end_station = gets.chomp
 when "l"
   puts "Which station do you want to start?"
+  puts "8th, 6th, us, 3rd, 1st"
   starting_station = gets.chomp
   # puts "Which station do you want to get off?"
   # end_station = gets.chomp
 when "s"
   puts "Which station do you want to start?"
+  puts "gc, 33rd, 28th, s23rd, us, ap"
   starting_station = gets.chomp
   # puts "Which station do you want to get off?"
   # end_station = gets.chomp
@@ -49,12 +52,15 @@ end
 case end_line
 when "n"
   puts "Which station do you want to get off?"
+  "ts, 34th, 28th, n23rd, us, 8th"
   end_station = gets.chomp
 when "l"
   puts "Which station do you want to get off?"
+  puts "8th, 6th, us, 3rd, 1st"
   end_station = gets.chomp
 when "s"
   puts "Which station do you want to get off?"
+  puts "gc, 33rd, 28th, s23rd, us, ap"
   end_station = gets.chomp
 end
 
