@@ -40,9 +40,9 @@ length = (subway[start_line].index(start_point) - subway[start_line].index(end_p
 
 # calculate the distance if they are on different lines
 else
-
   #get intersection
-  intersection = :us
+  intersection = (subway[start_line] & subway[end_line])[0]
+  puts "Intersection: #{intersection}"
 
   #get distance from start point to intersection
   start_line_distance = (subway[start_line].index(start_point) - subway[start_line].index(intersection)).abs
