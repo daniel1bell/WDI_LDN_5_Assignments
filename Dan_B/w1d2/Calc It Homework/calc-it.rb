@@ -151,6 +151,9 @@ when "b"
 
     else
       puts "Please provide a valid response"
+      puts "Press Enter to try again."
+      gets
+      super_advanced_calc
   end
 
 #  ask whether they'd like to supply info in metric or imperial and ask for inputs for HEIGHT
