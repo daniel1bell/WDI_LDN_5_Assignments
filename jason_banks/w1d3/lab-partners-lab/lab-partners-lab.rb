@@ -8,7 +8,7 @@ def number_get_and_confirm
     puts "Please enter a number: "
     number = gets.chomp
   end
-  number.to_f
+  number.to_i
 end
 
 students = %w(Ben Chris Dan Hana Jason Louie Mike Niraj Noor Paul Sam Sarah Scott)
@@ -19,8 +19,6 @@ puts "***Lab Partners Grouper***"
 puts
 puts "Group size?"
 group_size = number_get_and_confirm
-
-puts
 
 number_of_groups = number_of_students / group_size
 remaining_students = number_of_students % group_size
