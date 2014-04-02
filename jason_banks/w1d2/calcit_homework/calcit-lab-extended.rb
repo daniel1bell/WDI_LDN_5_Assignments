@@ -1,3 +1,5 @@
+require "pry"
+
 # Function definitions first
 
 def is_a_number(s)
