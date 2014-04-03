@@ -48,7 +48,7 @@ def evict_tenant(building)
     print "Tenants"  #{}"(#{list_tenants})\n"
     tenant_name = gets.chomp
 
-    flat = building.flats[flat.name]
+    flat = building.flats[flat_name]
     tenant = building.tenants.delete(prospect_name)
   end
   # if tenant && flat && flat.occupied?

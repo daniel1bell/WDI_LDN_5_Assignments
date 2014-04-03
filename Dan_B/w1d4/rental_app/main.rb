@@ -39,13 +39,16 @@ b.prospects[p6.name] = p6
 all_tenants = flats.map {|flat| flat.tenants.keys.join(", ")}
 list_tenants = all_tenants.join(", ").chomp
 
-  def add_prospect
+  def add_prospect(building)
     puts "What is the prospect's name?"
     prospect_name = gets.chomp.capitalize
     puts "What is the prospect's phone number?"
     prospect_phone = gets.chomp
     new_prospect = Person.new("#{prospect_name}", "#{prospect_phone}")
-    b.prospects[new_prospect.name] = new_prospect
+    building.prospects[new_prospect.name] = new_prospect
+    puts
+    puts "You have added #{prospect_name} as a new prospect."
+    puts
   end
 
 # binding.pry
@@ -56,9 +59,13 @@ while response != "q"
  
   case response
   when "1"
+    puts
     puts b.list_flats
+    puts
   when "2"
+    puts
     puts b.list_prospects
+    puts
   when "3"
     let_flat(b)
   when "4"
@@ -68,7 +75,7 @@ while response != "q"
   when "6"
     puts list_tenants
   when "7"
-    add_prospect
+    add_prospect(b)
   else
     puts "Invalid menu choice. Press Enter and try again."
   end
