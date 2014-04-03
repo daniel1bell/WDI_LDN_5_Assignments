@@ -1,6 +1,6 @@
 def menu
   puts `clear`
-  puts "*** Welcome to Building Management v.01 (beta) ***\n"
+  puts "*** Welcome to Building Management v.01 (beta) ***\n\n"
   puts "1: List Flats"
   puts "2: List Prospects"
   puts "3: Let Flat"
@@ -36,22 +36,24 @@ def let_flat(building)
 end
 
 def evict_tenant(building)
-    print "Which flat (#{building.list_flats})? "
-    flat_name = gets.chomp
-    unless building.flats[flat_name].vacant?
-      potential_evictions = building.flats[flat_name].tenants.keys.join(", ")
-      print "Evict which tenant (#{evicted_tenant})? "
-      eviction_decision = gets.
-      if eviction_decision == "y"
-        building.flat[flat_name].tenants.delete(eviction_decision)
-      elsif
-        eviction_decision == "n"
-        puts "\n#{evicted_tenant} has/have not been evicted."
-      else
-        puts "\nInvalid choice."
-      end
+  print "Which flat (#{building.list_flats})? "
+  flat_name = gets.chomp
+  flat = building.flats[flat_name]
+
+  if flat && !flat.vacant? # == false
+    print "\nEvict which tenant (#{flat.tenants.keys.join(", ")})? "
+    eviction_decision = gets.chomp
+    if flat.tenants[eviction_decision]
+      flat.tenants.delete(eviction_decision)
+      puts "\n#{eviction_decision} has/have been evicted."
     else
-      puts "There are no tenants in the building."
+      puts "\nInvalid choice."
     end
+  elsif flat && flat.vacant?
+    puts "\nThis flat is vacant."
+  else
+    puts "\nInvalid choice."
+      
   end
+end
 
