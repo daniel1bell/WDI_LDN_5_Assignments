@@ -27,7 +27,7 @@ p4 = Person.new('Julien', 333)
 f1.tenants[p1.name] = p1
 f1.tenants[p2.name] = p2
 f2.tenants[p3.name] = p3
-b.prospects[p4.name] = p4
+ b.prospects[p4.name] = p4
 
 
 
@@ -57,6 +57,7 @@ while response != "q"
     puts "invlalid entry try again - hit enter to continue"
     
   end 
+  print "\n Hit Enter to continue"
   gets  
 
   response = menu

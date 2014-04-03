@@ -36,7 +36,11 @@ class Building
   def list_tenants
       flats.each do |name , flat| 
         print "In flat #{name} there is: "
-        puts flat.tenants.keys.join(", ")     
+        if flat.tenants.empty?
+          puts "No Tenants"
+        else
+          puts flat.tenants.keys.join(", ")     
+        end
       end
   end
 

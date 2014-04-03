@@ -19,6 +19,8 @@ def let_flat(building)
 
   if building.flats.select { |key, flat| flat.vacant? }.empty?
     puts "No empty flats"
+  elsif building.prospects.empty?
+    puts "No prospects"
   else
     print "Which flat would you like to let? "
     puts "(#{building.list_empty_flats})"
