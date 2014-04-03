@@ -54,6 +54,9 @@ def create_prospect(building)
   print 'Prospects phone number? '
   prospect_phone = gets.chomp
 
-  building.prospects[prospect_name] = Person.new(prospect_name, prospect_phone)
-  #  check name is unique
+  if building.prospects.has_key?(prospect_name)
+    puts "Name already exists, use a different name."
+  else
+    building.prospects[prospect_name] = Person.new(prospect_name, prospect_phone)
+  end
 end
