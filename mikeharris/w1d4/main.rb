@@ -30,11 +30,7 @@ f2.tenants[p3.name] = p3
  b.prospects[p4.name] = p4
 
 
-
-
-
-#run comman line interaction
-
+#run command line interaction
 response = menu.downcase
 
 while response != "q"
@@ -54,10 +50,10 @@ while response != "q"
   when "7"
     puts b.create_prospect #todo: write function
   else 
-    puts "invlalid entry try again - hit enter to continue"
+    puts "Invlalid entry try again - hit enter to continue"
     
   end 
-  print "\n Hit Enter to continue"
+  print "\nHit Enter to continue"
   gets  
 
   response = menu
