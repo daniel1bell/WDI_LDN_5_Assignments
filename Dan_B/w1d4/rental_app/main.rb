@@ -21,7 +21,9 @@ p4 = Person.new('Paul', "07138 197434")
 p5 = Person.new('Bobby', "07238 184491")
 p6 = Person.new('Julien', "07256 871371")
 
-[f1, f2, f3, f4].each do |flat|
+flats = [f1, f2, f3, f4]
+
+flats.each do |flat|
   b.flats[flat.name] = flat
 end
 
@@ -32,6 +34,19 @@ f2.tenants[p5.name] = p5
 f3.tenants[p3.name] = p3
 
 b.prospects[p6.name] = p6
+
+
+all_tenants = flats.map {|flat| flat.tenants.keys.join(", ")}
+list_tenants = all_tenants.join(", ").chomp
+
+  def add_prospect
+    puts "What is the prospect's name?"
+    prospect_name = gets.chomp.capitalize
+    puts "What is the prospect's phone number?"
+    prospect_phone = gets.chomp
+    new_prospect = Person.new("#{prospect_name}", "#{prospect_phone}")
+    b.prospects[new_prospect.name] = new_prospect
+  end
 
 # binding.pry
 # run command line interaction
@@ -51,9 +66,9 @@ while response != "q"
   when "5"
     puts b.list_empty_flats
   when "6"
-    puts b.list_tenants # TODO: write this method
+    puts list_tenants
   when "7"
-    create_prospect # TODO: write this method
+    add_prospect
   else
     puts "Invalid menu choice. Press Enter and try again."
   end

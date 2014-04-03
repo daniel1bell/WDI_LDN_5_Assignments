@@ -36,25 +36,27 @@ def let_flat(building)
   end
   end
 end
-# def evict_tenant(building)
-#   if (building.list_occupied_flats).empty?
-#     puts "Sorry, there are no tennants in flats to be evicted."
-#   else
-#     print "Which flat? "
-#     print "(#{building.list_occupied_flats})\n"
-#     flat_name = gets.chomp
-#     print "Which tenants? "
-#     print "(#{flat.list_tennants})\n"
-#     tenant_name = gets.chomp
 
-#     flat = building.flats[flat.name]
-#     tenant = building.tenants.delete(prospect_name)
-#   # if tenant && flat && flat.occupied?
-#   #   flat
+def evict_tenant(building)
+  if (building.list_occupied_flats).empty?
+    puts "Sorry, there are no tennants in flats to be evicted."
+  else
+    print "Which flat? "
+    print "(#{building.list_occupied_flats})\n"
+    flat_name = gets.chomp
+    print "Which tenants? "
+    print "Tenants"  #{}"(#{list_tenants})\n"
+    tenant_name = gets.chomp
+
+    flat = building.flats[flat.name]
+    tenant = building.tenants.delete(prospect_name)
+  end
+  # if tenant && flat && flat.occupied?
+  #   flat
 
 
 
-# end
-# end
-# end
-# binding.pry
+  
+binding.pry  
+end
+

@@ -26,7 +26,4 @@ class Building
     occupied_flats.keys.join(', ')
   end
 
-  def list_tenants
-    flats.each_value { |flat| puts flat.list_tenants}
-  end
 end
