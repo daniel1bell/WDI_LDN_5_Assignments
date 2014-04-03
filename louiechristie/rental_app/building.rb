@@ -17,8 +17,28 @@ class Building
     vacant_flats.keys.join(', ')  
   end
 
+  #def list_tenants
+  #    flats.each do |name, flat| 
+  #      flat.tenants.each do |key, tenant|
+  #        #return tenant.name (same below without return)
+  #        puts tenant.name
+  #      end
+  #    end
+  #end
+
+  # with map it returns an array of array(tenants for each flat)
   def list_tenants
-    # to do define method 
+    tenants = flats.map do |name, flat| 
+      flat.tenants.map do |key, tenant|
+        #return tenant.name (same below without return)
+        tenant.name
+      end
+    end
+    tenants = tenants.flatten.join(', ').inspect
+  end
+
+  def evict_tenant(tenant_name)
+
   end
 
   def create_prospect

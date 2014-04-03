@@ -43,11 +43,7 @@ while response != "q"
       let_flat(b)
     
     when '4'
-    #  reverse of let flat
-    #  evict_tenant
-    #  find name of person
-    #  which of the tenants do you wish to evict
-    #    use delete method
+      evict_tenant(b)
 
     when '5'
       puts b.list_empty_flats

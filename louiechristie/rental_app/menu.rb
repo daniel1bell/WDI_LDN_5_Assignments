@@ -37,3 +37,17 @@ def let_flat(building)
 
 end
 
+def evict_tenant(building)
+    #  reverse of let flat
+    #  evict_tenant
+    #  find name of person
+    #  which of the tenants do you wish to evict
+    #    use delete method
+  print 'Which flat? '
+  print "(#{building.list_flats}) "
+  flat_name = gets.chomp
+  print 'Which tenant? '
+  print "(#{building.list_tenants}) "
+  tenant_name = gets.chomp
+  building.delete_tenant(tenant_name)
+end
