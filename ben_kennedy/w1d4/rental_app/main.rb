@@ -32,7 +32,7 @@ f2.tenants[p3.name] = p1
 
 b.prospects[p4.name] = p4
 
-# binding.pry
+binding.pry
 
 # run command line interaction
 
@@ -40,11 +40,10 @@ response = menu.downcase
 while response != 'q'
 case response
   when '1'
-    puts b.list_flats # write this method
+    puts b.list_flats 
 
   when '2'
     puts b.list_prospects
-    #write this method
 
   when '3'
     let_flat(b) #wriet this method

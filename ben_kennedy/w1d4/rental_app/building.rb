@@ -22,4 +22,8 @@ class Building
     end
   end
 
+  def list_prospects
+    prospects.keys.join(', ')
+  end
+
 end
