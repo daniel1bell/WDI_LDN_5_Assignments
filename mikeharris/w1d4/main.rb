@@ -27,7 +27,6 @@ p4 = Person.new('Julien', 333)
 f1.tenants[p1.name] = p1
 f1.tenants[p2.name] = p2
 f2.tenants[p3.name] = p3
-
 b.prospects[p4.name] = p4
 
 
@@ -41,15 +40,19 @@ response = menu.downcase
 while response != "q"
   case response 
   when "1" 
-    puts b.list_flats #todo - write method
+    puts b.list_flats 
   when "2" 
     puts b.list_prospects #todo - write method 
   when "3"
-    let_flat  #todo - write function
+    let_flat(b)
   when "4"
     evict_tenant #todo - write function
   when "5"
     puts b.list_empty_flats
+  when "6"
+    puts b.list_tenants #todo: write function
+  when "7"
+    puts b.create_prospect #todo: write function
   else 
     puts "invlalid entry try again - hit enter to continue"
     
