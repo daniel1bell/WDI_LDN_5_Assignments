@@ -25,7 +25,7 @@ class Building
 
   def list_prospects
     if prospects.empty?
-      return "There are no prospective tenants."
+      "There are no prospective tenants."
     else 
       prospects.keys.join(", ")
     end
@@ -34,9 +34,9 @@ class Building
   def list_tenants
     flats.each do |flat, value|
       if flats[flat].tenants.empty?
-        puts "#{flat} is unoccupied."
+        "#{flat} is unoccupied."
       else
-        puts "#{flat} is occupied by: #{flats[flat].tenants.keys.join(", ")}."
+        "#{flat} is occupied by: #{flats[flat].tenants.keys.join(", ")}."
       end
     end
   end
@@ -61,6 +61,22 @@ def create_prospect
   phone = number_get_and_confirm
   new_prospect = Person.new(name, phone)
   prospects[name] = new_prospect
+  puts "#{name} has been added to the list of prospective tenants.\n"
+end
+
+def add_flat
+  print "What is the name of the flat? "
+  name = gets.chomp
+  print "What is the price of #{name}? "
+  price = number_get_and_confirm
+  "How many bedrooms does #{name} have? "
+  bedrooms = number_get_and_confirm
+  "How many bathrooms does #{name} have? "
+  bathrooms = number_get_and_confirm
+
+  new_flat = Flat.new(name, price, bedrooms, bathrooms)
+  flats[name] = new_flat
+  puts "#{name} has been added to the list of flats.\n"
 end
 
 

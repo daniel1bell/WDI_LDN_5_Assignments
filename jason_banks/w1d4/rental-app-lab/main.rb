@@ -43,27 +43,31 @@ while response != "q"
   when "1"
     puts b.list_flats
   when "2"
-    puts b.list_prospects
+    b.add_flat
   when "3"
-    let_flat(b)
+    puts b.list_tenants
   when "4"
-    evict_tenant(b) 
+    let_flat(b)
   when "5"
-    puts b.list_empty_flats 
+    puts b.list_empty_flats
   when "6"
-    b.list_tenants
+    puts b.list_prospects
   when "7"
-    b.create_prospect #ToDo
+    b.create_prospect
+  when "8"
+    evict_tenant(b)
+  when "9"
+    calculate_rental_income
   else
     puts "Invalid menu choice."
   end
 
-  puts "\nPress any key to return to the menu.\n"
+  puts "\nPress enter to return to the menu.\n"
   gets
   response = menu
 end
 
-puts "\n\nThank you for using Building Management v.01 (beta)."
+puts "\n\nThank you for using Building Management v.01 (beta).\n\n"
 
     
 

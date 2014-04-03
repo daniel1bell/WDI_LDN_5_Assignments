@@ -2,13 +2,15 @@ def menu
   puts `clear`
   puts "*** Welcome to Building Management v.01 (beta) ***\n\n"
   puts "1: List Flats"
-  puts "2: List Prospects"
-  puts "3: Let Flat"
-  puts "4: Evict Tenant"
+  puts "2: Add a Flat"
+  puts "3: List Tenants"
+  puts "4: Let a Flat"
   puts "5: List Empty Flats"
-  puts "6: List Current Tenants"
+  puts "6: List Prospects"
   puts "7: Create a Prospect"
-  #if time, consider menu items for adding new flats and/or monthly income information
+  puts "8: Evict Tenant"
+  puts "9: Calculate Rental Income"
+  
   puts "Q: Quit"
   print "---->  "
   gets.chomp
@@ -56,6 +58,9 @@ def evict_tenant(building)
       
   end
 end
+
+
+
 
 
 
