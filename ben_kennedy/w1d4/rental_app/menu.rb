@@ -34,3 +34,14 @@ def let_flat(building)
   end
   puts "press enter to continue."
 end
+
+def evict_tenant(building)
+    tenants = [ ]
+    building.flats.each { |name, flat| tenants << flat.tenants.keys }
+    puts 'Who do you want to make homeless you heartless bastard?  Choose:'
+    puts tenants.flatten.join(", ")
+    evicted_tenant = gets.chomp
+    building.flats.each { |name, flat| flat.tenants.delete(evicted_tenant)}
+    puts "#{evicted_tenant} has been evicted."
+    puts "press enter to continue."
+  end

@@ -26,4 +26,19 @@ class Building
     prospects.keys.join(', ')
   end
 
+  def list_tenants
+    flats.each { |name, flat| puts flats[name].tenants.keys }
+    puts "Hit enter to return to main menu."
+  end
+
+  def create_prospect
+    puts "What is the person's name?"
+    name = gets.chomp
+    puts "What is the person's phone number?"
+    number = gets.chomp
+    puts "A new propsect has been created."
+    Person.new(name, number)
+  end
+
+
 end

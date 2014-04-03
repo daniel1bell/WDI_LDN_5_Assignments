@@ -6,4 +6,5 @@ def initialize(name, phone)
   @phone = phone
 end
 
+
 end

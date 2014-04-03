@@ -12,5 +12,5 @@ class Flat
   def vacant?
     tenants.empty?
   end
-
+  
 end

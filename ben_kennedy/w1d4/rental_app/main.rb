@@ -21,18 +21,20 @@ f3 = Flat.new('The Bowler', 1000, 5, 2)
   b.flats[flat.name] = flat
 end
 
-p1 = Person.new('Louie', '911')
-p2 = Person.new('Mike', '999')
-p3 = Person.new('Sarah', '111')
-p4 = Person.new('Julien', '333')
+people = [ ]
 
-f1.tenants[p1.name] = p1
-f1.tenants[p2.name] = p1
-f2.tenants[p3.name] = p1
+people << Person.new('Louie', '911')
+people << Person.new('Mike', '999')
+people << Person.new('Sarah', '111')
+people << Person.new('Julien', '333')
 
-b.prospects[p4.name] = p4
+f1.tenants[people[0].name] = people[0]
+f1.tenants[people[1].name] = people[1]
+f2.tenants[people[2].name] = people[2]
 
-binding.pry
+b.prospects[people[3].name] = people[3]
+
+# binding.pry
 
 # run command line interaction
 
@@ -46,20 +48,20 @@ case response
     puts b.list_prospects
 
   when '3'
-    let_flat(b) #wriet this method
+    let_flat(b) 
 
   when '4' 
-    evict_tenant #write method
+    evict_tenant(b)
   
   when '5' 
     puts b.list_empty_flats
 
   when '6'
-    puts b.list_tentants #write this code
+    puts b.list_tenants
 
   when '7'
-    create_prospect
-
+    people << b.create_prospect
+    b.prospects[people[people.length - 1].name] = people.last
   else 
     puts "invalid menu choice. Press enter and try again."
 end
@@ -72,4 +74,4 @@ end
 
 
 
-binding.pry
+# binding.pry
