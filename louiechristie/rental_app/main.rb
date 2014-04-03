@@ -52,13 +52,7 @@ while response != "q"
       puts b.list_tenants
 
     when '7'
-      puts create_prospect
-    #  enter prospects name
-    #  enter prospects phone
-    #  execute Person.new
-    #  b.prospects[prospect_name] = Person.new(prospect_name, prospect_phone)
-    #  check name is unique
-
+      create_prospect(b)
 
     else
       puts "invalid menu choice press enter and try again"
