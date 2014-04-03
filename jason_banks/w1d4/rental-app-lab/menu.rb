@@ -40,7 +40,7 @@ def evict_tenant(building)
   flat_name = gets.chomp
   flat = building.flats[flat_name]
 
-  if flat && !flat.vacant? # == false
+  if flat && !flat.vacant?
     print "\nEvict which tenant (#{flat.tenants.keys.join(", ")})? "
     eviction_decision = gets.chomp
     if flat.tenants[eviction_decision]
@@ -56,4 +56,6 @@ def evict_tenant(building)
       
   end
 end
+
+
 

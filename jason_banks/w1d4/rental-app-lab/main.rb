@@ -47,13 +47,13 @@ while response != "q"
   when "3"
     let_flat(b)
   when "4"
-    evict_tenant(b) # ToDo: write this method - note that hashes have a delete method
+    evict_tenant(b) 
   when "5"
-    puts b.list_empty_flats # ToDo: write this method
+    puts b.list_empty_flats 
   when "6"
-    puts b.list_tenants #ToDo
+    b.list_tenants
   when "7"
-    puts b.create_prospect #ToDo
+    b.create_prospect #ToDo
   else
     puts "Invalid menu choice."
   end
