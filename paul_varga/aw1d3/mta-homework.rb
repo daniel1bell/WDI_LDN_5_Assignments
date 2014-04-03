@@ -74,7 +74,7 @@ us_on_the_endline = Lines[end_line].index("us")
 if starting_line == end_line
   number_of_stops = second_line - first_line
 else
-  number_of_stops = (us_on_the_endline - second_line) + (us_on_the_startline - first_line)
+  number_of_stops = (us_on_the_endline - second_line).abs + (us_on_the_startline - first_line).abs
 end
 
 result = number_of_stops.to_i.abs
