@@ -7,29 +7,13 @@ require_relative 'building'
 b=Building.new('w1n 4hr')
 b.affluency = :minted
 
-f1 = Flat.new
-f1.name = 'Reeves'
-f1.price =750
-f1.bedrooms =4
-f1.bathrooms=2
-f1.tenants = []
+f1 = Flat.new('Reeves',750, 4, 2)
+f2 = Flat.new('9 Back hill', 5000, 12, 4)
+f3 = Flat.new('The Bowler',1000,5,2)
 
-f2 = Flat.new
-f2.name = '9 Back hill'
-f2.price = 5000
-f2.bedrooms = 12
-f2.bathrooms= 4
-f2.tenants = []
-
-f3 = Flat.new
-f3.name = 'The Bowler'
-f3.price = 1000
-f3.bedrooms = 5
-f3.bathrooms= 2
-f3.tenants = []
 
 [f1,f2,f3].each do |flat|
-  b.flats << flat
+  b.flats[flat.name] = flat
 end
 
 

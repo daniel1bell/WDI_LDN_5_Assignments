@@ -1,5 +1,0 @@
-puts "test"
-
-one
-
-
