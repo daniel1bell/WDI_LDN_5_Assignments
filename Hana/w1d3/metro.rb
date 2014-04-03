@@ -20,21 +20,21 @@ end
 def n_line_method
     puts "Station (ts) times square, (34)th, (28)th, (23)rd, (8)th:"
     start_station = gets.chomp.downcase
-    @to_union_square = @metro_hash[:n_line_sub_array][start_station]
+    @to_union_square = @metro_hash[:n_line_sub_array][start_station].to_f
     destination_station
 end
 
 def l_line_method
     puts "Station (8)th, (6)th, (3)rd, (1)st:"
     start_station = gets.chomp.downcase
-    to_union_square = @metro_hash[:l_line_sub_array][start_station]
+    @to_union_square = @metro_hash[:l_line_sub_array][start_station].to_f
     destination_station
 end
    
 def six_line_method
     puts "Station (gc) grand central, (33)rd, (28)th, (23)rd, (ap) astor place:"
     start_station = gets.chomp.downcase
-    to_union_square = @metro_hash[:six_line_sub_array][start_station]
+    @to_union_square = @metro_hash[:six_line_sub_array][start_station].to_f
     destination_station
 end
 
@@ -55,8 +55,8 @@ case end_line
     end_line = :six_line_sub_array
 end
 end_station = gets.chomp.downcase
-from_union_square = @metro_hash[end_line][end_station]
-total = @to_union_square.to_f + from_union_square.to_f
+from_union_square = @metro_hash[end_line][end_station].to_f
+total = @to_union_square + from_union_square
 total.to_s
 puts "Your trip will take #{total} stops!"
 end
