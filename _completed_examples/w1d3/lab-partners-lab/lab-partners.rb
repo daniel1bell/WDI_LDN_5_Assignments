@@ -1,6 +1,6 @@
 require 'pry-byebug'
 
-students = %w(Ben Chris Dan Hana Jason Louie Mike Niraj Noor Paul Sam Sarah Scott)
+students = %w(Ben Chris Dan Hana Jason Louie Mike Niraj Noor Paul Sam Scott)
 
 students = students.shuffle
 
