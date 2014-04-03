@@ -4,10 +4,8 @@ require_relative 'person'
 require_relative 'flat' 
 require_relative 'building'
 
-b=Building.new
-b.post_code = 'w1n 4hr'
+b=Building.new('w1n 4hr')
 b.affluency = :minted
-b.flats= []
 
 f1 = Flat.new
 f1.name = 'Reeves'
@@ -29,6 +27,11 @@ f3.price = 1000
 f3.bedrooms = 5
 f3.bathrooms= 2
 f3.tenants = []
+
+[f1,f2,f3].each do |flat|
+  b.flats << flat
+end
+
 
 binding.pry
 
