@@ -40,14 +40,14 @@ class Building
     puts 'tenant deleted'
   end
 
-  def create_prospect
-      print 'what is your prospects name? '
-      prospect_name = gets.chomp
-      print 'what is your propects phone #? '
-      prospect_number = gets.chomp
-      binding.pry
- +    prospects[prospect_name] = Person.new(prospect_name, prospect_number)
-      puts "prospect created"
-end
+ #  def create_prospect
+ #      print 'what is your prospects name? '
+ #      prospect_name = gets.chomp
+ #      print 'what is your propects phone #? '
+ #      prospect_number = gets.chomp
+ #      binding.pry
+ # +    prospects[prospect_name] = Person.new(prospect_name, prospect_number)
+ #      puts "prospect created"
+ #    end
 
 end
