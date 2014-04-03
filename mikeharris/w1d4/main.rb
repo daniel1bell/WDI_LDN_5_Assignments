@@ -16,6 +16,13 @@ f3 = Flat.new('The Bowler',1000,5,2)
   b.flats[flat.name] = flat
 end
 
+p1 = Person.new('Louie', 911)
+p2 = Person.new('Mike', 999)
+p3 = Person.new('Sarah', 111)
+
+f1.tenants[p1.name] = p1
+f1.tenants[p2.name] = p2
+f2.tenants[p3.name] = p3
 
 binding.pry
 

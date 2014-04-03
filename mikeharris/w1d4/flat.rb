@@ -6,7 +6,7 @@ class Flat
     @price = price
     @bedrooms = bedrooms
     @bathrooms = bathrooms
-    @tenants = []
+    @tenants = {}
 
   end    
 
