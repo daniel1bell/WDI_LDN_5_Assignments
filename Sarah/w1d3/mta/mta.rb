@@ -44,26 +44,8 @@ end
 if on_user_input == off_user_input
   number_stops = (on_line.index(off_stop) - on_line.index(on_stop)).abs
 
-elsif on_user_input != off_user_input && on_stop == "us"
-  number_stops = (off_line.index(off_stop) - off_line.index(on_stop)).abs
-
-elsif on_user_input != off_user_input && off_stop == "us"
-  number_stops = (on_line.index(off_stop) - on_line.index(on_stop)).abs
-
 else
-#union square station of on_line
-on_line.collect! { |stop|
-  (stop.match("us")) ? "on_union_square" : stop
-}
-
- #union square station of off_line
-off_line.collect! { |stop|
-  (stop.match("us")) ? "off_union_square" : stop
-}
-
-#intersecting the lines
-total_journey_line = on_line | off_line
-number_stops = (total_journey_line.index(off_stop) - total_journey_line.index("off_union_square")).abs + (total_journey_line.index("on_union_square") - total_journey_line.index(on_stop)).abs
+number_stops = (off_line.index(off_stop) - off_line.index("us")).abs + (on_line.index("us") - on_line.index(on_stop)).abs
 end
 
 puts "You have #{number_stops} stops"
