@@ -41,19 +41,24 @@ while response != "q"
 
   case response
   when "1"
-    puts b.list_flats # ToDo: write this method
+    puts b.list_flats
   when "2"
     puts b.list_prospects # ToDo: write this method
   when "3"
-    let_flat # ToDo: write this method
+    let_flat(b) # ToDo: write this method
   when "4"
-    evict_tenant # ToDo: write this method
+    evict_tenant # ToDo: write this method - note that hashes have a delete method
   when "5"
-    puts b.list_empty_flats
+    puts b.list_empty_flats # ToDo: write this method
+  when "6"
+    puts b.list_tenants
+  when "7"
+    puts b.create_prospect #ToDo
   else
-    puts "Invalid menu choice. Press enter and try again."
+    puts "Invalid menu choice."
   end
 
+  puts "\nPress enter to return to the menu.\n"
   gets
   response = menu
 end

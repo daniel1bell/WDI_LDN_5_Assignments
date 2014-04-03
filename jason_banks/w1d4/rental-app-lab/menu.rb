@@ -6,18 +6,31 @@ def menu
   puts "3: Let Flat"
   puts "4: Evict Tenant"
   puts "5: List Empty Flats"
+  puts "6: List Current Tenants"
+  puts "7: Create a Prospect"
   puts "Q: Quit"
   print "---->  "
   gets.chomp
 
 
+end
 
+def let_flat(building)
+  print "Which flat (#{building.list_empty_flats})? "
 
+  flat_name = gets.chomp
+  print "Which prospect? "
+  prospect_name = gets.chomp
 
+  prospect = building.prospects.delete(prospect_name)
+  flat = building.flats[flat_name]
 
-
-
-
-
+  if prospect && flat && flat.vacant?
+    flat.tenants[prospect.name] = prospect
+    puts "#{prospect_name} has been allocated #{flat_name}."
+  else
+    puts "Eitehr the flat or the prospect name is invalid."
+  end
 
 end
+
