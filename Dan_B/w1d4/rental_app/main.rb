@@ -47,11 +47,11 @@ while response != "q"
   when "3"
     let_flat(b)
   when "4"
-    evict_tenant #TODO: write this method
+    evict_tenant(b) #TODO: write this method
   when "5"
     puts b.list_empty_flats
   when "6"
-    list_tenants # TODO: write this method
+    puts b.list_tenants # TODO: write this method
   when "7"
     create_prospect # TODO: write this method
   else

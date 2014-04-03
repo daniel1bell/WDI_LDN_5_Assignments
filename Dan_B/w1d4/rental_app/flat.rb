@@ -17,4 +17,8 @@ class Flat
   def occupied?
     !tenants.empty?
   end
+
+  def list_tenants
+    tenants.keys.join(", ")
+  end
 end

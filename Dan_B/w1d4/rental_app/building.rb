@@ -22,6 +22,11 @@ class Building
   end
 
   def list_occupied_flats
-    occupied_flats = flats.select { |key, flat| flat.occupied?}
+    occupied_flats = flats.select { |key, flat| flat.occupied? }
     occupied_flats.keys.join(', ')
   end
+
+  def list_tenants
+    flats.each_value { |flat| puts flat.list_tenants}
+  end
+end
