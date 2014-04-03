@@ -47,12 +47,24 @@ def evict_tenant(building)
   building.list_tenants
   puts "Which tenant would you like to evict?"
   tenant_name = gets.chomp
-  building.flats.each do |flat_name, flat|
-    flat.tenants.delete(tenant_name)
-  end
+  
+  tenant_exists = false
 
-  puts "#{tenant_name} has been evicted!"
-  building.list_tenants
+  building.flats.each do |flat_name, flat|
+    tenant_exists = tenant_exists || flat.tenants.key?(tenant_name)
+  end
+  
+
+  if tenant_exists
+    building.flats.each do |flat_name, flat|
+      flat.tenants.delete(tenant_name)
+    end
+
+    puts "#{tenant_name} has been evicted!"
+    building.list_tenants
+  else
+    puts "no such tenant"
+  end
 
 end
 
