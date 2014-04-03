@@ -10,4 +10,9 @@ class Flat
 
   end    
 
+
+  def vacant?
+    tenants.empty?
+  end
+
 end

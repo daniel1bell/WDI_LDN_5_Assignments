@@ -1,9 +1,12 @@
 require 'pry'
 
+#load files
 require_relative 'person'
 require_relative 'flat' 
 require_relative 'building'
+require_relative 'menu'
 
+#set up initial data
 b=Building.new('w1n 4hr')
 b.affluency = :minted
 
@@ -19,10 +22,43 @@ end
 p1 = Person.new('Louie', 911)
 p2 = Person.new('Mike', 999)
 p3 = Person.new('Sarah', 111)
+p4 = Person.new('Julien', 333)
 
 f1.tenants[p1.name] = p1
 f1.tenants[p2.name] = p2
 f2.tenants[p3.name] = p3
+
+b.prospects[p4.name] = p4
+
+
+
+binding.pry
+
+#run comman line interaction
+
+response = menu.downcase
+
+while response != "q"
+  case response 
+  when "1" 
+    puts b.list_flats #todo - write method
+  when "2" 
+    puts b.list_prospects #todo - write method 
+  when "3"
+    let_flat  #todo - write function
+  when "4"
+    evict_tenant #todo - write function
+  when "5"
+    puts b.list_empty_flats
+  else 
+    puts "invlalid entry try again - hit enter to continue"
+    
+  end 
+  gets  
+
+  response = menu
+end
+
 
 binding.pry
 
