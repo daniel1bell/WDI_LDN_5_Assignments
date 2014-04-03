@@ -10,7 +10,7 @@ end
    
   def get_number
     def is_a_number?(s)
-      s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true 
+      s.to_s.match(/\A[+-]?\d+?(\,\d+)?+?(\.\d+)?\Z/) == nil ? false : true 
     end
     number = gets.chomp
     while !is_a_number?(number)
@@ -104,7 +104,7 @@ when "m"
   #  The annual interest rate.
   i_rate = get_number/100
   #  The monthly interest rate.
-  m_i_rate = (1 + i_rate)**(1.0/12.0)-1
+  m_i_rate = i_rate / 12.0
 
   # The number of monthly payments.
   puts "What is the life of the loan?"
@@ -151,6 +151,9 @@ when "b"
 
     else
       puts "Please provide a valid response"
+      puts "Press Enter to try again."
+      gets
+      super_advanced_calc
   end
 
 #  ask whether they'd like to supply info in metric or imperial and ask for inputs for HEIGHT
@@ -239,6 +242,10 @@ when "t"
 
   if speed > 60
     f_efficiency = f_efficiency - ((speed - 60) * 2)
+  end
+
+  if f_efficiency < 1
+    f_efficiency = 1
   end
 
 # put the answer
