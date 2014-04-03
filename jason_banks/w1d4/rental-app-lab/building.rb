@@ -23,6 +23,8 @@ class Building
     end
   end
 
+  
+
   def list_prospects
     if prospects.empty?
       "There are no prospective tenants."
@@ -34,9 +36,9 @@ class Building
   def list_tenants
     flats.each do |flat, value|
       if flats[flat].tenants.empty?
-        "#{flat} is unoccupied."
+        puts "#{flat} is unoccupied."
       else
-        "#{flat} is occupied by: #{flats[flat].tenants.keys.join(", ")}."
+        puts "#{flat} is occupied by: #{flats[flat].tenants.keys.join(", ")}."
       end
     end
   end
@@ -45,40 +47,41 @@ def is_a_number(s)
   s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
 end
 
-def number_get_and_confirm
-  number = gets.chomp
-  while !is_a_number(number)
-    print "Please only enter digits for the phone number: "
-    number = gets.chomp
+def number_get_and_confirm(x)
+  while !is_a_number(x)
+    print "Please only enter digits: "
+    x = gets.chomp
   end
-  number.to_i
+  x.to_i
 end
 
 def create_prospect
-  print "What is the name of the prospective tenant? "
+  print "\nWhat is the name of the prospective tenant? "
   name = gets.chomp
   print "What is the phone number of the prospective tenant? "
-  phone = number_get_and_confirm
+  phone = number_get_and_confirm(gets.chomp)
   new_prospect = Person.new(name, phone)
   prospects[name] = new_prospect
-  puts "#{name} has been added to the list of prospective tenants.\n"
+  puts "\n#{name} has been added to the list of prospective tenants.\n"
 end
 
 def add_flat
-  print "What is the name of the flat? "
+  print "\nWhat is the name of the flat? "
   name = gets.chomp
   print "What is the price of #{name}? "
-  price = number_get_and_confirm
-  "How many bedrooms does #{name} have? "
-  bedrooms = number_get_and_confirm
-  "How many bathrooms does #{name} have? "
-  bathrooms = number_get_and_confirm
+  price = number_get_and_confirm(gets.chomp)
+  print "How many bedrooms does #{name} have? "
+  bedrooms = number_get_and_confirm(gets.chomp)
+  print "How many bathrooms does #{name} have? "
+  bathrooms = number_get_and_confirm(gets.chomp)
 
   new_flat = Flat.new(name, price, bedrooms, bathrooms)
   flats[name] = new_flat
-  puts "#{name} has been added to the list of flats.\n"
+  puts "\n#{name} has been added to the list of flats.\n"
 end
 
+def calculate_rental_income
+end
 
 
 

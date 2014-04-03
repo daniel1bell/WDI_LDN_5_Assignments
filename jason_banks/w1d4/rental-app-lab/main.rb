@@ -32,11 +32,10 @@ f2.tenants[p3.name] = p3
 
 b.prospects[p4.name] = p4
 
-binding.pry
-
 # run command line interaction
 
 response = menu.downcase
+
 while response != "q"
 
   case response
@@ -45,19 +44,19 @@ while response != "q"
   when "2"
     b.add_flat
   when "3"
-    puts b.list_tenants
+    puts list_occupied_flats(b)
   when "4"
-    let_flat(b)
+    b.list_tenants
   when "5"
-    puts b.list_empty_flats
+    let_flat(b)
   when "6"
-    puts b.list_prospects
+    puts b.list_empty_flats
   when "7"
-    b.create_prospect
+    puts b.list_prospects
   when "8"
-    evict_tenant(b)
+    b.create_prospect
   when "9"
-    calculate_rental_income
+    evict_tenant(b)
   else
     puts "Invalid menu choice."
   end
@@ -69,9 +68,4 @@ end
 
 puts "\n\nThank you for using Building Management v.01 (beta).\n\n"
 
-    
-
-
-
-
-binding.pry
+  

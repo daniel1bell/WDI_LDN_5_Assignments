@@ -16,14 +16,5 @@ class Flat
     tenants.empty?
   end
 
-  
-
-
-
-
-
-
-
-
 
 end

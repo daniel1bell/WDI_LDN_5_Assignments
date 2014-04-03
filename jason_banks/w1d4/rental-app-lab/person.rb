@@ -8,15 +8,4 @@ class Person
 
   end
 
-
-
-
-
-
-
-
-
-
-
-
 end
