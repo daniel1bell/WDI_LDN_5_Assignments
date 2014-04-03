@@ -43,9 +43,9 @@ while response != "q"
   when "1"
     puts b.list_flats
   when "2"
-    puts b.list_prospects #TODO: write this method
+    puts b.list_prospects
   when "3"
-    let_flat(b) #TODO: write this method
+    let_flat(b)
   when "4"
     evict_tenant #TODO: write this method
   when "5"
@@ -73,4 +73,4 @@ end
 
 
 
-binding.pry
+# binding.pry

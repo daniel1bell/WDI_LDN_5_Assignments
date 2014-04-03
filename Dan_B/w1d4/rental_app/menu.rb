@@ -8,33 +8,43 @@ def menu
   puts "3\t:\tLet a Flat"
   puts "4\t:\tEvict a Tenant"
   puts "5\t:\tList Empty Flats"
-  puts "6\t:\tList Current Tenants"
-  puts "7\t:\tCreate a Prospect"
-  print '---> '
+  puts "6\t:\tList Tenants"
+  puts "7\t:\tAdd a Prospect"
+  print "---> \t"
   gets.chomp
 end
 
 def let_flat(building)
+  if (building.list_empty_flats).empty?
+    puts "Sorry, there are no empty flats right now."
+  else
   print "Which flat?"
-  print "(#{building.list_empty_flats})"
-  flat = gets.chomp
+  print "(#{building.list_empty_flats})\n"
+  flat_name = gets.chomp
   print "Which prospect? "
-  # print "(#{building.list_prospects})"
+  print "(#{building.list_prospects})\n"
   prospect_name = gets.chomp
 
-binding.pry
-
-  prospect = Building.prospects.delete(prospect_name)
+  prospect = building.prospects.delete(prospect_name)
   flat = building.flats[flat_name]
-
-binding.pry
 
   if prospect && flat && flat.vacant?
     flat.tenants[prospect.name] = prospect
-    "#{prospect.name} has now been assigned to #{flat.name}."
+    puts "#{prospect.name} has now been assigned to #{flat.name}."
   else
     puts "Either the flat or prospect name is invalid."
   end
-  puts "Press enter to continue."
+  end
+
+def evict_flat(building)
+  unless (building.list_empty_flats).empty?
+    puts "Sorry, there are no tennants in flats to be evicted."
+  else
+    print "Which flat? "
+    print "(#{building.list_occupied_flats})\n"
+    flat_name = gets.chomp
+    print "Which tenants? "
+    print "(#{flat.list_tennants})\n"
+    tenant_name = gets.chomp
 
 end

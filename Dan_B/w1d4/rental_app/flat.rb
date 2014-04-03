@@ -14,4 +14,7 @@ class Flat
     tenants.empty?
   end
 
+  def occupied?
+    !tenants.empty?
+  end
 end
