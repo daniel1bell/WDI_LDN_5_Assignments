@@ -27,7 +27,7 @@ class Building
   end
 
   def list_tenants
-   values = @flats.each_pair do |name, flat| 
+    @flats.each_pair do |name, flat| 
       flat.tenants.each do |tenant, id| puts tenant 
       end
     end
@@ -36,6 +36,10 @@ class Building
   def evict_tenant
     list_tenants
     puts "Which tenant do you want to delete?"
+    tenant_to_evict = gets.chomp
+      @flats.each_pair do |name, flat| 
+      flat.tenants.delete(tenant_to_evict)
+    end
   end
 
   def create_prospect

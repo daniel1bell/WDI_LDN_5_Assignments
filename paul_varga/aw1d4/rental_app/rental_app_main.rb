@@ -52,13 +52,13 @@ while response != "q"
   when 3.to_s
   let_flat(b) 
   when 4.to_s
-  b.evict_tenant #todo- write this method
+  b.evict_tenant 
   when 5.to_s
   puts b.list_empty_flats
   when 6.to_s
   b.list_tenants
   when 7.to_s
-  puts b.create_prospect #todo -write this method
+  puts b.create_prospect 
   else
   puts "invalid menu choice - press enter and try again"
   end
