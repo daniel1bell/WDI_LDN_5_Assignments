@@ -68,9 +68,11 @@ finish_line = define(finish_line)
 puts "At which station will your journey end?"
 finish_station = stations(finish_line, subway)
 
+intersection = false
 
 if start_line == finish_line
   distance = (subway[start_line].index(start_station) - subway[finish_line].index(finish_station)).abs 
+
 else 
   routes = { }
   routes[:"Union Square"] = intersect(start_line, start_station, finish_line, finish_station, :"Union Square", subway) 
@@ -86,5 +88,9 @@ end
 if distance == "[]"
   puts "Sorry.  I haven't figured out routes via 2 changes. So you are SOL if you want to go between the b and 6 lines."
 else
-puts ("You'll travel #{distance} stops to get from #{start_station} on the #{start_line} to #{finish_station} on the #{finish_line}" + (' via a change at ' + intersection if intersection)).delete '[]:"'
+puts "You'll travel #{distance} stops to get from #{start_station} on the #{start_line} to #{finish_station} on the #{finish_line}.".delete '[]:"'
+puts  "You'll need to make a change at #{intersection}.".delete '[]:"' if intersection 
 end
+
+
+
