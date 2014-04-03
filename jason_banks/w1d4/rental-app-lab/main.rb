@@ -43,22 +43,22 @@ while response != "q"
   when "1"
     puts b.list_flats
   when "2"
-    puts b.list_prospects # ToDo: write this method
+    puts b.list_prospects
   when "3"
-    let_flat(b) # ToDo: write this method
+    let_flat(b)
   when "4"
-    evict_tenant # ToDo: write this method - note that hashes have a delete method
+    evict_tenant(b) # ToDo: write this method - note that hashes have a delete method
   when "5"
     puts b.list_empty_flats # ToDo: write this method
   when "6"
-    puts b.list_tenants
+    puts b.list_tenants #ToDo
   when "7"
     puts b.create_prospect #ToDo
   else
     puts "Invalid menu choice."
   end
 
-  puts "\nPress enter to return to the menu.\n"
+  puts "\nPress any key to return to the menu.\n"
   gets
   response = menu
 end

@@ -16,6 +16,9 @@ class Flat
     tenants.empty?
   end
 
+  
+
+
 
 
 

@@ -28,10 +28,30 @@ def let_flat(building)
 
   if prospect && flat && flat.vacant?
     flat.tenants[prospect.name] = prospect
-    puts "#{prospect_name} has been allocated #{flat_name}."
+    puts "\n#{prospect_name} has been allocated #{flat_name}."
   else
     puts "Either the flat or the prospect name is invalid."
   end
 
 end
+
+def evict_tenant(building)
+    print "Which flat (#{building.list_flats})? "
+    flat_name = gets.chomp
+    unless building.flats[flat_name].vacant?
+      potential_evictions = building.flats[flat_name].tenants.keys.join(", ")
+      print "Evict which tenant (#{evicted_tenant})? "
+      eviction_decision = gets.
+      if eviction_decision == "y"
+        building.flat[flat_name].tenants.delete(eviction_decision)
+      elsif
+        eviction_decision == "n"
+        puts "\n#{evicted_tenant} has/have not been evicted."
+      else
+        puts "\nInvalid choice."
+      end
+    else
+      puts "There are no tenants in the building."
+    end
+  end
 

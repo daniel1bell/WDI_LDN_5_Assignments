@@ -23,6 +23,14 @@ class Building
     end
   end
 
+  def list_prospects
+    if prospects.empty?
+      return "There are no prospective tenants."
+    else 
+      prospects.keys.join(", ")
+    end
+  end
+
 
 
 
