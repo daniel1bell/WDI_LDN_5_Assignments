@@ -40,7 +40,7 @@ while response != "q"
 	when 1.to_s
 		puts b.list_flats 
 	when 2.to_s
-		puts b.list_prospects #todo- write this method
+		puts b.list_prospects
 	when 3.to_s
 		let_flat(b)
 	when 4.to_s
@@ -48,9 +48,11 @@ while response != "q"
 	when 5.to_s
 		puts b.list_empty_flats
 	when 6.to_s
-		puts b.list_tenants #todo- write this method
+		puts b.list_tenants
 	when 7.to_s
 		b.create_prospect
+	when 8.to_s
+		b.create_flat
 	end
 
 gets

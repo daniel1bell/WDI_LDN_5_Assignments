@@ -19,6 +19,20 @@ def list_empty_flats
 	#flats.select { |key, flat| flat.vacant?} old way of doing it
 end
 
+def create_flat
+	print "What is the flat's name?"
+	flat_name = gets.chomp
+	print "Whats is the flat's price?"
+	flat_price = gets.chomp
+	print "How many bedrooms?"
+	flat_bedrooms = gets.chomp
+	print "How many bathrooms?"
+	flat_bathrooms = gets.chomp
+	flats[flat_name] = Flat.new(flat_name, flat_price, flat_bedrooms, flat_bathrooms)
+	puts "You have created #{flat_name}, a flat with #{flat_bedrooms} bedrooms and #{flat_bathrooms} baths, for the cost of #{flat_price}."
+	#extra check to make sure it is a unique name
+end
+
 def create_prospect
 	print "What is the person's name?"
 	prospect_name = gets.chomp.downcase
@@ -34,10 +48,8 @@ def list_prospects
 end
 
 def list_tenants
-	flats.each do |name, flat|
-	flats.tenants.each do |name, tenant|
-	puts tenant.name
-end
+flats.each do |name, flat|
+  print flat.tenants.keys.join(', ')
 end
 end
 
