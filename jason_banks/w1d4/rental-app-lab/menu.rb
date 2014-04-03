@@ -8,6 +8,7 @@ def menu
   puts "5: List Empty Flats"
   puts "6: List Current Tenants"
   puts "7: Create a Prospect"
+  #if time, consider menu items for adding new flats and/or monthly income information
   puts "Q: Quit"
   print "---->  "
   gets.chomp
@@ -29,7 +30,7 @@ def let_flat(building)
     flat.tenants[prospect.name] = prospect
     puts "#{prospect_name} has been allocated #{flat_name}."
   else
-    puts "Eitehr the flat or the prospect name is invalid."
+    puts "Either the flat or the prospect name is invalid."
   end
 
 end
