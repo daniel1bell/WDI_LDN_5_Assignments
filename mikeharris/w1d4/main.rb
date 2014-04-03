@@ -31,7 +31,7 @@ b.prospects[p4.name] = p4
 
 
 
-binding.pry
+
 
 #run comman line interaction
 
@@ -42,15 +42,15 @@ while response != "q"
   when "1" 
     puts b.list_flats 
   when "2" 
-    puts b.list_prospects #todo - write method 
+    puts b.list_prospects 
   when "3"
     let_flat(b)
   when "4"
-    evict_tenant #todo - write function
+    evict_tenant(b) #todo - write function
   when "5"
     puts b.list_empty_flats
   when "6"
-    puts b.list_tenants #todo: write function
+    b.list_tenants #todo: write function
   when "7"
     puts b.create_prospect #todo: write function
   else 
@@ -63,5 +63,5 @@ while response != "q"
 end
 
 
-binding.pry
+# binding.pry
 

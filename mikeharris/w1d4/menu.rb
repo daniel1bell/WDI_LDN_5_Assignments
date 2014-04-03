@@ -13,34 +13,45 @@ def menu
 
   print '---> '
   gets.chomp
-
 end
 
 def let_flat(building)
-  print "Which flat would you like to let? "
-  puts "(#{building.list_empty_flats})"
-  flat_name = gets.chomp
-  flat = building.flats[flat_name]
 
-  print 'Which  prosepect'
-  prosepect_name = gets.chomp
-
-  prospect = building.prospects.delete(prosepect_name)
-
-  if prospect && flat && flat.vacant?
-      flat.tenants[prospect.name] = prospect
-      puts "#{prosepect_name} has moved into #{flat_name}"
+  if building.flats.select { |key, flat| flat.vacant? }.empty?
+    puts "No empty flats"
   else
-      puts "something is invalid"
+    print "Which flat would you like to let? "
+    puts "(#{building.list_empty_flats})"
+    flat_name = gets.chomp
+    flat = building.flats[flat_name]
+
+    print 'Which  prosepect? '
+    puts building.list_prospects
+    prosepect_name = gets.chomp
+
+    prospect = building.prospects.delete(prosepect_name)
+
+    if prospect && flat && flat.vacant?
+        flat.tenants[prospect.name] = prospect
+        puts "#{prosepect_name} has moved into #{flat_name}"
+    else
+        puts "something is invalid"
+    end
+  end
+end
+
+
+def evict_tenant(building)
+  building.list_tenants
+  puts "Which tenant would you like to evict?"
+  tenant_name = gets.chomp
+  building.flats.each do |flat_name, flat|
+    flat.tenants.delete(tenant_name)
   end
 
-  #flat.tenants[prospect.name] = b.prospects[prosepect_name]
+  puts "#{tenant_name} has been evicted!"
+  building.list_tenants
 
 end
 
   
-
-
-
-
-
