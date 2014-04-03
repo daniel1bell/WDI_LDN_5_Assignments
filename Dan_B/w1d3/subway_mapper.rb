@@ -12,7 +12,7 @@ l_east = [:a, :n, :o]
 
 stations = {a: "Union Square", b: "Times Square", c: "34th Street" , d: "28th Street", e: "23rd Street", f: "8th Street", g: "Grand Central", h: "33rd Street", i: "28th Street", j: "23rd Street", k: "Astor Place", l: "8th Street", m: "6th Street", n: "3rd Street", o: "1st Street"}
 
-lines = {e: n_north, d: n_north, c: n_north, b: n_north, f: n_south, j: six_north, i: six_north, h: six_north, g: six_north, k: six_south, m: l_west, l: l_west, n: l_east, o: l_east}
+lines = {a: n_north, e: n_north, d: n_north, c: n_north, b: n_north, f: n_south, j: six_north, i: six_north, h: six_north, g: six_north, k: six_south, m: l_west, l: l_west, n: l_east, o: l_east}
 
 line_names = {n_north => "N Line (Southbound)", n_south => "N Line (Northbound)", six_north => "6 Line (Southbound)", six_south => "6 Line (Northbound)", l_west => "L Line (Eastbound)", l_east => "L Line (Westbound)"}
 
