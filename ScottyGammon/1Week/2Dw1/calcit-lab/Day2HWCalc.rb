@@ -1,4 +1,6 @@
 # Function definitions first
+
+require "pry"
 def menu
   # Clear the screen, and present the user with a menu
   puts `clear`
@@ -100,6 +102,8 @@ def trip_calc
   gas_cost = gets.to_f
   print "How fast do plan on driving in MPH?"
   speed = gets.to_f
+
+  binding.pry
 
   trip_time = distance / speed
   money_paid = (gas_cost * mpg) * distance

@@ -1,4 +1,6 @@
   
+   require 'pry'
+
     # Function definitions first
     def menu
   # Clear the screen, and present the user with a menu
@@ -8,68 +10,39 @@
   gets.chomp.downcase # Return
     end
 
-  #   def basic_calc
-  # # ask the user which operation they want to perform
-  # print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-  # operation = gets.chomp.downcase
-  
-  # def add
-  #   puts "please type first number: "
-  #   first_number = gets.chomp.to_f
-  #   puts "please type second number: "
-  #   second_number = gets.chomp.to_f
-  #   answer = first_number + second_number
-  #   puts "The sum is #{answer}"
-  #   puts "Press any key to continue"
-  #   gets
-  # end
 
-  # def subtract
-  #   puts "please type first number: "
-  #   first_number = gets.chomp.to_f
-  #   puts "please type second number: "
-  #   second_number = gets.chomp.to_f
-  #   answer = first_number - second_number
-  #   puts "The difference is #{answer}"
-  #   puts "Press any key to continue"
-  #   gets
-  # end
+  def basic_calc
+  # ask the user which operation they want to perform
+  print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
+  operation = gets.chomp.downcase
 
-  # def multiply
-  #   puts "please type first number: "
-  #   first_number = gets.chomp.to_f
-  #   puts "please type second number: "
-  #   second_number = gets.chomp.to_f
-  #   answer = first_number * second_number
-  #   puts "The product is #{answer}"
-  #   puts "Press any key to continue"
-  #   gets
-  # end
+  if operation == "a" || operation=="s" || operation=="m" || operation=="d"
 
-  # def divide
-  #   puts "please type first number: "
-  #   first_number = gets.chomp.to_f
-  #   puts "please type second number: "
-  #   second_number = gets.chomp.to_f
-  #   answer = first_number / second_number
-  #   puts "The remainder is #{answer}"
-  #   puts "Press any key to continue"
-  #   gets
-  # end
+    print "Enter first number: "
+    first_number = input_number
+    print "Enter second number: "
+    second_number = input_number
 
-  # case operation
-  # when 'a'
-  #   add
-  # when 's'
-  #   subtract
-  # when 'm'
-  #   multiply
-  # when 'd'
-  #   divide
-  # else menu
-  # end
-  #   end
-  #   # run the app...
+    puts "The answer is"
+  end
+
+---------------------------------------------------
+
+  case operation
+  when 'a'
+    puts first_number + second_number
+  when 's'
+    puts first_number - second_number
+  when 'm'
+    puts first_number * second_number
+  when 'd'  
+    puts first_number / second_number
+  else
+    "This should'nt be too hard - try again!"
+  end
+
+  puts "Press any key to return"
+  end
 
     def advanced_calc
   print "(p)ower, (s)quare root, (b)mi, (t)rip, (m)ortgage "
@@ -124,21 +97,15 @@
    gas = gets.chomp.to_i
    puts "What will your average speed be in MPH"
    mph = gets.chomp.to_i
+
+   binding.pry
+
    puts "Your trip will take around #{distance/mph} hours and will cost around #{distance/mph * gas}."
    puts "Press any key to continue"
    gets
   end
 
   def bmi
-
-
-# Underweight = <18.5
-
-# Normal weight = 18.5-24.9
-
-# Overweight = 25-29.9
-
-# Obesity = BMI of 30 or greater
 
     puts "Would you like to calculate your BMI in lbs or kg?"
     weight = gets.chomp
@@ -203,6 +170,10 @@
   end
 
 end 
+
+def input_number
+  gets.chomp.to_f
+end
 
     response = menu # Return value of menu
 
