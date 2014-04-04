@@ -9,6 +9,11 @@ class Animal
     @fave_toy = fave_toy
   end
 
+  def to_s
+    "#{name}:\t#{breed}\t#{age} year(s) old\t#{gender}\tFave Toy: #{fave_toy}\n"
+  end
+
+
 end
 
 

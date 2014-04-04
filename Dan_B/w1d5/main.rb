@@ -7,18 +7,21 @@ require_relative 'person'
 
 s = Shelter.new('Happitails')
 
-p1 = Person.new('Dave',456197)
-p2 = Person.new('Maria',283763)
-p3 = Person.new('Harry',978340)
-p4 = Person.new('Donny',871213)
-
 a1 = Animal.new('Cosmo','Pitbull', 2, "male", "squeeker")
 a2 = Animal.new('Simba','African Lion', 15, "female", "human_bone")
 a3 = Animal.new('Timon','Meerkat', 6, "male", "pumba")
 a4 = Animal.new('Pumba','Warthog', 10, "male", "timon")
 a5 = Animal.new('Bertie','Pug',1, "male", "ball")
 
-available_pets = [a1, a2, a3, a4, a5]
+p1 = Person.new('Dave',456197)
+  p1.pets[a1.name] = a1
+p2 = Person.new('Maria',283763)
+  p2.pets[a2.name] = a2
+p3 = Person.new('Harry',978340)
+p4 = Person.new('Donny',871213)
+
+
+available_pets = [a3, a4, a5]
 available_pets.each {|pet| s.animals[pet.name] = pet }
 
 s_prospects = [p1, p2, p3, p4]
@@ -31,7 +34,7 @@ while response != "q"
 
   case response
   when "1"
-    puts s.list_available_pets
+    print s.list_available_pets
   when "2"
     # puts s.list_clients
   when "3"

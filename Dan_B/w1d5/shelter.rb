@@ -6,15 +6,14 @@ class Shelter
     @name = name
     @animals = {}
     @clients = {}
-
   end
 
   def list_available_pets
-    animals.keys.join(', ')
+    animals.values.join
   end
 
   def list_prospects
-    clients.keys.join(', ')
+    clients.values.join
   end
 
   def add_prospect
