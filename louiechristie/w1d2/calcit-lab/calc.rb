@@ -1,3 +1,5 @@
+require 'pry'
+
 # Function definitions first
 
 def menu
@@ -89,6 +91,9 @@ def advanced_calc
     cpg = gets.chomp.to_f
     print "Speed, how fast will you drive? "
     speed = gets.chomp.to_f
+
+    binding.pry
+
     if speed >= 60
       reduce = 2 * (speed - 60)
       mpg = mpg - reduce
