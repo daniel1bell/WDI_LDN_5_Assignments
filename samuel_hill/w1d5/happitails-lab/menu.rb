@@ -15,3 +15,20 @@ def menu
   print "---> \t"
   gets.chomp.downcase
 end
+
+# def adopt_animal(shelter)
+
+#   print "Which Animal?"
+#   print "#{shelter.list_available_pets}"
+#   animal_name = gets.chomp
+#   print "Which Prospect?"
+#   print "#{shelter.list_prospects}"
+#   prospect_name = gets.chomp
+
+#   prospect = shelter.clients(prospect_name)
+
+#   animal = shelter.animals[animal_name]
+
+#   puts "#{prospect} has adopted #{animal}"
+
+# end
