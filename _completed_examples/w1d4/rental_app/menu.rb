@@ -79,7 +79,7 @@ def create_prospect(building)
       puts "That name has already been taken by existing tenant"
       
     when building.prospects.keys.include?(name)
-      puts "That name has already been taken by existing tenant"
+      puts "That name has already been taken by existing prospect"
 
     else
       print 'What is their phone number? '
