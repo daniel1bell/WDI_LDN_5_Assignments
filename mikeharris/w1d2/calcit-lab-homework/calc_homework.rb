@@ -1,3 +1,5 @@
+
+
 # Function definitions first
 def menu
   # Clear the screen, and present the user with a menu
@@ -170,7 +172,8 @@ def trip_calculator
    cost_per_gallon = input_number
    print  "How fast will you drive (mph)? "
    speed =  input_number
-   
+    
+
    mpg = mpg - [0, speed - 60].max * 2
 
    puts "Your journey will take #{(distance / speed).round(2) } hours and will cost £#{(distance / mpg * cost_per_gallon).round(2)} the mpg is #{mpg}"
