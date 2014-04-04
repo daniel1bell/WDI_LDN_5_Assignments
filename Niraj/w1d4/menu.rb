@@ -9,6 +9,7 @@ puts "4: Evict Tenant"
 puts "5: List Empty Flats"
 puts "6: List Tenant"
 puts "7: Create a Prospect"
+puts "8: Create a flat"
 puts "q  Quit"
 print '--->'
 gets.chomp
