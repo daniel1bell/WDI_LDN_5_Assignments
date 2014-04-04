@@ -9,6 +9,7 @@ def menu
   puts "6 : List Tenants"
   puts "7 : Create a Prospect"
   puts "8 : Create a Flat"
+  puts "9 : Potential Monthly Income"
   puts "q : Quit"
   print '---> '
   gets.chomp

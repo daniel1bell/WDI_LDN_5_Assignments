@@ -60,4 +60,8 @@ class Building
     end
   end
 
+  def potential_monthly_income
+    "£%.2f" % occupied_flats.values.inject(0) { |sum, flat| sum + flat.price.to_f}.to_s # uses the `sprintf` formats on the returned string: http://ruby-doc.org/core-2.0.0/String.html#method-i-25 and http://ruby-doc.org/core-2.0.0/Kernel.html#method-i-sprintf
+  end
+
 end

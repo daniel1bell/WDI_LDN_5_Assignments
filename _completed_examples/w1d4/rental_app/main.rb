@@ -63,6 +63,9 @@ while response != "q"
     when '8'
       create_flat(b)
 
+    when '9'
+      puts b.potential_monthly_income
+
     else
       puts "invalid menu choice."
   end
