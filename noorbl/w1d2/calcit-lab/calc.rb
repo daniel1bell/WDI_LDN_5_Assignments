@@ -1,3 +1,4 @@
+require 'pry'
 
 def menu
   
@@ -103,7 +104,7 @@ def advanced_calc
     print "What is your driving speed in MPH: "
     trip_speed = input_number
     puts trip_speed
-
+    
     if trip_speed > 60
       fuel_efficiency = fuel_efficiency - (trip_speed - 60) * 2
     end
