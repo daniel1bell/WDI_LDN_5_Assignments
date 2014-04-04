@@ -37,12 +37,12 @@ def let_flat(building)
 end
 
 def list_occupied_flats(building)
-    occupied_flats = building.flats.select { |key, flat| !flat.vacant?}
-    if occupied_flats.empty?
-      "There are no occupied flats."
-    else
-      occupied_flats.keys.join(", ")
-    end
+  occupied_flats = building.flats.select { |key, flat| !flat.vacant?}
+  if occupied_flats.empty?
+    "There are no occupied flats."
+  else
+    occupied_flats.keys.join(", ")
+  end
 end
 
 def evict_tenant(building)
@@ -55,7 +55,7 @@ def evict_tenant(building)
     eviction_decision = gets.chomp
     if flat.tenants[eviction_decision]
       flat.tenants.delete(eviction_decision)
-      puts "\n#{eviction_decision} has/have been evicted."
+      puts "\n#{eviction_decision} has been evicted."
     else
       puts "\nInvalid choice."
     end
@@ -65,6 +65,7 @@ def evict_tenant(building)
     puts "\nInvalid choice." 
   end
 end
+
 
 
 
