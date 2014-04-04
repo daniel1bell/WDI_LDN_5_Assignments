@@ -23,12 +23,13 @@ def evict_tenant
   flats.each do |name, flat|
       flat.tenants.delete(evicted)
         print "#{evicted}"
-      end
+      
     end
 end
 
 def list_empty_flats
   vacant_flats = flats.select {|key,flat| flat.vacant?}
+  
   if vacant_flats.any?
     vacant_flats.keys.join(', ')
   else

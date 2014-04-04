@@ -36,9 +36,9 @@ while response != "q"
     when '2'
       puts b.list_prospects
     when '3'
-        let_flat(b) 
+      let_flat(b) 
     when '4'
-        evict_tenant #WRITE THIS FLAT: 
+      evict_tenant #WRITE THIS FLAT: 
     when '5'
       puts b.list_empty_flats
     when '6'
