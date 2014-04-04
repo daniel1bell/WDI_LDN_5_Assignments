@@ -44,7 +44,7 @@ while response != "q"
 	when 3.to_s
 		let_flat(b)
 	when 4.to_s
-		evict_tenant #todo- write this method
+		evict_tenant(b) #todo- write this method
 	when 5.to_s
 		puts b.list_empty_flats
 	when 6.to_s

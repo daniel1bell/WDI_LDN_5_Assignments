@@ -49,7 +49,7 @@ end
 
 def list_tenants
 flats.each do |name, flat|
-  print flat.tenants.keys.join(', ')
+  print flat.tenants.keys.join(', ') #Michael changed me to this code in hipchat, my previos code was git commited if you would like to see
 end
 end
 

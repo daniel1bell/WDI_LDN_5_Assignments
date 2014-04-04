@@ -4,7 +4,7 @@ def menu
 	puts "1: List Flats"
 	puts "2: List Prospects"
 	puts "3: Let a Flat"
-	puts "4: Evict a TenantX"
+	puts "4: Evict a Tenant"
 	puts "5: List Empty FlatsA"
 	puts "6: List Tenants"
 	puts "7: Create a Prospect"
@@ -38,9 +38,15 @@ def let_flat(building) #pass the building into this method
 	end
 end
 
-def evict_tenant #pass the building into this method
-	print 'Which tenant?'
-	tenant_name = gets.chomp.downcase
-	tenant = flat.tenants.delete(tenant_name)
-	
+def evict_tenant(building) #this breaks with my new code a final and i do not know why.
+    print 'Which tenant? '
+    print "(#{building.list_tenants}) "
+    tenant_name = gets.chomp
+  tenant = tenants.delete(tenant_name) if flat
+  if tenant
+    puts "#{building.tenant_name} has been evicted."
+  else
+    "Sorry, there seems to be a problem evicting, please check your inputs and try again."    
+  end
 end
+
