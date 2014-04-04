@@ -16,6 +16,16 @@ def menu
   gets.chomp
 end
 
+def valid_string_input(array)
+  input = gets.chomp
+  unless array.index(input)
+    puts "Not a valid entry."
+    puts "Please enter one of: '#{array.join("', '")}'"
+    input = gets.chomp
+  end
+  input
+end
+
 def let_flat(building)
   print 'Which flat?'
   print "(#{building.list_empty_flats})
@@ -40,7 +50,7 @@ def evict_tenant(building)
     building.flats.each { |name, flat| tenants << flat.tenants.keys }
     puts 'Who do you want to make homeless you heartless bastard?  Choose:'
     puts tenants.flatten.join(", ")
-    evicted_tenant = gets.chomp
+    evicted_tenant = valid_string_input(tenants.flatten)
     building.flats.each { |name, flat| flat.tenants.delete(evicted_tenant)}
     puts "#{evicted_tenant} has been evicted."
     puts "press enter to continue."

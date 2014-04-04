@@ -43,10 +43,10 @@ while response != 'q'
 case response
   when '1'
     puts b.list_flats 
-
+    puts "Hit enter to return to main menu."
   when '2'
     puts b.list_prospects
-
+    puts "Hit enter to return to main menu."
   when '3'
     let_flat(b) 
 
@@ -55,6 +55,7 @@ case response
   
   when '5' 
     puts b.list_empty_flats
+    puts "Hit enter to return to main menu."
 
   when '6'
     puts b.list_tenants

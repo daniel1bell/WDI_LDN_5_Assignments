@@ -20,9 +20,11 @@ class Building
     else
     vacant_flats.keys.join(', ')
     end
+
   end
 
   def list_prospects
+    puts "There are not prospects" if !prospects.keys
     prospects.keys.join(', ')
   end
 
@@ -37,6 +39,7 @@ class Building
     puts "What is the person's phone number?"
     number = gets.chomp
     puts "A new propsect has been created."
+    puts "Hit enter to return to the main menu"
     Person.new(name, number)
   end
 
