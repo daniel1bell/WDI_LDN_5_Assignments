@@ -21,19 +21,22 @@ def let_flat(building)
   print "(#{building.list_vacant_flats}) "
   flat_name = gets.chomp
 
-  print 'Which prospect? '
-  print "(#{building.list_prospects}) "
-  prospect_name = gets.chomp
-
-  prospect = building.prospects.delete(prospect_name)
   flat = building.flats[flat_name]
 
-  if prospect && flat && flat.vacant?
+  if flat
+    print 'Which prospect? '
+    print "(#{building.list_prospects}) "
+    prospect_name = gets.chomp
+  end
+
+  prospect = building.prospects.delete(prospect_name) if flat
+
+  if flat && flat.vacant? && prospect
     flat.tenants[prospect.name] = prospect
     puts "#{prospect_name} has moved into #{flat_name}"
   else
     errors = []
-    errors << "prospect name is invalid" unless prospect
+    errors << "prospect name is invalid" if flat && !prospect
     errors << "flat name is invalid" unless flat
     errors << "flat is not vacant" if flat && !flat.vacant?
 
@@ -79,7 +82,7 @@ def create_prospect(building)
       puts "That name has already been taken by existing tenant"
       
     when building.prospects.keys.include?(name)
-      puts "That name has already been taken by existing tenant"
+      puts "That name has already been taken by existing prospect"
 
     else
       print 'What is their phone number? '
