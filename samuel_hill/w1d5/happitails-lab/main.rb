@@ -8,6 +8,7 @@ require_relative 'person'
 s = Shelter.new('Happitails')
 
 p1 = Person.new('Dave',456197)
+  p1.pets[a1.name] = a1
 p2 = Person.new('Maria',283763)
 p3 = Person.new('Harry',978340)
 p4 = Person.new('Donny',871213)

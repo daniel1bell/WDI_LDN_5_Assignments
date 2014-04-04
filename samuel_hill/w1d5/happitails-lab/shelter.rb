@@ -44,7 +44,7 @@ class Shelter
   end
 
   # def list_clients
-
+  # clients[pets].any?
   # end
 
 end
