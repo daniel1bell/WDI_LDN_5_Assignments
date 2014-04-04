@@ -34,7 +34,7 @@ line_one = line_names.fetch(lines.fetch(origin))
 line_two = line_names.fetch(lines.fetch(destination))
 
 same_line_stops = lines.fetch(origin).index(origin) - lines.fetch(destination).index(destination)
-
+# binding.pry
 if line_one == line_two
   puts "#{stations.fetch(origin)} Station is #{same_line_stops.abs} stops to #{stations.fetch(origin)} Station on #{line_one}."
   puts
