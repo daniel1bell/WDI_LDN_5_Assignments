@@ -9,7 +9,7 @@ require_relative 'stock'
 require_relative 'saved_stock_data'
 require_relative 'menu'
 
-$data_setting = true
+$data_setting = false
 
 stock_tickers = ["AAIT","AAL","AAME"]
 

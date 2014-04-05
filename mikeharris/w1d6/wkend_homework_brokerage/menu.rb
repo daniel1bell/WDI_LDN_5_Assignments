@@ -49,9 +49,35 @@ def settings
 
 end
 
+
+def spacer(value, col_width)
+  value = value.to_s
+  space = ""
+  (col_width - value.size).times { space << " "}
+  value += space 
+end
+
+
 def buy_stock
 
 end
+
+def create_client(b)
+  puts "What's the clients name?"
+  client_name = gets.chomp.to_s
+  puts "How much money does the client have?"
+  client_money = gets.chomp.to_i
+   
+  new_client = Client.new(client_name, client_money)
+  
+  b.add_client(new_client)
+
+  puts "Client added. Here are all the current clients."
+  puts "Log in to see portfolios and money"
+
+  b.list_clients
+end
+
 
 
 

@@ -39,17 +39,27 @@ class Brokerage
   end
 
   def list_clients
-    puts clients.keys.join('\n') 
+    puts clients.keys.join("\n") 
   end
 
 
  def list_stock_prices
-      puts "Ticker  Price"
+    col_width = 8
+    print "\n"
+    puts spacer("Ticker", col_width) << spacer("Price",col_width) << spacer("Chg on day",col_width)
+
     stocks.each do |ticker, stock|
-      #print ticker , ": ", stock.lastTrade, "   "
-      print ticker, ":  ", stock[:@lastTrade], "\n"
+      price = stock[:@lastTrade].to_f
+      closing_price = stock[:@open].to_f
+      change = (price - closing_price).round(2)
+      colour = change < 0 ? :red : :green
+      puts spacer(ticker, col_width) << spacer(stock[:@lastTrade],col_width) << (change).to_s.colorize(colour)
     end
   end
+
+
+
+
 
 
 end
