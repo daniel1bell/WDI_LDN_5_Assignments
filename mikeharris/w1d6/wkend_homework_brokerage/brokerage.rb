@@ -38,6 +38,7 @@ class Brokerage
   end
 
   def list_clients
+    puts "\nCurrent Clients:"
     puts clients.keys.join("\n") 
   end
 
@@ -65,14 +66,25 @@ def list_client_portfolio(client_name)
   client = clients[client_name]
   client_portfolio = client.list_portfolio
   col_width = 15
-  puts "#{client_name} here's the stocks you currently own:"
-  puts (spacer("Stock", col_width) << spacer("Nos Shares",col_width) << spacer("Price",col_width) << "* " << spacer("Latest Price",col_width) <<  spacer("PnL",col_width)).underline
-  
-  client_portfolio.each_pair do |stock_name, trade_details|
-     puts spacer(stock_name, col_width)  << spacer(trade_details[:nos],col_width)  << spacer(trade_details[:nos],col_width) << "* "
-  end 
+  puts "\n#{client_name} here's the stocks you currently own:"
+  title =  spacer("Stock", col_width) << spacer("Nos Shares",col_width) << spacer("Avg Price",col_width) << "* " << spacer("Latest Price",col_width) <<  spacer("PnL",col_width)
+  puts title.underline
+  i = 0
 
-  gets
+  client_portfolio.each_pair do |stock_name, trade_obj|
+    i += 1
+    output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  << spacer(trade_obj.trade_level,col_width) << "* "
+     if i == client_portfolio.length
+      puts output.underline
+    else
+      puts output
+    end 
+
+  end 
+  
+ 
+
+  pause
 
 
 

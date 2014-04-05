@@ -94,7 +94,7 @@ end
 
 
 def create_client(b)
-  puts "What's the clients name?"
+  puts "What's the new clients name?"
   client_name = gets.chomp.to_s
   puts "How much money does the client have?"
   client_money = gets.chomp.to_i
@@ -127,6 +127,7 @@ def log_on(b)
         b.list_client_portfolio(user_name)
       when "2"  
         buy_stock(b, user_name)
+        b.list_client_portfolio(user_name)
       when "3"
         #sell a stock
       else
@@ -155,7 +156,10 @@ def log_on(b)
   gets.chomp
 end
 
-
+def pause
+   print "\nHit Enter to continue"
+   gets
+end
   
 
 

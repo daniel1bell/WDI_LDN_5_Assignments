@@ -17,7 +17,7 @@ b = Brokerage.new('NYSE')
 c1 = Client.new("Mike", "100000")
 
 c1.buy_stock("AAL", 30, 100)
-c1.buy_stock("AAME", 10, 90)
+c1.buy_stock("AAME", 1, 90)
 
 b.add_client(c1)
 
@@ -32,16 +32,16 @@ while response != "q"
   case response 
   when "1" 
     b.list_stock_prices
-
-    print "\nHit Enter to continue"
-    gets
-
+    pause
   when "2" 
     b.update_stock_data
   when "3"
     b.list_clients
+    pause
   when "4"
+    b.list_clients
     create_client(b)
+    pause
   when "5"
     list_portfolio(b)
   when "6"
