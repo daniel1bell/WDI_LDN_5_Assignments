@@ -60,6 +60,9 @@ class Brokerage
   end
 
 
+def list_client_portfolio(client_name)
+  puts "we're here!"
+end
 
 
 

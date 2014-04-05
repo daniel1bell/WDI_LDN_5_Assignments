@@ -15,10 +15,12 @@ class Client
 
   
   def buy_stock(stock_ticker, stock_price, nos_shares)
-      @money = @money - stock_price * nos_shares 
-
+    portfolio[stock_ticker] = { :price => stock_price, :nos => nos_shares }
+    @money = @money - stock_price * nos_shares 
   end
 
-  
+  def list_portfolio
+    @portfolio
+  end  
 
 end

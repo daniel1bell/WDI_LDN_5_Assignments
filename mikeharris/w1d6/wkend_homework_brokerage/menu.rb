@@ -74,8 +74,8 @@ def buy_stock(b, client_name)
 
     nos_to_buy = gets.chomp.to_i
     
-    while nos_to_buy < 0 && nos_to_buy > nos_can_buy
-      "You have to put in a number between 0 and #{nos_can_buy}"
+    while nos_to_buy <= 0 || nos_to_buy > nos_can_buy
+      puts "You have to put in a number between 0 and #{nos_can_buy}"
       nos_to_buy = gets.chomp.to_i
     end
 
@@ -124,7 +124,7 @@ def log_on(b)
     while client_response != "q"
       case client_response
       when "1"
-        #value portfolio
+        b.list_client_portfolio(user_name)
       when "2"  
         buy_stock(b, user_name)
       when "3"
