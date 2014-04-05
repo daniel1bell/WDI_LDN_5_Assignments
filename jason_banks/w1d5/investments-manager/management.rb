@@ -8,10 +8,12 @@ class Management
 
   def list_clients
     if clients.any?
-      clients.each_with_index.join()
+      puts "\nWe have #{clients.length} clients.\n\n"
+      clients.values.join("\n")
+      puts "\n\n"
     else
       puts "\nWe have no clients.\nQuel bromaggedon!"
-
+    end
   end
 
 

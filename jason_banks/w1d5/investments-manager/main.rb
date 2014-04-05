@@ -8,7 +8,7 @@ require_relative "management"
 def valediction
 
   a = "\nWell done, Broseph.\n\n"
-  b = "\nFour score and seven years of awesomeness, Brobraham Lincoln.\n\n"
+  b = "\nFour score and seven years of awesomeness, Abroham Lincoln.\n\n"
   c = "\nRambro, you are crushing it.\n\n"
   d = "\nEpic client management, Brodysseus.\n\n"
 
@@ -23,11 +23,9 @@ c2 = Client.new("Chandler", 2222, 36_000)
 c3 = Client.new("Jack", 3333, 8_500)
 c4 = Client.new("Leslie", 4444, 19_858)
 
-binding.pry
+
 
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
-
-binding.pry
 
 
 
@@ -48,6 +46,8 @@ while response != "q"
   when "5"
     puts
   when "6"
+    puts
+  when "7"
     puts
   else
     puts "Invalid choice."

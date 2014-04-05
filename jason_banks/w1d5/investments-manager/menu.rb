@@ -4,6 +4,7 @@ def menu
   puts "\n\n'Carrying clients before we carry ourselves since 1901.'\n\n"
   puts "Client Management System\n\n"
   puts "List Clients" # GIVE NO. OF CLIENTS, LIST CLIENTS AND DEETS, GIVE OPTION FOR INCREASING BALANCE, REMOVING, AND, IF TIME, SELLING/BUYING/MOVING STOCK
+  puts "Add a Client"
   puts "Sell Stock for a Client"
   puts "Buy Stock for a Client"
   puts "Move Stock between a Client's Portfolios"
