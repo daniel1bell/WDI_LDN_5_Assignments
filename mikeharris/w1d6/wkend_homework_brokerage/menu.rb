@@ -58,9 +58,40 @@ def spacer(value, col_width)
 end
 
 
-def buy_stock
+def buy_stock(b, client_name)
+  client = b.clients[client_name]
+  puts "You have £#{client.show_money} to spend. Here are a lits of stocks"
+  b.list_stock_prices
+  puts "\nWhich one would you like to buy? Enter ticker"
+  stock_ticker = gets.chomp.upcase
+  stock = b.show_stock(stock_ticker)
+  stock_price = stock[:@lastTrade]
+  
+  if stock
+    puts "Great choice.  My mum is even trying to buy those."
+    nos_can_buy = (client.show_money / stock_price).floor
+    puts "You can buy up to #{nos_can_buy}. How many would you like to buy?"
+
+    nos_to_buy = gets.chomp.to_i
+    
+    while nos_to_buy < 0 && nos_to_buy > nos_can_buy
+      "You have to put in a number between 0 and #{nos_can_buy}"
+      nos_to_buy = gets.chomp.to_i
+    end
+
+    puts "Congratualtioin - you have bought #{nos_to_buy} at a price of £#{stock_price} each"
+    client.buy_stock(stock_ticker,stock_price,nos_to_buy)
+    puts "You now have £#{client.show_money} left in your account" 
+    puts "Here is your current portfolio"
+
+  else
+    puts "No such stock"
+  end
+
 
 end
+
+
 
 def create_client(b)
   puts "What's the clients name?"
@@ -76,7 +107,58 @@ def create_client(b)
   puts "Log in to see portfolios and money"
 
   b.list_clients
+
 end
+
+def log_on(b)
+  b.list_clients
+
+  puts "Which of these clients are you?"
+  user_name = gets.chomp
+
+  if b.clients[user_name]
+    puts "#{user_name} you are now logged in. What would you like to do?"
+
+    client_response = client_menu
+
+    while client_response != "q"
+      case client_response
+      when "1"
+        #value portfolio
+      when "2"  
+        buy_stock(b, user_name)
+      when "3"
+        #sell a stock
+      else
+        puts "That's not an option"
+      end
+
+      # print "\nHit Enter to continue"
+      # gets  
+      client_response = client_menu
+    end 
+    
+
+  else 
+    puts "No such client"
+  end
+
+
+ end
+
+
+ def client_menu
+  puts "1 : Show and value portfoliio"
+  puts "2 : Buy a stock"
+  puts "3 : Sell a stock"
+  puts "q : Quit - log out"
+  print '---> '
+  gets.chomp
+end
+
+
+  
+
 
 
 

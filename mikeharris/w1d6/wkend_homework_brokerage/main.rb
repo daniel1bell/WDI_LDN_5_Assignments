@@ -49,7 +49,7 @@ while response != "q"
   print "\nHit Enter to continue"
   gets  
 
-  response = menu
+  response = menu.downcase
 end
 
 

@@ -15,7 +15,6 @@ class Brokerage
     end
   end
 
-
   def update_stock_data
       stocks.each do |ticker , value|
         if $data_setting
@@ -42,6 +41,9 @@ class Brokerage
     puts clients.keys.join("\n") 
   end
 
+  def show_stock(ticker)
+    stocks[ticker]
+  end
 
  def list_stock_prices
     col_width = 8

@@ -1,6 +1,7 @@
 class Client
-  attr_accessor :name, :phone
+  attr_accessor :name
   attr_reader :portfolio
+  attr_writer :money
 
   def initialize(name, money)
     @name = name
@@ -8,13 +9,16 @@ class Client
     @portfolio = {}
   end
 
-  def buy_stock(stock_name, stock_price, nos_shares)
-  #todo     
+  def show_money
+    @money   
+  end
 
-     money = money - stock_price * nos_shares 
+  
+  def buy_stock(stock_ticker, stock_price, nos_shares)
+      @money = @money - stock_price * nos_shares 
 
   end
 
-
+  
 
 end
