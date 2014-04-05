@@ -25,8 +25,8 @@ def check_stock_price
   stock_price = stock.lastTrade
   stock_name = stock.name
   stock_time = stock.time
-  if stock_price == 0.0
-    puts "\nYou have entered an invalid symbol or the price of #{stock_symbol} as of #{stock_time} was $#{stock_price}.\n"
+  if stock == nil
+    puts "\nYou have entered an invalid symbol.\n"
   else
     puts "\nThe price for #{stock_name}'s stock (#{stock_symbol}) as of #{stock_time}(EST) was $#{stock_price}.\n"
   end
@@ -39,9 +39,13 @@ c2 = Client.new("Chandler", 2222, 36_000)
 c3 = Client.new("Jack", 3333, 8_500)
 c4 = Client.new("Leslie", 4444, 19_858)
 
-
-
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
+
+tech1 = Portfolio.new(c1.name, :tech)
+tech2 = Portfolio.new(c2.name, :tech)
+
+tech1.buy_stock("APPL", 30) # Miranda
+tech2.buy_stock("GOOG", 89) # Miranda
 
 
 
