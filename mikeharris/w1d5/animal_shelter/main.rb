@@ -38,9 +38,9 @@ while response != "q"
   when "2" 
     puts s1.list_clients #add list animals
   when "3"
-    abandon_animal(s1)#adopt
+    abandon_animal(s1) #TODO
   when "4"
-    adopt_animal(s1) #TODO
+    adopt_animal(s1)
   else 
     puts "Invlalid entry try again - hit enter to continue"
     

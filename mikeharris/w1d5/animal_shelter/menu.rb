@@ -1,10 +1,10 @@
 def menu
   puts `clear`
-  puts "***Welcome to The Shelter"
+  puts "*** Welcome to The Shelter ***"
 
   puts "1 : List Animals"
   puts "2 : List Clients"
-  puts "3 : Abandon Animal"
+  puts "* : *****"
   puts "4 : Adopt Animal"
   puts "q : Quit"
 
