@@ -48,7 +48,7 @@ class Brokerage
  def list_stock_prices
     col_width = 8
     print "\n"
-    puts spacer("Ticker", col_width) << spacer("Price",col_width) << spacer("Chg on day",col_width)
+    puts (spacer("Ticker", col_width) << spacer("Price",col_width) << spacer("Chg on day",col_width)).underline
 
     stocks.each do |ticker, stock|
       price = stock[:@lastTrade].to_f
@@ -61,7 +61,22 @@ class Brokerage
 
 
 def list_client_portfolio(client_name)
-  puts "we're here!"
+  
+  client = clients[client_name]
+  client_portfolio = client.list_portfolio
+  col_width = 15
+  puts "#{client_name} here's the stocks you currently own:"
+  puts (spacer("Stock", col_width) << spacer("Nos Shares",col_width) << spacer("Price",col_width) << "* " << spacer("Latest Price",col_width) <<  spacer("PnL",col_width)).underline
+  
+  client_portfolio.each_pair do |stock_name, trade_details|
+     puts spacer(stock_name, col_width)  << spacer(trade_details[:nos],col_width)  << spacer(trade_details[:nos],col_width) << "* "
+  end 
+
+  gets
+
+
+
+
 end
 
 

@@ -143,7 +143,6 @@ def log_on(b)
     puts "No such client"
   end
 
-
  end
 
 

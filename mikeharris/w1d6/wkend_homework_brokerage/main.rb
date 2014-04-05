@@ -16,7 +16,12 @@ stock_tickers = ["AAIT","AAL","AAME"]
 b = Brokerage.new('NYSE')
 c1 = Client.new("Mike", "100000")
 
+c1.buy_stock("AAL", 30, 100)
+c1.buy_stock("AAME", 10, 90)
+
 b.add_client(c1)
+
+
 
 b.update_availiable_stocks(stock_tickers)
 b.update_stock_data
@@ -27,6 +32,10 @@ while response != "q"
   case response 
   when "1" 
     b.list_stock_prices
+
+    print "\nHit Enter to continue"
+    gets
+
   when "2" 
     b.update_stock_data
   when "3"
@@ -43,11 +52,10 @@ while response != "q"
     b.update_stock_data
 
   else 
-    puts "Invlalid entry try again - hit enter to continue"
+    puts "Invlalid entry try again"
     
   end 
-  print "\nHit Enter to continue"
-  gets  
+    
 
   response = menu.downcase
 end
