@@ -1,9 +1,11 @@
 require "pry"
+require "yahoofinance"
 
 require_relative "menu"
 require_relative "client"
 require_relative "portfolio"
 require_relative "management"
+
 
 def valediction
 
@@ -38,7 +40,7 @@ while response != "q"
   when "1"
     m.list_clients
   when "2"
-    puts
+    m.add_client
   when "3"
     puts
   when "4"

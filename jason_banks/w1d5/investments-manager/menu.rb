@@ -9,7 +9,7 @@ def menu
   puts "Buy Stock for a Client"
   puts "Move Stock between a Client's Portfolios"
   puts "Check a Stock Price"
-  puts "Quit"
+  puts "Q: Quit"
   print "\n| "
 
   # IF TIME, ADD OPTION FOR INFO FOR ALL PORTFOLIOS

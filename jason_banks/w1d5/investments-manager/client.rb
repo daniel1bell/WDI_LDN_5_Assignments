@@ -9,6 +9,7 @@ class Client
     @portfolios = {}
   end
 
+
   def to_s
     puts "Client: #{name}"
     puts "  Phone: #{phone}"
