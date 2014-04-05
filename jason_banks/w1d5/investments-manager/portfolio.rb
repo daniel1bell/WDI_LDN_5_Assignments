@@ -1,4 +1,4 @@
-class Portfolio
+class Portfolio < YahooFinance
 
   attr_accessor :client_name, :type, :stocks
   attr_reader :balance
