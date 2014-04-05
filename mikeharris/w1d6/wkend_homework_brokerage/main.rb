@@ -9,19 +9,17 @@ require_relative 'stock'
 require_relative 'saved_stock_data'
 require_relative 'menu'
 
-data_setting = true
+$data_setting = true
 
-stock_tickers = ["AAIT","AAl" ,"AAME"]
-
-
+stock_tickers = ["AAIT","AAL","AAME"]
 
 b = Brokerage.new('NYSE')
+c1 = Client.new("Mike", "100000")
+
+b.add_client(c1)
 
 b.update_availiable_stocks(stock_tickers)
 b.update_stock_data
-
-
-
 
 response = menu.downcase
 
@@ -30,13 +28,16 @@ while response != "q"
   when "1" 
     b.list_stock_prices
   when "2" 
-    
+    b.update_stock_data
   when "3"
-    
+    b.list_clients
   when "4"
   
   when "s"
-    data_setting = settings(data_setting)
+    settings
+    b.update_availiable_stocks(stock_tickers)
+    b.update_stock_data
+
   else 
     puts "Invlalid entry try again - hit enter to continue"
     
