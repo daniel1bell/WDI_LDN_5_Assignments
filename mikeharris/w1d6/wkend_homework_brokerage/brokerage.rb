@@ -38,8 +38,9 @@ class Brokerage
   end
 
   def list_clients
-    puts "\nCurrent Clients:"
+    puts "\nCurrent Clients:".underline
     puts clients.keys.join("\n") 
+    puts
   end
 
   def show_stock(ticker)
@@ -78,13 +79,14 @@ class Brokerage
       current_value = trade_obj.nos_shares * current_price
       net_worth += current_value
       profit_loss = (current_price - trade_obj.trade_level) * trade_obj.nos_shares
-      output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  << spacer(trade_obj.trade_level,col_width) << "| "<<spacer(current_price, col_width)
-      output << spacer(current_value, col_width)
+      output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  
+      output << spacer(trade_obj.trade_level,col_width) << "| "<<spacer(current_price, col_width)
+      output << spacer(current_value.round(2), col_width)
 
       if profit_loss < 0 
-        output << spacer(profit_loss,col_width).colorize(:red)
+        output << spacer(profit_loss.round(2),col_width).colorize(:red)
       else 
-        output << spacer(profit_loss, col_width).colorize(:green)
+        output << spacer(profit_loss.round(2), col_width).colorize(:green)
       end
       
       if i == client_portfolio.length
@@ -96,8 +98,8 @@ class Brokerage
     cash =  spacer("Total", col_width * 4 + 2)
     cash << spacer("#{net_worth.round(0)}" , col_width * 2)
     puts cash.underline
-    puts"\nYou also have £#{client.show_money.round(2)} in cash giving you a total net worth of £#{(client.show_money + net_worth).round(2)} "
-    pause
+    puts"\nYou also have £#{client.show_money.round(2)} in cash giving you a total net worth of £#{(client.show_money + net_worth).round(2)} \n\n"
+    
   end
 
 end

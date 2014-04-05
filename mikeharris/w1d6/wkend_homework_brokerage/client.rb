@@ -17,7 +17,7 @@ class Client
     @portfolio
   end
 
- def buy_stock(stock_ticker, stock_price, nos_shares)
+  def buy_stock(stock_ticker, stock_price, nos_shares)
     if portfolio[stock_ticker]        
         portfolio[stock_ticker].buy_more_shares(stock_price, nos_shares)       
     else
@@ -26,6 +26,11 @@ class Client
     end
     
     @money = @money - stock_price * nos_shares
+  end
+
+  def sell_stock(stock_ticker, stock_price, nos_shares)
+    portfolio[stock_ticker].sell_shares(nos_shares)
+    @money = @money + stock_price * nos_shares
   end
 
     

@@ -20,10 +20,17 @@ def menu
 
 end
 
+def client_menu
+  puts "1 : Show and value portfoliio"
+  puts "2 : Buy a stock"
+  puts "3 : Sell a stock"
+  puts "\nq : Log out"
+  print '---> '
+  gets.chomp
+end
 
 def settings
 #sets whether using internet data or not.
-
   if $data_setting 
     puts "Currently using data from the internet"
   else
@@ -48,6 +55,7 @@ end
 
 
 def spacer(value, col_width)
+  #formats columns to fixed widths
   value = value.to_s
   space = ""
   (col_width - value.size).times { space << " "}
@@ -86,6 +94,32 @@ def buy_stock(b, client_name)
   end
 end
 
+def sell_stock(b, client_name)
+  client = b.clients[client_name]
+  b.list_client_portfolio(client_name)
+  puts "Which stock would you like to sell? Please type in the ticker"
+  stock = gets.chomp.upcase
+  if client.list_portfolio[stock]
+    puts "You can sell up to #{client.list_portfolio[stock].nos_shares} shares. How many would you like to sell?"
+    amount_to_sell = gets.chomp.to_i 
+    while amount_to_sell < 0 || amount_to_sell > client.list_portfolio[stock].nos_shares
+      puts "Sorry - please put in a number between 0 and #{client.list_portfolio[stock].nos_shares} "
+       amount_to_sell = gets.chomp.to_i 
+    end
+    current_price = b.stocks[stock][:@lastTrade]
+    client.sell_stock(stock, current_price, amount_to_sell)
+    if client.portfolio[stock].nos_shares == 0
+      client.portfolio.delete(stock)
+    end
+    puts "You sold the #{amount_to_sell} shares."
+    b.list_client_portfolio(client_name)
+
+  else 
+    puts "You don't own #{stock}"
+  end
+end
+
+
 def create_client(b)
   puts "What's the new clients name?"
   client_name = gets.chomp.to_s
@@ -100,7 +134,6 @@ def create_client(b)
   puts "Log in to see portfolios and money"
 
   b.list_clients
-
 end
 
 def log_on(b)
@@ -110,7 +143,7 @@ def log_on(b)
   user_name = gets.chomp
 
   if b.clients[user_name]
-    puts "#{user_name} you are now logged in. What would you like to do?"
+    puts "\n#{user_name} you are now logged in. What would you like to do?"
 
     client_response = client_menu
 
@@ -118,11 +151,12 @@ def log_on(b)
       case client_response
       when "1"
         b.list_client_portfolio(user_name)
+        pause
       when "2"  
         buy_stock(b, user_name)
         b.list_client_portfolio(user_name)
       when "3"
-        #sell a stock
+        sell_stock(b, user_name)
       else
         puts "That's not an option"
       end
@@ -140,14 +174,7 @@ def log_on(b)
  end
 
 
- def client_menu
-  puts "1 : Show and value portfoliio"
-  puts "2 : Buy a stock"
-  puts "3 : Sell a stock"
-  puts "\nq : Log out"
-  print '---> '
-  gets.chomp
-end
+ 
 
 def pause
    print "\nHit Enter to continue"

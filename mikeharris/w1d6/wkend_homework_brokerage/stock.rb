@@ -14,6 +14,10 @@ class Trade
     @nos_shares = @nos_shares - nos_shares
   end
 
+  def sell_shares(nos_shares)
+    @nos_shares = @nos_shares - nos_shares
+  end
+
   def update_current_price(current_price)
     @current_price = current_price
   end
