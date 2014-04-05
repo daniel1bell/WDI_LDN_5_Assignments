@@ -12,7 +12,9 @@ def menu
   puts "1 : List Stocks on the Brokerage"
   puts "2 : Update stock prices"
   puts "3 : List Clients"
-  puts "4 : Log on as a Client"
+  puts "4 : Add a CLient"
+  puts "5 : See a Clients Portfolio"
+  puts "6 : Log on as a Client to trade"
   puts "s : Settings"
   puts "q : Quit"
 

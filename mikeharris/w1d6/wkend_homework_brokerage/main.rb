@@ -32,7 +32,11 @@ while response != "q"
   when "3"
     b.list_clients
   when "4"
-  
+    create_client(b)
+  when "5"
+    list_portfolio(b)
+  when "6"
+    log_on(b)
   when "s"
     settings
     b.update_availiable_stocks(stock_tickers)
