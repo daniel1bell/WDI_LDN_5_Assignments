@@ -51,10 +51,11 @@ def abandon_pet(shelter)
     shelter.clients.fetch("#{nasty_client}").pets.each {|name, values| puts values}
     puts "\nWhich pet would they like to abandon to the shelter?"
     poor_pet = gets.chomp
-    
-    pet = shelter.clients.fetch("#{nasty_client}").pets.delete("#{poor_pet}")
 
     if shelter.clients.fetch("#{nasty_client}").pets.has_key?("#{poor_pet}")
+      
+      pet = shelter.clients.fetch("#{nasty_client}").pets.delete("#{poor_pet}")
+
       shelter.animals[pet.name] = pet
       puts "Thank you. We've received #{poor_pet} to the shelter and it is now listed with the available pets."
       puts

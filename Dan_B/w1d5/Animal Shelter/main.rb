@@ -22,7 +22,7 @@ p3 = Person.new('Harry',978340)
 p4 = Person.new('Donny',871213)
 
 
-available_pets = [a3, a4, a5]
+available_pets = [a4, a5]
 available_pets.each {|pet| s.animals[pet.name] = pet }
 
 s_prospects = [p1, p2, p3, p4]
