@@ -61,37 +61,43 @@ class Brokerage
   end
 
 
-def list_client_portfolio(client_name)
-  
-  client = clients[client_name]
-  client_portfolio = client.list_portfolio
-  col_width = 15
-  puts "\n#{client_name} here's the stocks you currently own:"
-  title =  spacer("Stock", col_width) << spacer("Nos Shares",col_width) << spacer("Avg Price",col_width) << "* " << spacer("Latest Price",col_width) <<  spacer("PnL",col_width)
-  puts title.underline
-  i = 0
+  def list_client_portfolio(client_name)
+    client = clients[client_name]
+    client_portfolio = client.list_portfolio
+    col_width = 15
+    puts "\n#{client_name} here's the stocks you currently own:"
+    title =  spacer("Stock", col_width) << spacer("Nos Shares",col_width) << spacer("Avg Price",col_width) << "| " << spacer("Latest Price",col_width) <<  spacer("Total Value",col_width) << spacer("PnL",col_width)
 
-  client_portfolio.each_pair do |stock_name, trade_obj|
-    i += 1
-    output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  << spacer(trade_obj.trade_level,col_width) << "* "
-     if i == client_portfolio.length
-      puts output.underline
-    else
-      puts output
+    puts title.underline
+    i = 0
+    net_worth = 0
+
+    client_portfolio.each_pair do |stock_name, trade_obj|
+      i += 1
+      current_price = stocks[stock_name][:@lastTrade]
+      current_value = trade_obj.nos_shares * current_price
+      net_worth += current_value
+      profit_loss = (current_price - trade_obj.trade_level) * trade_obj.nos_shares
+      output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  << spacer(trade_obj.trade_level,col_width) << "| "<<spacer(current_price, col_width)
+      output << spacer(current_value, col_width)
+
+      if profit_loss < 0 
+        output << spacer(profit_loss,col_width).colorize(:red)
+      else 
+        output << spacer(profit_loss, col_width).colorize(:green)
+      end
+      
+      if i == client_portfolio.length
+        puts output.underline
+      else
+        puts output
+      end
     end 
-
-  end 
-  
- 
-
-  pause
-
-
-
-
-end
-
-
-
+    cash =  spacer("Total", col_width * 4 + 2)
+    cash << spacer("#{net_worth.round(0)}" , col_width * 2)
+    puts cash.underline
+    puts"\nYou also have £#{client.show_money.round(2)} in cash giving you a total net worth of £#{(client.show_money + net_worth).round(2)} "
+    pause
+  end
 
 end

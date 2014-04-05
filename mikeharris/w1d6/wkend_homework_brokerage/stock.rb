@@ -11,10 +11,10 @@ class Trade
 
   def buy_more_shares(trade_level, nos_shares)
     @trade_level = (@trade_level * @nos_shares + trade_level * nos_shares) / (@nos_shares + nos_shares)
-    @nos_shares = @nos_shares - @nos_shares
+    @nos_shares = @nos_shares - nos_shares
   end
 
-  def value_trade_at_current_price(current_price)
+  def update_current_price(current_price)
     @current_price = current_price
   end
 

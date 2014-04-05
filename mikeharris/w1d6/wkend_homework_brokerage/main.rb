@@ -11,13 +11,13 @@ require_relative 'menu'
 
 $data_setting = false
 
-stock_tickers = ["AAIT","AAL","AAME"]
+stock_tickers = ["AAIT","AAL","AAME","ACFN", "ACTS", "GOOG"]
 
 b = Brokerage.new('NYSE')
 c1 = Client.new("Mike", "100000")
 
 c1.buy_stock("AAL", 30, 100)
-c1.buy_stock("AAME", 1, 90)
+c1.buy_stock("AAME", 600, 90)
 
 b.add_client(c1)
 
@@ -33,26 +33,20 @@ while response != "q"
   when "1" 
     b.list_stock_prices
     pause
-  when "2" 
-    b.update_stock_data
-  when "3"
-    b.list_clients
+  when "2"
+    log_on(b)
     pause
-  when "4"
+  when "3"
     b.list_clients
     create_client(b)
     pause
-  when "5"
-    list_portfolio(b)
-  when "6"
-    log_on(b)
   when "s"
     settings
     b.update_availiable_stocks(stock_tickers)
     b.update_stock_data
-
   else 
     puts "Invlalid entry try again"
+    pause
     
   end 
     

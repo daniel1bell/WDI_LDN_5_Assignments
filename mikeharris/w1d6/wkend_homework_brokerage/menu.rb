@@ -1,6 +1,6 @@
 def menu
   puts `clear`
-  puts "*** Mike's Brokerage House ***"
+  puts "*** Mike's Brokerage Exchange ***"
   puts "\n\n"
   print "Curently "
   print !$data_setting ? "not " : ""
@@ -9,13 +9,10 @@ def menu
 
   puts "\n\n"
 
-  puts "1 : List Stocks on the Brokerage"
-  puts "2 : Update stock prices"
-  puts "3 : List Clients"
-  puts "4 : Add a CLient"
-  puts "5 : See a Clients Portfolio"
-  puts "6 : Log on as a Client to trade"
-  puts "s : Settings"
+  puts "1 : List stocks on the exchange"
+  puts "2 : Log on as a client to view portfolio and trade"
+  puts "3 : Add a CLient"
+  puts "\ns : Settings"
   puts "q : Quit"
 
   print '---> '
@@ -45,7 +42,7 @@ def settings
   end
   
   puts $data_setting ? "Using internet data" : "Using local data"
-
+  print "Please wait while we update prices."
 
 end
 
@@ -87,11 +84,7 @@ def buy_stock(b, client_name)
   else
     puts "No such stock"
   end
-
-
 end
-
-
 
 def create_client(b)
   puts "What's the new clients name?"
@@ -151,7 +144,7 @@ def log_on(b)
   puts "1 : Show and value portfoliio"
   puts "2 : Buy a stock"
   puts "3 : Sell a stock"
-  puts "q : Quit - log out"
+  puts "\nq : Log out"
   print '---> '
   gets.chomp
 end
