@@ -64,29 +64,31 @@ end
 
 
 
-s1 = Stock.new("APPL", 30) # for Miranda
+s1 = Stock.new("AAPL", 30) # for Miranda
 s2 = Stock.new("GOOG", 89) # for Miranda
 s3 = Stock.new("FB", 17) # for Chandler
 s4 = Stock.new("BAC", 120) # for Jack
 s5 = Stock.new("F", 953) # for Jack
-s6 = Stock.new("RAD", 817) # for Leslie 
+s6 = Stock.new("RAD", 817) # for Leslie
+s7 = Stock.new("BAC", 487) # for Miranda 
 
 p1 = Portfolio.new(:Tech) # for Miranda
 p2 = Portfolio.new(:Tech) # for Chandler
 p3 = Portfolio.new(:Finance) # for Jack
 p4 = Portfolio.new(:Auto) # for Jack
 p5 = Portfolio.new(:FMCG) # for Leslie
+p6 = Portfolio.new(:Finance) # for Miranda
 
-c1 = Client.new("Miranda", 1111, 20_000)
-c2 = Client.new("Chandler", 2222, 36_000)
-c3 = Client.new("Jack", 3333, 8_500)
-c4 = Client.new("Leslie", 4444, 19_858)
+c1 = Client.new("Miranda", 1111, 120_000)
+c2 = Client.new("Chandler", 2222, 136_000)
+c3 = Client.new("Jack", 3333, 208_500)
+c4 = Client.new("Leslie", 4444, 109_858)
 
 m = Management.new
 
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
 
-c1.portfolios[p1.type] = p1
+[p1, p6].each { |portfolio| c1.portfolios[portfolio.type] = portfolio }
 c2.portfolios[p2.type] = p2
 [p3, p4].each { |portfolio| c3.portfolios[portfolio.type] = portfolio }
 c4.portfolios[p5.type] = p5
@@ -96,6 +98,7 @@ p2.stocks[s3.stock_symbol] = s3
 p3.stocks[s4.stock_symbol] = s4
 p4.stocks[s5.stock_symbol] = s5
 p5.stocks[s6.stock_symbol] = s6
+p6.stocks[s7.stock_symbol] = s7
 
 response = menu
 
@@ -114,7 +117,7 @@ while response != "q"
   else
     puts "Invalid choice."
   end
-  puts "\nPress enter to continue."
+  print "\nPress enter to continue. "
   gets
 
   response = menu
