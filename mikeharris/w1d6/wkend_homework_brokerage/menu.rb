@@ -151,20 +151,6 @@ def spacer(value, col_width)
   value += space 
 end
 
-def rolling_ticker
-  string_to_roll = "Hello"
-  col_with = 20
-  space = ""
-  while i < col_width 
-    puts `clear`
-    output = space << string_to_roll
-    print output
-    space << " "
-    sleep(1)
-  end
-
-end
-
 
 
 def working 

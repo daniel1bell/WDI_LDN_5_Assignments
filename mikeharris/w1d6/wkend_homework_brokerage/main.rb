@@ -55,6 +55,7 @@ while response != "q"
     settings
     b.update_availiable_stocks(stock_tickers)
     b.update_stock_data
+    puts "\nStock prices updated"
 
   else 
     puts "Invlalid entry try again" 
