@@ -12,9 +12,9 @@ require_relative 'menu'
 # setup initial data
 b = Firm.new('B Firm')
 
-c1 = Client.new('Leo DeCaprio', 100000)
-c2 = Client.new('Emma Watson', 8000)
-c3 = Client.new('Jennifer Aniston', 5800)
+c1 = Client.new('Harry', 100000)
+c2 = Client.new('Hermione', 8000)
+c3 = Client.new('Ron', 5800)
 
 [c1,c2,c3].each do |client|
   b.clients[client.name] = client
@@ -80,7 +80,7 @@ while response != "q"
      puts b.list_client_info
 
     when '6' 
-     # List all stocks in a client's portfolio   
+     # MAKE EDITS List all stocks in a client's portfolio   
      puts b.list_stocks_in_a_portfolio
    
     when '7'    

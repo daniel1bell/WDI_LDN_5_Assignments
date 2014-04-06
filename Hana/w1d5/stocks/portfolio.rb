@@ -13,10 +13,11 @@ class Portfolio
     if stocks.empty?
       "#{name} contains no stocks."
     else
-      "#{name}: contains #"
+      "Your stocks in #{name} Portfolio: \n#{stocks.values.join("\n")}"
 
-      binding.pry
+
    
     end
+
   end
 end
