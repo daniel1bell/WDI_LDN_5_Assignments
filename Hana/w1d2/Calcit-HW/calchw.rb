@@ -1,3 +1,5 @@
+
+
 # Function definitions first
 def menu
   # Clear the screen, and present the user with a menu
@@ -137,6 +139,8 @@ def trip
  print "Speed (mi/hr):"
  speed = gets.chomp.to_f
  
+
+
  time = sprintf "%.2f", distance / speed
  cost = sprintf "%.2f", distance * price / efficiency
 

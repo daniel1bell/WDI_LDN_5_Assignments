@@ -1,3 +1,5 @@
+require 'pry'
+
 # Function definitions first
 def menu
   # Clear the screen, and present the user with a menu
@@ -128,7 +130,7 @@ end
 
     puts "how much does gas cost per gallon?"
     cost_per_gallon = gets.chomp.to_f
-
+    binding.pry
 
     time = miles / speed
     cost = miles / miles_per_gallon * cost_per_gallon
