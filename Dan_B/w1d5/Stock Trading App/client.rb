@@ -15,9 +15,9 @@ attr_accessor :name, :cash, :portfolios, :password, :stock_value, :balance
 
   def to_s
     if portfolios.empty?
-      "#{name}:\t Cash Balance:   $#{cash}\n(#{name} currently has no portfolios.)\n\n"
+      "#{name}:\t Cash Balance:   $#{cash.round(2)}\n(#{name} currently has no portfolios.)\n\n"
     else
-      "\n#{name}:\t Cash Balance:   $#{cash}\n\n"
+      "\n#{name}:\t Cash Balance:   $#{cash.round(2)}\n\n"
     end
   end
 

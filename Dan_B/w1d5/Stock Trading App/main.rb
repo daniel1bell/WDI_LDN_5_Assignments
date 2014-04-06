@@ -7,10 +7,10 @@ require_relative 'client'
 require_relative 'portfolio'
 require_relative 'stock'
 
-s1 = Stock.new("FB", 10, "Facebook", 350.5)
-s2 = Stock.new("AAPL", 12, "Apple", 500)
-s3 = Stock.new("ADSK", 50, "AutoDesk", 50)
-s4 = Stock.new("MSG", 50, "Madison Square Gardens", 57.44)
+s1 = Stock.new("FB", 150, "Facebook, Inc.", 16.3)
+s2 = Stock.new("AAPL", 12, "Apple Inc.", 500.2)
+s3 = Stock.new("ADSK", 50, "Autodesk, Inc.", 50)
+s4 = Stock.new("MSG", 50, "The Madison Squar", 68.2)
 
 p1 = Portfolio.new("Dan p1")
   p1.stocks[s1.name] = s1
@@ -20,10 +20,10 @@ p3 = Portfolio.new("Paul p1")
   p3.stocks[s2.name] = s2
   p3.stocks[s4.name] = s4
 
-c1 = Client.new("Dan", 10000.0, "hello")
+c1 = Client.new("Dan", 10000.0, "please")
   c1.portfolios[p1.name] = p1
   c1.portfolios[p2.name] = p2
-c2 = Client.new("Paul", 15000.0, "hello")
+c2 = Client.new("Paul", 15000.0, "please")
   c2.portfolios[p3.name] = p3
 
 b = Brokerage.new("SuperStock")
@@ -56,4 +56,4 @@ gets
 end
 
 
-binding.pry
+# binding.pry

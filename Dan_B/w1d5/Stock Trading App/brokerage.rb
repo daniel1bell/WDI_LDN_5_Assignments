@@ -16,7 +16,8 @@ attr_accessor :name, :clients
   end
 
   def list_client(name)
-    print clients.values_at(name)
+    puts
+    puts clients.fetch(name).portfolios.values.join("\n")
   end
 
 end

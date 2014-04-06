@@ -11,7 +11,7 @@ attr_reader :value
   end
 
   def to_s
-    "#{code}:\t#{name}\t#{number_stocks} shares @ $#{stock_price} = $#{value}"
+    "#{code}:\t#{name}\t\t-> #{number_stocks} shares @ $#{stock_price} = $#{value}"
   end
 
 end
