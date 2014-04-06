@@ -6,3 +6,13 @@ class Firm
        @name = name
        @clients = {}
   end
+
+  def list_client_info
+    if clients.any?
+      clients.values.join("\n")
+    else
+      "You have no clients. Go get some!"
+    end
+  end
+
+end

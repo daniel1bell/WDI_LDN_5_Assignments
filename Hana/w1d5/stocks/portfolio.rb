@@ -6,3 +6,4 @@ class Portfolio
    @name = name
    @stocks = {}  
   end
+end
