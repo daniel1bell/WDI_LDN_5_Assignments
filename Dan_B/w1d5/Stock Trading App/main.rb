@@ -12,19 +12,19 @@ s2 = Stock.new("AAPL", 12, "Apple", 500)
 s3 = Stock.new("ADSK", 50, "AutoDesk", 50)
 s4 = Stock.new("MSG", 50, "Madison Square Gardens", 57.44)
 
-p1 = Portfolio.new("Dan: 1")
+p1 = Portfolio.new("Dan p1")
   p1.stocks[s1.name] = s1
   p1.stocks[s3.name] = s3
-p2 = Portfolio.new("Dan: 2")
-p3 = Portfolio.new("Paul: 1")
+p2 = Portfolio.new("Dan p2")
+p3 = Portfolio.new("Paul p1")
   p3.stocks[s2.name] = s2
   p3.stocks[s4.name] = s4
 
-c1 = Client.new("Dan", 10000.0)
+c1 = Client.new("Dan", 10000.0, "hello")
   c1.portfolios[p1.name] = p1
-  c1.portfolios[p2.name] = p1
-c2 = Client.new("Paul", 15000.0)
-  c2.portfolios[p3.name] = p1
+  c1.portfolios[p2.name] = p2
+c2 = Client.new("Paul", 15000.0, "hello")
+  c2.portfolios[p3.name] = p3
 
 b = Brokerage.new("SuperStock")
 
@@ -36,18 +36,16 @@ while response != "q"
 
   case response
   when "1"
-    b.view_client
+    view_client(b)
   when "2"
-    b.view_portfolio
+    stockcheck
   when "3"
-    b.check_stock
-  when "4"
     add_client(b)
-  when "5"
+  when "4"
     add_portfolio(b)
-  when "6"
+  when "5"
     buy_stock(b)
-  when "7"
+  when "6"
     sell_stock(b)
   else
     print "Invalid menu choice. Please try again."
@@ -56,5 +54,6 @@ puts "\nPress enter to continue."
 gets
   response=menu
 end
+
 
 binding.pry

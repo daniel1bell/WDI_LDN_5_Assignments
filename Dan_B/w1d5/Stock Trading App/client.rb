@@ -1,26 +1,38 @@
 class Client
-attr_accessor :name, :cash, :portfolios, :password
+attr_accessor :name, :cash, :portfolios, :password, :stock_value, :balance
 
-  def initialize(name, cash)
+  def initialize(name, cash, password)
     @name = name
     @cash = cash
-    @portfolios = {}
-    # @stock_value = portfolios.values_at(value).inject{|sum,x| sum + x}
-    # @balance = stock_value+cash
     @password = password
+    @portfolios = {}
+    @stock_value = stock_value
+    @balance = balance
   end
+
+  # stock_value = portfolios.each{|name, values| values.inject{|sum,x| sum + x}}
+  # balance = stock_value+cash
 
   def to_s
     if portfolios.empty?
-      "#{name}:\t Cash Balance:   $#{cash}\n\t#{name} currently has no portfolios"
+      "#{name}:\t Cash Balance:   $#{cash}\n(#{name} currently has no portfolios.)\n\n"
     else
-      "#{name}:\t Cash Balance:   $#{cash}\n\n\t#{name} currently has the following portfolios:\n\t#{portfolios.each {|x,y| puts y.to_s}}"
+      "\n#{name}:\t Cash Balance:   $#{cash}\n\n"
     end
   end
 
-  def check_password(submit_pass)
-    unless submit_pass == password
-       puts "Ah ah ah, you didn't say the magic word!"
+  def check_password(client)
+    puts "\nClient: what is your super secure password?"
+    submit_pass = gets.chomp
+    unless submit_pass == client.password
+       print "\nAh ah ah, you didn't say the magic word!"
+       gets
+       print "\nAh ah ah, you didn't say the magic word!"
+       gets
+       print "\nAh ah ah, you didn't say the magic word!"
+       gets
+       puts `clear`
+       Kernel.exit(false)
     end 
   end
 

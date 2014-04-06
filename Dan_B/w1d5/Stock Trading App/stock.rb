@@ -1,6 +1,6 @@
 class Stock
-attr_accessor :code, :number_stocks
-attr_reader :name, :stock_price, :value
+attr_accessor :code, :number_stocks, :name, :stock_price
+attr_reader :value
 
   def initialize(code, number_stocks, name, stock_price)
     @code = code

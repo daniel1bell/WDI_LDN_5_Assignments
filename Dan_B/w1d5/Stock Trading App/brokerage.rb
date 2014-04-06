@@ -7,21 +7,16 @@ attr_accessor :name, :clients
     # @balance = clients.values_at(stock_value).inject{|sum,x| sum + x}
   end
 
-  def view_client
-    if !clients.empty?
-      puts "#{clients.each {|x, y|  print y.to_s}}"
-    else
-      puts "There are currently no clients. Please add a client and try again."
+  def list_clients
+    unless clients.empty?
+      clients.each do |keys, values|
+        print values
+      end
     end
   end
 
-  def add_client
-    print "What is the client name? "
-    client_name = gets.chomp.capitalize
-    print "What is the portfolio name?"
-    portfolio_name = get.chomp.capitalize
-
-
+  def list_client(name)
+    print clients.values_at(name)
   end
 
 end
