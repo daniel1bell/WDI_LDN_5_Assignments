@@ -37,21 +37,32 @@ def is_a_number(s)
     s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
   end
 
-  def number_get_and_confirm(x)
-    while !is_a_number(x)
-      if x.include?(".")
-        print "Please only enter digits: $"
-      else
-        print "Please only enter digits: "
-      end
-      x = gets.chomp
-    end
+def number_get_and_confirm(x)
+  while !is_a_number(x)
     if x.include?(".")
-      x.to_f
+      print "Please only enter digits: $"
     else
-      x.to_i
+      print "Please only enter digits: "
     end
+    x = gets.chomp
   end
+  if x.include?(".")
+    x.to_f
+  else
+    x.to_i
+  end
+end
+
+def confirm_units(units)
+  while !is_a_number(units) || units.include?(".") || number_get_and_confirm(units) < 0
+    print "\nInvalid entry. Units should be a positive whole number: "
+    units = gets.chomp
+  end
+  units = number_get_and_confirm(units)
+  units
+end
+
+
 
 s1 = Stock.new("APPL", 30) # for Miranda
 s2 = Stock.new("GOOG", 89) # for Miranda
@@ -86,8 +97,6 @@ p3.stocks[s4.stock_symbol] = s4
 p4.stocks[s5.stock_symbol] = s5
 p5.stocks[s6.stock_symbol] = s6
 
-
-
 response = menu
 
 while response != "q"
@@ -99,12 +108,8 @@ while response != "q"
   when "3"
     puts m.buy_stock
   when "4"
-    puts
+    puts m.sell_stock
   when "5"
-    puts
-  when "6"
-    puts
-  when "7"
     check_stock_price
   else
     puts "Invalid choice."

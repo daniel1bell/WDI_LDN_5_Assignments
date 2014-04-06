@@ -32,16 +32,9 @@ class Stock
     @current_investment = current_stock_price * units
   end
 
-  def buy_more_units
-    puts "\nCurrent units: #{units}."
-    puts "Current investment: #{current_investment}."
-    print "Additional units to purchase: "
-    response = gets.chomp
-    while !is_a_number(response) || response.include?(".") || number_get_and_confirm(response) < 0
-      print "\nInvalid entry. Units should be a positive whole number: "
-      response = gets.chomp
-    end
-    units += number_get_and_confirm(response)
+  def buy_more_units(additional_units)
+    units += additional_units
+    puts "\n#{additional_units} of #{stock_symbol} have been purchased."
   end
 
 

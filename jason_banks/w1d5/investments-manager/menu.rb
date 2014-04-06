@@ -7,7 +7,6 @@ def menu
   puts "2. Add a Client"
   puts "3. Buy Stock for a Client"
   puts "4. Sell Stock for a Client"
-  # puts "Move Stock between a Client's Portfolios"
   puts "5. Check a Stock Price"
   puts "Q: Quit"
   print "\n| "

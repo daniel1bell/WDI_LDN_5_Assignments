@@ -95,7 +95,7 @@ class Management
     if portfolio_type == :New
       create_portfolio
     else
-      portfolio = client.portfolios[portfolio_type]
+      client.portfolios[portfolio_type]
     end
   end
 
@@ -108,28 +108,18 @@ class Management
       puts "#{client_name}'s investment in #{stock.name} is $#{sprintf("%.2f", stock.get_current_investment)}."
       puts "\nIf you entered #{stock_symbol} in error, please enter the correct stock symbol, otherwise enter \"more\" to purchase additional units of #{stock_symbol}: "
       stock_symbol = gets.chomp.upcase
+      if portfolio.keys.include?(stock_symbol)
+        stock_symbol_original = stock_symbol
+      end
     end
-
     if stock_symbol == "MORE"
-      portfolio[stock_symbol_original].buy_more_units
+      stock_symbol_original
     else
-      print "\nEnter number of units of #{stock_symbol} to purchase: "
-      units = gets.chomp
-      while !is_a_number(units) || units.include?(".") || number_get_and_confirm(units) < 0
-        print "\nInvalid entry. Units should be a positive whole number: "
-        units = gets.chomp
-      end
-      units = number_get_and_confirm(units)
-      if client.balance_check(stock_symbol, units)
-        portfolio[stock_symbol] = Stock.new(stock_symbol, units)
-      else
-        puts "\n#{client_name}'s account cannot afford to make this investment at this time."
-      end
-    end
-
-      
+      stock_symbol
     end
   end
+
+    
 
 
 
@@ -151,7 +141,31 @@ class Management
       portfolio = confirm_portfolio(client)
     end
       
-    stock = confirm_stock_symbol(portfolio)
+    stock_symbol = confirm_stock_symbol(portfolio)
+
+    if portfolio.keys.include?(stock_symbol)
+      stock = portfolio[stock_symbol]
+      puts "\nCurrent units: #{stock.units}"
+      puts "Current investment: #{stock.current_investment}"
+      print "Additional units to purchase: "
+      additional_units = confirm_units(gets.chomp)
+
+      if client.balance_check(stock_symbol_original, additional_units)
+        stock.buy_more_units (additional_units)
+      else
+        puts "\n#{client_name}'s account cannot afford to make this investment at this time."
+      end
+    else
+      print "\nEnter number of units of #{stock_symbol} to purchase: "
+      units = confirm_units(gets.chomp)
+
+      if client.balance_check(stock_symbol, units)
+        portfolio[stock_symbol] = Stock.new(stock_symbol, units)
+      else
+        puts "\n#{client_name}'s account cannot afford to make this investment at this time."
+      end
+    end
+  end
 
     if portfolio.keys.include?(stock_symbol)
       stock = portfolio[stock_symbol]
