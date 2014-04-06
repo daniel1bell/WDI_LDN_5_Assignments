@@ -56,6 +56,33 @@ class Management
     new_client.to_s
   end
 
+  def buy_stock
+    if clients.any?
+      print "\nEnter client name: "
+      client_name = gets.chomp
+      while !clients.keys.include?(client_name)
+        puts "\nInvalid entry.\nEnter client name: "
+        client_name = gets.chomp
+      end
+      print "\nEnter stock symbol: "
+      stock_symbol = gets.chomp.upcase
+      print "\nEnter number of units (whole numbers): "
+      units = gets.chomp
+      while is_a_number(units) && units.include?(".")
+        print "\nEnter number of units in whole numbers: "
+        units = gets.chomp
+      if clients[client_name].portfolios.empty?
+        print "\nEnter name of new portfolio: "
+        portfolio = gets.chomp.capitalize.to_sym
+      else
+        print "\nChoose portfolio (#{clients[client_name].portfolios.keys.join(", ")}) or name a new portfolio: "
+        portfolio = gets.chomp.capitalize.to_sym
+      end
+
+        
+
+
+
 
 
 

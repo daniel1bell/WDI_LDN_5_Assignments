@@ -5,6 +5,7 @@ require_relative "menu"
 require_relative "client"
 require_relative "portfolio"
 require_relative "management"
+require_relative "stock"
 
 
 def valediction
@@ -20,7 +21,7 @@ end
 
 def check_stock_price
   print "\nPlease enter the symbol for the stock: "
-  stock_symbol = gets.chomp
+  stock_symbol = gets.chomp.upcase
   stock = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol]
   stock_price = stock.lastTrade
   stock_name = stock.name
@@ -41,8 +42,8 @@ c4 = Client.new("Leslie", 4444, 19_858)
 
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
 
-tech1 = Portfolio.new(c1.name, :tech)
-tech2 = Portfolio.new(c2.name, :tech)
+p1 = Portfolio.new(c1.name, :Tech)
+p2 = Portfolio.new(c2.name, :Tech)
 
 tech1.buy_stock("APPL", 30) # Miranda
 tech2.buy_stock("GOOG", 89) # Miranda
