@@ -1,8 +1,8 @@
 require 'pry'
 
 class Portfolio
-  attr_accessor :name
-  attr_reader :stocks
+  attr_accessor :name, :stocks
+  attr_reader 
 
   def initialize(name)
    @name = name

@@ -73,7 +73,7 @@ while response != "q"
 
     when '4'    
      #sell stocks for a client 
-     #evict_tenant(b)
+      b.sell_stocks
 
     when '5'     
      puts b.list_client_info

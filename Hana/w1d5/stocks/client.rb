@@ -1,7 +1,7 @@
 
 class Client
-  attr_accessor :name
-  attr_reader :balance, :portfolio
+  attr_accessor :name, :balance, :portfolio
+  attr_reader  
 
   def initialize(name, balance)
     @name = name
