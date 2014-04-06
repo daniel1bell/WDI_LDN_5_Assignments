@@ -12,5 +12,4 @@ def initialize(name, age, sex, breed, favorite_toy) #add optional arguments
   @favorite_toy = favorite_toy
 end
 
-
 end

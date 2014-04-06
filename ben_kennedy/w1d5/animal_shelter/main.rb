@@ -28,8 +28,10 @@ a3 = Animal.new("Spike", 8, nil,  "Jack Russell", "squeeky toy")
 [a1, a2].each { |animal| s.animals[animal.name] = animal }
 
 p1 = Person.new("Chris", 26, "male")
+clients_table = [p1]
 p1.pets[a3.name] = a3
 s.clients[p1.name] = p1
+
 
 
 # binding.pry
@@ -48,6 +50,15 @@ while response != 'q'
 
     when "3"
       puts s.list_clients
+
+    when '4'
+      create_new_animal #todo
+
+    when '5'
+      create_new client # todo
+
+    when '6'
+      adopt_animal # to do
 
     else
       puts "invalid menue choice"
