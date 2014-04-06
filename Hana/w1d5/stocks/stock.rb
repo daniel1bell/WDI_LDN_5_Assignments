@@ -10,8 +10,8 @@ class Stock
   end
 
 def to_s
-  value = price * quantity
-  "#{name}: #{quantity} share(s) at $#{price}, Total Value = #{value}"
+  value = (price * quantity).round(2)
+  "#{name}: #{quantity} share(s) at $#{price}, Total Value = $#{value}"
 end
 
 end

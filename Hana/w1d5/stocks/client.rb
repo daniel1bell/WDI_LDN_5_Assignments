@@ -16,7 +16,8 @@ def to_s
 end
 
 def client_info
-  "Balance: #{balance} \nPortfolio(s) = #{portfolio.keys.join(", ")}"
+  "---------------------\n
+  Balance: $#{balance} \nPortfolio(s) = #{portfolio.keys.join(", ")}"
 end
 
 def create_portfolio

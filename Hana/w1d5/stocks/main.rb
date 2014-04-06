@@ -1,5 +1,6 @@
 require 'pry'
 require 'vine'
+require 'yahoofinance'
 
 # load files
 require_relative 'firm'
@@ -30,14 +31,14 @@ c2.portfolio[p2.name] = p2
 c3.portfolio[p3.name] = p3
 c3.portfolio[p4.name] = p4
 
-s1 = Stock.new('FSLR', 69.72, 2)
-s2 = Stock.new('MMM', 135.86, 1)
-s3 = Stock.new('ABT', 38.63, 2)
-s4 = Stock.new('ABBV', 52.20, 3)
-s5 = Stock.new('ACN', 78.14, 2)
-s6 = Stock.new('ACE', 98.39, 1)
-s7 = Stock.new('ACT', 201.31, 1)
-s8 = Stock.new('ADBE', 61.32, 3)
+s1 = Stock.new('FSLR', YahooFinance::get_standard_quotes('FSLR')['FSLR'].lastTrade, 2)
+s2 = Stock.new('MMM', YahooFinance::get_standard_quotes('MMM')['MMM'].lastTrade, 1)
+s3 = Stock.new('ABT', YahooFinance::get_standard_quotes('ABT')['ABT'].lastTrade, 2)
+s4 = Stock.new('ABBV', YahooFinance::get_standard_quotes('ABBV')['ABBV'].lastTrade, 3)
+s5 = Stock.new('ACN', YahooFinance::get_standard_quotes('ACN')['ACN'].lastTrade, 2)
+s6 = Stock.new('ACE', YahooFinance::get_standard_quotes('ACE')['ACE'].lastTrade, 1)
+s7 = Stock.new('ACT', YahooFinance::get_standard_quotes('ACT')['ACT'].lastTrade, 1)
+s8 = Stock.new('ADBE', YahooFinance::get_standard_quotes('ADBE')['ADBE'].lastTrade, 3)
 
 [s1,s2].each do |stock|
   p1.stocks[stock.name] = stock
@@ -64,12 +65,11 @@ while response != "q"
       add_client(b)
 
     when '2'
-      # Create a new portfolio
-      # puts b.list_prospects
+      add_portfolio(b)
 
     when '3'
       #Buy stocks for a client 
-      #let_flat(b)
+      b.buy_stocks
 
     when '4'    
      #sell stocks for a client 
@@ -83,8 +83,6 @@ while response != "q"
      puts b.list_stocks_in_a_portfolio
    
     when '7'    
-      #List all clients 
-      #create_prospect(b)
       b.list_clients
     else
       puts "invalid menu choice."

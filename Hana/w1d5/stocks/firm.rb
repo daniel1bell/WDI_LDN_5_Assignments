@@ -1,5 +1,5 @@
 require 'pry'
-require 'vine'
+require 'yahoofinance'
 class Firm
   attr_accessor :name
   attr_reader :clients
@@ -9,8 +9,21 @@ class Firm
        @clients = {}
   end
 
+  def buy_stocks
+    print "What stock would you like to buy?\n"
+    stock_name = gets.chomp.upcase!
+    print "How many shares would you like to buy?\n"
+    quantity_of_shares = gets.chomp
+
+
+    stock_price = YahooFinance::get_standard_quotes('stock_name')['stock_name'].lastTrade
+
+
+
+  end
+
   def list_client_info
-     print "Which client? \n"
+    print "Which client? \n"
     print "[#{clients.keys.join(", ")}]\n"
     chosen_client = gets.chomp
 

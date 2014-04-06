@@ -36,9 +36,9 @@ print "What is the new client's name?\n"
   end
 end
 
-def add_portfolio
+def add_portfolio(firm)
  print 'For which client? '
-  print "[#{clients.keys.join(", ")}]\n"
+  print "[#{firm.clients.keys.join(", ")}]\n"
   client_name = gets.chomp
   client = firm.clients[client_name]
 
@@ -57,4 +57,3 @@ def add_portfolio
       puts "#{portfolio_name} has been added as one of #{client}'s portfolios."
     end
   end
-end
