@@ -32,6 +32,7 @@ class Client
       if portfolios.keys.include?(stock_symbol)
         puts "#{stock_symbol}"
     end
+  end
 
 
 

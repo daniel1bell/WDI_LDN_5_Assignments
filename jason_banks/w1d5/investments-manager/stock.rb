@@ -1,5 +1,7 @@
 class Stock
 
+  attr_reader :stock_symbol, :units
+
   def initialize(stock_symbol, units)
     @stock_symbol = stock_symbol.upcase
     @stock = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol]
@@ -19,12 +21,17 @@ class Stock
   end
 
   def buy_stock(stock_symbol, units)
+  end
     
 
-  def check_stock
+  def get_current_stock_price
     @current_stock_price = stock.lastTrade
+  end
+
+  def get_current_investment
     @current_investment = @current_stock_price * @units
   end
+
 
 
 

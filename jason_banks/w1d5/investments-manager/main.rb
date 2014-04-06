@@ -42,11 +42,11 @@ c4 = Client.new("Leslie", 4444, 19_858)
 
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
 
-p1 = Portfolio.new(c1.name, :Tech)
-p2 = Portfolio.new(c2.name, :Tech)
+p1 = Portfolio.new(:Tech) # for Miranda
+p2 = Portfolio.new(:Tech) # for Chandler
 
-tech1.buy_stock("APPL", 30) # Miranda
-tech2.buy_stock("GOOG", 89) # Miranda
+tech1.buy_stock("APPL", 30) # for Miranda
+tech2.buy_stock("GOOG", 89) # for Miranda
 
 
 
