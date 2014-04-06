@@ -1,14 +1,13 @@
 class Client
 
   attr_accessor :name, :phone, :portfolios
-  attr_reader :opening_balance, :current_balance
+  attr_reader :opening_balance, :current_balance, :investments_balance
 
   def initialize(name, phone, opening_balance)
     @name = name
     @phone = phone
-    @portfolios = {}
     @opening_balance = opening_balance.to_f
-    @current_balance = @portfolios.values.investment.reduce { |sum, i| sum + i }
+    @portfolios = {}
   end
 
 
@@ -22,7 +21,15 @@ class Client
     puts "\n"
   end
 
-  def calculate_portfolio
+  def calculate_investments
+    @investments_balance = portfolios.each.portfolio_balance.reduce { |sum, n| sum + n }
+  end
+
+  def calculate_current_balance
+    @current_balance = investments_balance - opening_balance
+    if @current_balance < 0
+      @current_balance = 0
+    end
   end
 
   def buy_stock
@@ -34,6 +41,11 @@ class Client
     end
   end
 
+  def balance_check(stock_symbol, units)
+    stock_price = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol].lastTrade
+    proposal = stock_price * units
+    proposal > current_balance ? false : true
+  end
 
 
 

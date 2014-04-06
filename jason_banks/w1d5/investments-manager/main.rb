@@ -33,22 +33,58 @@ def check_stock_price
   end
 end
 
-m = Management.new
+def is_a_number(s)
+    s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+  end
+
+  def number_get_and_confirm(x)
+    while !is_a_number(x)
+      if x.include?(".")
+        print "Please only enter digits: $"
+      else
+        print "Please only enter digits: "
+      end
+      x = gets.chomp
+    end
+    if x.include?(".")
+      x.to_f
+    else
+      x.to_i
+    end
+  end
+
+s1 = Stock.new("APPL", 30) # for Miranda
+s2 = Stock.new("GOOG", 89) # for Miranda
+s3 = Stock.new("FB", 17) # for Chandler
+s4 = Stock.new("BAC", 120) # for Jack
+s5 = Stock.new("F", 953) # for Jack
+s6 = Stock.new("RAD", 817) # for Leslie 
+
+p1 = Portfolio.new(:Tech) # for Miranda
+p2 = Portfolio.new(:Tech) # for Chandler
+p3 = Portfolio.new(:Finance) # for Jack
+p4 = Portfolio.new(:Auto) # for Jack
+p5 = Portfolio.new(:FMCG) # for Leslie
 
 c1 = Client.new("Miranda", 1111, 20_000)
 c2 = Client.new("Chandler", 2222, 36_000)
 c3 = Client.new("Jack", 3333, 8_500)
 c4 = Client.new("Leslie", 4444, 19_858)
 
+m = Management.new
+
 [c1, c2, c3, c4].each { |client| m.clients[client.name] = client }
 
-p1 = Portfolio.new(:Tech) # for Miranda
-p2 = Portfolio.new(:Tech) # for Chandler
+c1.portfolios[p1.type] = p1
+c2.portfolios[p2.type] = p2
+[p3, p4].each { |portfolio| c3.portfolios[portfolio.type] = portfolio }
+c4.portfolios[p5.type] = p5
 
-tech1.buy_stock("APPL", 30) # for Miranda
-tech2.buy_stock("GOOG", 89) # for Miranda
-
-
+[s1, s2].each { |stock| p1.stocks[stock.stock_symbol] = stock }
+p2.stocks[s3.stock_symbol] = s3
+p3.stocks[s4.stock_symbol] = s4
+p4.stocks[s5.stock_symbol] = s5
+p5.stocks[s6.stock_symbol] = s6
 
 
 
@@ -61,7 +97,7 @@ while response != "q"
   when "2"
     m.add_client
   when "3"
-    puts
+    puts m.buy_stock
   when "4"
     puts
   when "5"

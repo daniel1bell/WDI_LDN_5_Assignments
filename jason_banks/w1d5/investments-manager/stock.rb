@@ -1,6 +1,6 @@
 class Stock
 
-  attr_reader :stock_symbol, :units
+  attr_reader :stock_symbol, :units, :investment, :current_investment, :current_stock_price
 
   def initialize(stock_symbol, units)
     @stock_symbol = stock_symbol.upcase
@@ -29,7 +29,19 @@ class Stock
   end
 
   def get_current_investment
-    @current_investment = @current_stock_price * @units
+    @current_investment = current_stock_price * units
+  end
+
+  def buy_more_units
+    puts "\nCurrent units: #{units}."
+    puts "Current investment: #{current_investment}."
+    print "Additional units to purchase: "
+    response = gets.chomp
+    while !is_a_number(response) || response.include?(".") || number_get_and_confirm(response) < 0
+      print "\nInvalid entry. Units should be a positive whole number: "
+      response = gets.chomp
+    end
+    units += number_get_and_confirm(response)
   end
 
 

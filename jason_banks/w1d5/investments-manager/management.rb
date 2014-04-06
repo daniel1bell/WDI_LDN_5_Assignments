@@ -16,25 +16,7 @@ class Management
     end
   end
 
-  def is_a_number(s)
-    s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
-  end
-
-  def number_get_and_confirm(x)
-    while !is_a_number(x)
-      if x.include?(".")
-        print "Please only enter digits: $"
-      else
-        print "Please only enter digits: "
-      end
-      x = gets.chomp
-    end
-    if x.include?(".")
-      x.to_f
-    else
-      x.to_i
-    end
-  end
+  
 
   
 
@@ -74,21 +56,9 @@ class Management
       end
       if client_name == "new"
         add_client
+      else
+        client = clients[client_name]
       end
-      client = clients[client_name]
-  end
-
-  def confirm_portfolio
-    print "\nChoose portfolio (#{client.portfolios.keys.join(", ")}): "
-    portfolio_type = gets.chomp.downcase.capitalize.to_sym
-    while !client.portfolios.keys.include?(portfolio_type)
-      print "\nInvalid choice.\nChoose a portfolio or enter \"new\" to create a portfolio: "
-      portfolio_type = gets.chomp.downcase.capitalize.to_sym
-    end
-
-    if portfolio_type == :New
-      create_portfolio
-    end
   end
 
   def create_portfolio(client=nil)
@@ -105,71 +75,100 @@ class Management
     if portfolio?
       portfolio_response = "\n#{client.key} already has a #{portfolio_type} portfolio."
       if portfolio.any?
-        portfolio_response << "It contains units of #{portfolio.stocks.keys.join(", ")}."
+        portfolio_response << "\n\n#{portfolio_type} portfolio: #{portfolio.stocks.keys.join(", ")}."
       end
       portfolio_response
     else
       client.portfolios[portfolio_type] = Portfolio.new(portfolio_type)
-      portfolio
     end
-
     buy_stock(client)
   end
   
+  def confirm_portfolio(client)
+    print "\nChoose portfolio (#{client.portfolios.keys.join(", ")}): "
+    portfolio_type = gets.chomp.downcase.capitalize.to_sym
+    while !client.portfolios.keys.include?(portfolio_type)
+      print "\nInvalid choice.\nChoose a portfolio or enter \"new\" to create a portfolio: "
+      portfolio_type = gets.chomp.downcase.capitalize.to_sym
+    end
 
-  def buy_stock(client=nil)
-
-    if !client
-      client_name = confirm_client
+    if portfolio_type == :New
+      create_portfolio
     else
-      print "\nUse an existing portfolio (y/n)? "
-      response = gets.chomp.downcase
-      while response != "y" || response != "n"
-        print "\nInvalid choice.\nse an existing portfolio (y/n)? "
-        response = gets.chomp.downcase
-      end
-      if response == "n"
-        create_portfolio
-      else
-        confirm_portfolio
-      
-      
+      portfolio = client.portfolios[portfolio_type]
+    end
+  end
 
+  def confirm_stock_symbol(portfolio)
+    print "\nEnter stock symbol: "
+    stock_symbol = gets.chomp.upcase
+    stock_symbol_original = stock_symbol
+    while portfolio.keys.include?(stock_symbol)
+      puts "\n#{client_name}'s #{portfolio_type} portfolio already includes #{stock.units} units of #{stock_symbol}."
+      puts "#{client_name}'s investment in #{stock.name} is $#{sprintf("%.2f", stock.get_current_investment)}."
+      puts "\nIf you entered #{stock_symbol} in error, please enter the correct stock symbol, otherwise enter \"more\" to purchase additional units of #{stock_symbol}: "
+      stock_symbol = gets.chomp.upcase
+    end
 
-
-        portfolio = client.portfolios[portfolio_type]
-        print "\nEnter stock symbol: "
-        stock_symbol = gets.chomp.upcase
-      
-
-
-
-
-      
-          
-    
-
-      
-
-      if portfolio? && portfolio.keys.include?(stock_symbol)
-        stock = portfolio[stock_symbol]
-        puts "\n#{client_name}'s #{portfolio_type} portfolio already includes #{stock.units} units of #{stock_symbol}."
-        puts "\n#{client_name}'s investment in #{stock.name} is $#{sprintf("%.2f", stock.get_current_investment)}."
-      elsif portfolio && !portfolio.keys.include?(stock_symbol)
-        portfolio.add_new_stock
-        
-
-        
-
-        client.portfolios.keys.include?(portfolio) && client.portfolios[portfolio].keys.include?(stock_symbol)
-        print "\n#{portfolio} already includes #{}"
-      print "\nEnter number of units to purchase (whole numbers): "
+    if stock_symbol == "MORE"
+      portfolio[stock_symbol_original].buy_more_units
+    else
+      print "\nEnter number of units of #{stock_symbol} to purchase: "
       units = gets.chomp
       while !is_a_number(units) || units.include?(".") || number_get_and_confirm(units) < 0
         print "\nInvalid entry. Units should be a positive whole number: "
         units = gets.chomp
       end
       units = number_get_and_confirm(units)
+      if client.balance_check(stock_symbol, units)
+        portfolio[stock_symbol] = Stock.new(stock_symbol, units)
+      else
+        puts "\n#{client_name}'s account cannot afford to make this investment at this time."
+      end
+    end
+
+      
+    end
+  end
+
+
+
+  def buy_stock(client=nil)
+
+    if !client
+      client = confirm_client
+    end
+
+    print "\nUse an existing portfolio (y/n)? "
+    response = gets.chomp.downcase
+    while response != "y" || response != "n"
+      print "\nInvalid choice.\nUse an existing portfolio (y/n)? "
+      response = gets.chomp.downcase
+    end
+    if response == "n"
+      create_portfolio(client)
+    else
+      portfolio = confirm_portfolio(client)
+    end
+      
+    stock = confirm_stock_symbol(portfolio)
+
+    if portfolio.keys.include?(stock_symbol)
+      stock = portfolio[stock_symbol]
+      
+    elsif portfolio && !portfolio.keys.include?(stock_symbol)
+      portfolio.add_new_stock
+      
+
+      
+
+      client.portfolios.keys.include?(portfolio) && client.portfolios[portfolio].keys.include?(stock_symbol)
+      print "\n#{portfolio} already includes #{}"
+    print "\nEnter number of units to purchase (whole numbers): "
+    units = gets.chomp
+    
+    units = number_get_and_confirm(units)
+  end
       
         
 

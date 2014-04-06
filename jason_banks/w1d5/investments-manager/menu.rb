@@ -3,12 +3,12 @@ def menu
   puts "*** SuperTrustee Investments ***"
   puts "\n\n'Carrying clients before we carry ourselves since 1901.'\n\n"
   puts "Client Management System\n\n"
-  puts "List Clients" # GIVE NO. OF CLIENTS, LIST CLIENTS AND DEETS, GIVE OPTION FOR INCREASING BALANCE, REMOVING, AND, IF TIME, SELLING/BUYING/MOVING STOCK
-  puts "Add a Client"
-  puts "Buy Stock for a Client"
-  puts "Sell Stock for a Client"
+  puts "1. List Clients"
+  puts "2. Add a Client"
+  puts "3. Buy Stock for a Client"
+  puts "4. Sell Stock for a Client"
   # puts "Move Stock between a Client's Portfolios"
-  puts "Check a Stock Price"
+  puts "5. Check a Stock Price"
   puts "Q: Quit"
   print "\n| "
 
