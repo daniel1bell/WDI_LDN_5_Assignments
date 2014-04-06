@@ -75,11 +75,12 @@ class Brokerage
 
     client_portfolio.each_pair do |stock_name, trade_obj|
       i += 1
+
       current_price = stocks[stock_name][:@lastTrade]
       current_value = trade_obj.nos_shares * current_price
       net_worth += current_value
       profit_loss = (current_price - trade_obj.trade_level) * trade_obj.nos_shares
-      
+
       output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  
       output << spacer(trade_obj.trade_level.round(2),col_width) << "| "<<spacer(current_price, col_width)
       output << spacer(current_value.round(2), col_width)
@@ -97,7 +98,7 @@ class Brokerage
       end
     end 
     cash =  spacer("Total", col_width * 4 + 2)
-    cash << spacer("#{net_worth.round(0)}" , col_width * 2)
+    cash << spacer("#{net_worth.round(2)}" , col_width * 2)
     puts cash.underline
     puts"\nYou also have £#{client.show_money.round(2)} in cash giving you a total net worth of £#{(client.show_money + net_worth).round(2)} \n\n"
     

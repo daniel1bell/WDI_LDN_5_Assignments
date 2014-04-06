@@ -24,13 +24,13 @@ stock_tickers = import_ticker_file(20)
 b = Brokerage.new('NYSE')
 
 c1 = Client.new("Mike", "100000")
-c2 = Client.new("Chris", "200000")
+c2 = Client.new("Chris","200000")
 c3 = Client.new("Noor", "700000")
 
 c1.buy_stock("AAL", 30, 100)
-c1.buy_stock("AAME", 600, 90)
-c2.buy_stock("GOOG", 500, 20)
-c3.buy_stock("ACFN", 50, 20)
+c1.buy_stock("AAME", 4, 100)
+c2.buy_stock("AAPL", 450, 100)
+c3.buy_stock("ABCB", 50, 20)
 
 b.add_client(c1)
 b.add_client(c2)

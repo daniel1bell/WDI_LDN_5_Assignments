@@ -36,21 +36,22 @@ def buy_stock(b, client_name)
   
   if stock
     stock_price = stock[:@lastTrade]
-    puts "Great choice.  My mum is even trying to buy those."
+    puts "Great choice.  My mum is even trying to buy #{stock[:@name]} shares"
     nos_can_buy = (client.show_money / stock_price).floor
     puts "You can buy up to #{nos_can_buy} shares. How many would you like to buy?"
 
     nos_to_buy = gets.chomp.to_i
     
     while nos_to_buy <= 0 || nos_to_buy > nos_can_buy
-      puts "You have to put in a number between 0 and #{nos_can_buy}"
+      puts "You have to put in a number between 0 and #{nos_can_buy}."
       nos_to_buy = gets.chomp.to_i
     end
 
-    puts "Congratulations - you have bought #{nos_to_buy} shares at a price of £#{stock_price} each"
+    print "\nCongratulations - you have bought #{nos_to_buy} #{stock[:@name]} "
+    puts "shares at a price of £#{stock_price} each."
     client.buy_stock(stock_ticker,stock_price,nos_to_buy)
     puts "You now have £#{client.show_money} left in your account" 
-    puts "Here is your current portfolio"
+    
 
   else
     puts "No such stock"
@@ -113,6 +114,10 @@ def log_on(b)
     while client_response != "q"
       case client_response
       when "1"
+        print "Updating stock data  "
+        b.update_stock_data
+        working
+        puts "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\bStock data updated.     "
         b.list_client_portfolio(user_name)
         pause
       when "2"  
@@ -162,7 +167,18 @@ end
 
 
 
-  
+def working 
+  (1..4).each do |i|
+    print "\b\\"
+    sleep(1.0/6)
+    print "\b|"
+    sleep(1.0/6)
+    print("\b/")
+    sleep(1.0/6)
+    print("\b-")
+    sleep(1.0/6)
+  end
+end
 
 
 
