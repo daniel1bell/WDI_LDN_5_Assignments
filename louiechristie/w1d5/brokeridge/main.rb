@@ -7,23 +7,33 @@ require_relative 'client'
 require_relative 'brokeridge'
 require_relative 'menu'
 
+## Test Data ##
+
 brokeridge = Brokeridge.new('JP Morgan', '10 east 21st Street')
 
+#customers
 brokeridge.clients['Bob'] = Client.new('Bob', 22000)
 brokeridge.clients['Sue'] = Client.new('Sue', 31000)
 brokeridge.clients['Jil'] = Client.new('Jil', 46000)
 brokeridge.clients['Sam'] = Client.new('Sam', 87000)
 
-#portfolios new
+#portfolios
 brokeridge.clients['Bob'].add_portfolio("high risk")
 brokeridge.clients['Bob'].add_portfolio("medium risk")
 brokeridge.clients['Bob'].add_portfolio("low risk")
 
 #stocks
-brokeridge.clients['Bob'].portfolios["high risk"].add_stock("AAPL", 10)
-brokeridge.clients['Bob'].portfolios["high risk"].add_stock("AAL", 20)
-brokeridge.clients['Bob'].portfolios["high risk"].add_stock("ACAS", 1)
+brokeridge.buy_stock("Bob", "high risk", "AAPL", 10)
+brokeridge.buy_stock("Bob", "high risk", "AAL", 10)
+brokeridge.buy_stock("Bob", "high risk", "ACAS", 10)
+brokeridge.buy_stock("Bob", "medium risk", "BABY", 10)
+brokeridge.buy_stock("Bob", "medium risk", "BAMM", 10)
+brokeridge.buy_stock("Bob", "medium risk", "BANF", 10)
+brokeridge.buy_stock("Bob", "low risk", "CAC", 10)
+brokeridge.buy_stock("Bob", "low risk", "CACH", 10)
+brokeridge.buy_stock("Bob", "low risk", "CAMP", 10)
 
+## End of test data ##
 
 response = menu(brokeridge)
 while response.upcase != 'Q'
@@ -38,22 +48,22 @@ while response.upcase != 'Q'
       remove_client(brokeridge)
       gets
     when '4'
-      puts client_list_portfolios(brokeridge)
+      puts list_portfolios(brokeridge)
       gets
     when '5'
-      client_add_portfolio(brokeridge)
+      add_portfolio(brokeridge)
       gets
     when '6'
-      client_remove_portfolio(brokeridge)
+      remove_portfolio(brokeridge)
       gets
     when '7'
-      portfolio_list_stocks(brokeridge)
+      list_stocks(brokeridge)
       gets
     when '8'
-      portfolio_buy_stock(brokeridge)
+      buy_stock(brokeridge)
       gets
     when '9'
-      portfolio_sell_stock(brokeridge)
+      sell_stock(brokeridge)
       gets
   end
 

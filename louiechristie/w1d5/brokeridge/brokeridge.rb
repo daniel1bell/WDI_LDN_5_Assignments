@@ -23,6 +23,17 @@ class Brokeridge
     clients.delete(client_key)
   end
 
+  def buy_stock(client_name, portfolio_name, code, quantity)
+    
+    clients[client_name].portfolios[portfolio_name].add_stock(code, quantity)
 
+    clients[client_name].balance = clients[client_name].balance - Stock.new(code, quantity).value
+  end
+
+  def sell_stock(client_name, portfolio_name, code, quantity)
+
+    clients[client_name].portfolios[portfolio_name].remove_stock(code, quantity)
+    clients[client_name].balance = clients[client_name].balance + Stock.new(code, quantity).value
+  end
 
 end

@@ -21,6 +21,6 @@ class Client
   end
 
   def to_s
-    "#{@name} has balance #{@balance}"
+    "#{@name} has balance #{@balance.round(2)}"
   end
 end

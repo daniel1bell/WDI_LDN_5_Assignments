@@ -35,6 +35,6 @@ class Portfolio
   end
 
   def to_s
-    "#{@stocks.values.join("\n")} \n-----\nTotal: #{total}"
+    "#{@stocks.values.join("\n")} \n-----\nTotal: #{total.round(2)}"
   end
 end

@@ -13,6 +13,6 @@ class Stock
   end
 
   def to_s
-    "Code: #{@code}, Name: #{@name}, Quantity: #{@quantity}, Value: #{value}"
+    "Code: #{@code}, Name: #{@name}, Quantity: #{@quantity}, Value: #{value.round(2)}"
   end
 end

@@ -1,15 +1,15 @@
 def menu (brokeridge)
-  #puts `clear`
+  puts `clear`
   puts "*** #{brokeridge} ***\n\n"
   puts '1 : List Clients'
   puts '2 : Create Client'
   puts '3 : Remove Client'
-  puts '4 : Client list portfolios'
-  puts '5 : Client add portfolio'
-  puts '6 : Client remove portfolio'
-  puts '7 : Portfolio list stocks'
-  puts '8 : Portfolio buy stock'
-  puts '9 : Portfolio sell stock'
+  puts '4 : List portfolios'
+  puts '5 : Add portfolio'
+  puts '6 : Remove portfolio'
+  puts '7 : List stocks'
+  puts '8 : Buy stock'
+  puts '9 : Sell stock'
   puts "Q : Quit\n\n"
   print '--> '
   gets.chomp
@@ -29,7 +29,7 @@ def remove_client(brokeridge)
   brokeridge.clients.delete(name)
 end
 
-def client_list_portfolios(brokeridge)
+def list_portfolios(brokeridge)
   print "Client Name: "
   name = gets.chomp
   if brokeridge.clients.has_key?(name)
@@ -39,7 +39,7 @@ def client_list_portfolios(brokeridge)
   end
 end
 
-def client_add_portfolio(brokeridge)
+def add_portfolio(brokeridge)
   print "Client Name: "
   name = gets.chomp
   print "Portfolio Name: "
@@ -47,7 +47,7 @@ def client_add_portfolio(brokeridge)
   brokeridge.clients[name].add_portfolio(portfolio_name)
 end
 
-def client_remove_portfolio(brokeridge)
+def remove_portfolio(brokeridge)
   print "Client Name: "
   client_name = gets.chomp
   print "Portfolio Name: "
@@ -55,7 +55,7 @@ def client_remove_portfolio(brokeridge)
   brokeridge.clients[client_name].remove_portfolio(portfolio_name)
 end
 
-def portfolio_list_stocks(brokeridge)
+def list_stocks(brokeridge)
   print "Client Name: "
   client_name = gets.chomp
   print "Portfolio Name: "
@@ -63,7 +63,7 @@ def portfolio_list_stocks(brokeridge)
   puts brokeridge.clients[client_name].portfolios[portfolio_name]
 end
 
-def portfolio_buy_stock(brokeridge)
+def buy_stock(brokeridge)
   print "Client Name: "
   client_name = gets.chomp
   print "Portfolio Name: "
@@ -72,10 +72,10 @@ def portfolio_buy_stock(brokeridge)
   code = gets.chomp
   print "Stock quantity: "
   quantity = gets.chomp.to_i
-  brokeridge.clients[client_name].portfolios[portfolio_name].add_stock(code, quantity)
+  brokeridge.buy_stock(client_name, portfolio_name, code, quantity)
 end
 
-def portfolio_sell_stock(brokeridge)
+def sell_stock(brokeridge)
   print "Client Name: "
   client_name = gets.chomp
   print "Portfolio Name: "
@@ -84,9 +84,10 @@ def portfolio_sell_stock(brokeridge)
   code = gets.chomp
   print "Stock quantity: "
   quantity = gets.chomp.to_i
-  brokeridge.clients[client_name].portfolios[portfolio_name].remove_stock(code, quantity)
+  brokeridge.sell_stock(client_name, portfolio_name, code, quantity)
 end
 
 def error(message)
   puts message
+  exit
 end
