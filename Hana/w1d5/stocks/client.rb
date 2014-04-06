@@ -19,4 +19,8 @@ def client_info
   "Balance: #{balance} \nPortfolio(s) = #{portfolio.keys.join(", ")}"
 end
 
+def create_portfolio
+
+end
+
 end

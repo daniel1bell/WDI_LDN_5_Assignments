@@ -61,8 +61,7 @@ while response != "q"
 
   case response
     when '1'
-     # Create an account for a client.
-     # puts b.list_flats 
+      add_client(b)
 
     when '2'
       # Create a new portfolio
