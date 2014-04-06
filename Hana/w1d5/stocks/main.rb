@@ -82,8 +82,7 @@ while response != "q"
     when '6' 
      # List all stocks in a client's portfolio   
      puts b.list_stocks_in_a_portfolio
-     binding.pry
-
+   
     when '7'    
       #List all clients 
       #create_prospect(b)

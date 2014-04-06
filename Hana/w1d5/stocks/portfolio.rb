@@ -13,8 +13,10 @@ class Portfolio
     if stocks.empty?
       "#{name} contains no stocks."
     else
-      "#{name}: contains "
+      "#{name}: contains #"
+
       binding.pry
+   
     end
   end
 end

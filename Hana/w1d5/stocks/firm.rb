@@ -27,8 +27,8 @@ class Firm
     print "[#{clients[chosen_client].portfolio.keys.join(", ")}] \n"
     chosen_portfolio = gets.chomp
 
-    #puts clients.fetch(chosen_client).portfolio.values.join
-binding.pry
+    puts clients.fetch(chosen_client).portfolio.values.join
+
     # print clients[chosen_client][chosen_portfolio].stocks
  
   end
