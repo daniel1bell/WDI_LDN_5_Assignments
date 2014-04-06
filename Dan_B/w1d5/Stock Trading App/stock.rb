@@ -10,7 +10,8 @@ attr_reader :name, :stock_price, :value
     @value = (number_stocks * stock_price).to_f.round(2)
   end
 
-
-
+  def to_s
+    "#{code}:\t#{name}\t#{number_stocks} shares @ $#{stock_price} = $#{value}"
+  end
 
 end
