@@ -1,19 +1,26 @@
 class Portfolio
+
   attr_reader :stocks
 
   def initialize ()
-    @stocks = []
+    @stocks = {}
   end
 
-def  buy_stock(code, quantity)
-  stocks << Stock.new(code, quantity)
-end
+  def add_stock(code, quantity)
+    if stocks.has_key?(code)
+      stocks[code].quantity = stocks[code].quantity + quantity
+    else
+      stocks[code] = Stock.new(code, quantity)
+    end
+  end
 
-def sell_stock(code)
-  stocks[].delete(code)
-end
+  def total
+    stocks.values.inject(0) do |sum, stock|
+      sum + stock.value
+    end
+  end
 
   def to_s
-    "#{@stocks.join('/n')}"
+    "#{@stocks.values.join("\n")} \n-----\nTotal: #{total}"
   end
 end

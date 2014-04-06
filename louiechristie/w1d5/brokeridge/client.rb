@@ -8,7 +8,7 @@ class Client
   end
 
   def display_portfolios
-    "Portfolios: #{@portfolios.keys.join(', ')}"
+    "Portfolios: #{@portfolios.keys.join(', ')}" || ""
   end
 
   def add_portfolio(portfolio_name)

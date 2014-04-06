@@ -1,16 +1,13 @@
 class Brokeridge
-  attr_accessor :name, :address, :animals, :clients
+  attr_accessor :name, :address, :clients
 
   def initialize(name, address)
     @name = name
     @address = address
-    @animals = {}
     @clients = {}
   end
 
-  def display_clients
-   #@clients.select {|key, value| "#{key} #{value}"}
-   #keys.join("\n")
+  def list_clients
    @clients.values.join("\n")
   end
 
@@ -26,6 +23,6 @@ class Brokeridge
     clients.delete(client_key)
   end
 
-  
+
 
 end

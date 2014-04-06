@@ -32,7 +32,11 @@ end
 def client_list_portfolios(brokeridge)
   print "Client Name: "
   name = gets.chomp
-  brokeridge.clients[name].display_portfolios
+  if brokeridge.clients.has_key?(name)
+    brokeridge.clients[name].display_portfolios
+  else
+    "client not found"
+  end
 end
 
 def client_add_portfolio(brokeridge)
@@ -61,14 +65,14 @@ end
 
 def portfolio_buy_stock(brokeridge)
   print "Client Name: "
-  name = gets.chomp
+  client_name = gets.chomp
   print "Portfolio Name: "
   portfolio_name = gets.chomp
   print "Stock code: "
   code = gets.chomp
   print "Stock quantity: "
   quantity = gets.chomp.to_i
-  brokeridge.portfolios[portfolio_name].buy_stock(code, quantity)
+  brokeridge.clients[client_name].portfolios[portfolio_name].add_stock(code, quantity)
 end
 
 def portfolio_sell_stock(brokeridge)
@@ -76,4 +80,6 @@ def portfolio_sell_stock(brokeridge)
   name = gets.chomp
   print "Portfolio Name: "
   portfolio_name = gets.chomp
+  print "Stock quantity: "
+  quantity = gets.chomp.to_i
 end

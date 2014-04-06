@@ -5,10 +5,14 @@ class Stock
     @code = code
     @name = YahooFinance::get_standard_quotes(code)[code].name
     @quantity = quantity
-    @value = YahooFinance::get_standard_quotes(code)[code].lastTrade
+    @value = quantity * YahooFinance::get_standard_quotes(code)[code].lastTrade
+  end
+
+  def value
+    quantity * YahooFinance::get_standard_quotes(code)[code].lastTrade
   end
 
   def to_s
-    "Code: #{@code}, Name: #{@name}, Quanity: #{@quantity}, Value: #{value}"
+    "Code: #{@code}, Name: #{@name}, Quantity: #{@quantity}, Value: #{value}"
   end
 end

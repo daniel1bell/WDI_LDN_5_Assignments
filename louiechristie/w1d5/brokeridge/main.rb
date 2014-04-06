@@ -20,13 +20,16 @@ brokeridge.clients['Bob'].add_portfolio("medium risk")
 brokeridge.clients['Bob'].add_portfolio("low risk")
 
 #stocks
-brokeridge.clients['Bob'].portfolios['high risk'].buy_stock("AAPL", 10)
+brokeridge.clients['Bob'].portfolios["high risk"].add_stock("AAPL", 10)
+brokeridge.clients['Bob'].portfolios["high risk"].add_stock("AAL", 20)
+brokeridge.clients['Bob'].portfolios["high risk"].add_stock("ACAS", 1)
+
 
 response = menu(brokeridge)
 while response.upcase != 'Q'
   case response
     when '1'
-      puts brokeridge.display_clients
+      puts brokeridge.list_clients
       gets
     when '2'
       create_client(brokeridge)
@@ -57,5 +60,4 @@ while response.upcase != 'Q'
   response = menu(brokeridge)
 end
 
-# start a REPL session
-binding.pry
+#binding.pry
