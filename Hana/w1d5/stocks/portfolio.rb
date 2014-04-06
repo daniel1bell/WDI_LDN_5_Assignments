@@ -13,6 +13,7 @@ class Portfolio
     if stocks.empty?
       "#{name} contains no stocks."
     else
+      "-------------------------\n"
       "Your stocks in #{name} Portfolio: \n#{stocks.values.join("\n")}"
 
 

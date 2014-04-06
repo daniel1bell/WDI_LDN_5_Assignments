@@ -10,11 +10,11 @@ class Firm
   end
 
   def list_client_info
-    if clients.any?
-      clients.values.join("\n")
-    else
-      "You have no clients. Go get some!"
-    end
+     print "Which client? \n"
+    print "[#{clients.keys.join(", ")}]\n"
+    chosen_client = gets.chomp
+
+    clients.fetch(chosen_client).client_info
   end
 
 

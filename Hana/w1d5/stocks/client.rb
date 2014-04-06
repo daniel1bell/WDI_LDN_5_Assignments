@@ -10,10 +10,13 @@ class Client
   end
 
 def to_s
-  return_value = "#{name}: Balance = #{balance}, Portfolio(s) = #{portfolio.keys.join(", ")}"
+  return_value = "#{name}"
+  # : Balance = #{balance}, Portfolio(s) = #{portfolio.keys.join(", ")}"
   return_value
-
 end
 
+def client_info
+  "Balance: #{balance} \nPortfolio(s) = #{portfolio.keys.join(", ")}"
+end
 
 end
