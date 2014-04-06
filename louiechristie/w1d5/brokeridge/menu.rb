@@ -49,18 +49,18 @@ end
 
 def client_remove_portfolio(brokeridge)
   print "Client Name: "
-  name = gets.chomp
+  client_name = gets.chomp
   print "Portfolio Name: "
   portfolio_name = gets.chomp
-  brokeridge.clients[name].remove_portfolio(portfolio_name)
+  brokeridge.clients[client_name].remove_portfolio(portfolio_name)
 end
 
 def portfolio_list_stocks(brokeridge)
   print "Client Name: "
-  name = gets.chomp
+  client_name = gets.chomp
   print "Portfolio Name: "
   portfolio_name = gets.chomp
-  puts brokeridge.clients[name].portfolios[portfolio_name]
+  puts brokeridge.clients[client_name].portfolios[portfolio_name]
 end
 
 def portfolio_buy_stock(brokeridge)
@@ -77,9 +77,16 @@ end
 
 def portfolio_sell_stock(brokeridge)
   print "Client Name: "
-  name = gets.chomp
+  client_name = gets.chomp
   print "Portfolio Name: "
   portfolio_name = gets.chomp
+  print "Stock code: "
+  code = gets.chomp
   print "Stock quantity: "
   quantity = gets.chomp.to_i
+  brokeridge.clients[client_name].portfolios[portfolio_name].remove_stock(code, quantity)
+end
+
+def error(message)
+  puts message
 end
