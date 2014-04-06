@@ -1,3 +1,4 @@
+
 class Client
   attr_accessor :name
   attr_reader :balance, :portfolio
@@ -9,8 +10,9 @@ class Client
   end
 
 def to_s
-  return_value = "#{name}: Balance = #{balance}, Portfolio(s) = #{portfolio.key.join(",")}"
+  return_value = "#{name}: Balance = #{balance}, Portfolio(s) = #{portfolio.keys.join(", ")}"
   return_value
+
 end
 
 

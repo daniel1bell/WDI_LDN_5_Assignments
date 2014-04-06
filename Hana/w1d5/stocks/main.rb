@@ -1,4 +1,5 @@
 require 'pry'
+require 'vine'
 
 # load files
 require_relative 'firm'
@@ -19,7 +20,7 @@ c3 = Client.new('Jennifer Aniston', 5800)
   b.clients[client.name] = client
 end
 
-p1 = Portfolio.new('Invesestments')
+p1 = Portfolio.new('Investments')
 p2 = Portfolio.new('Investments')
 p3 = Portfolio.new('Investments')
 p4 = Portfolio.new('Retirement')
@@ -76,12 +77,12 @@ while response != "q"
      #evict_tenant(b)
 
     when '5'     
-     #list client portfolios and balance.
      puts b.list_client_info
 
     when '6' 
      # List all stocks in a client's portfolio   
-     # puts b.list_tenants
+     puts b.list_stocks_in_a_portfolio
+     binding.pry
 
     when '7'    
       #List all clients 
@@ -94,5 +95,5 @@ while response != "q"
   gets
 
   response = menu
-binding.pry
+
 end

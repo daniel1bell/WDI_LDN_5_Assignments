@@ -1,3 +1,5 @@
+require 'pry'
+require 'vine'
 class Firm
   attr_accessor :name
   attr_reader :clients
@@ -13,6 +15,22 @@ class Firm
     else
       "You have no clients. Go get some!"
     end
+  end
+
+
+  def list_stocks_in_a_portfolio
+    print "Which client? \n"
+    print "[#{clients.keys.join(", ")}]\n"
+    chosen_client = gets.chomp
+
+    print "Which portfolio? \n"
+    print "[#{clients[chosen_client].portfolio.keys.join(", ")}] \n"
+    chosen_portfolio = gets.chomp
+
+    #puts clients.fetch(chosen_client).portfolio.values.join
+binding.pry
+    # print clients[chosen_client][chosen_portfolio].stocks
+ 
   end
 
 end
