@@ -1,7 +1,7 @@
 class Client
   attr_accessor :name
   attr_reader :portfolio
-  attr_writer :money
+  attr_reader :money
 
   def initialize(name, money)
     @name = name
@@ -9,6 +9,7 @@ class Client
     @portfolio = {}
   end
 
+  #can add in verification details when asking for moeny and  portfoliio
   def show_money
     @money   
   end
@@ -24,7 +25,6 @@ class Client
         t = Trade.new(stock_ticker, stock_price, nos_shares)
         portfolio[stock_ticker] = t
     end
-    
     @money = @money - stock_price * nos_shares
   end
 
@@ -33,6 +33,5 @@ class Client
     @money = @money + stock_price * nos_shares
   end
 
-    
 
 end

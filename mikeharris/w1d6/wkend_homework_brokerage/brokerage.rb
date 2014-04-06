@@ -6,7 +6,6 @@ class Brokerage
     @name = name
     @stocks = {}
     @clients = {}
-
   end
 
   def update_availiable_stocks(stock_tickers)
@@ -16,6 +15,7 @@ class Brokerage
   end
 
   def update_stock_data
+      #imports stock data either from the internet or from local data
       stocks.each do |ticker , value|
         if $data_setting
           yahoo_stock_obj = YahooFinance::get_standard_quotes("#{ticker}")["#{ticker}"] 
@@ -26,7 +26,7 @@ class Brokerage
           if $saved_stock["#{ticker}"]
             stocks[ticker] = $saved_stock["#{ticker}"]
           else
-          stocks.delete(ticker)
+            stocks.delete(ticker)
           end
         end
       end
@@ -79,8 +79,9 @@ class Brokerage
       current_value = trade_obj.nos_shares * current_price
       net_worth += current_value
       profit_loss = (current_price - trade_obj.trade_level) * trade_obj.nos_shares
+      
       output = spacer(stock_name, col_width)   << spacer(trade_obj.nos_shares,col_width)  
-      output << spacer(trade_obj.trade_level,col_width) << "| "<<spacer(current_price, col_width)
+      output << spacer(trade_obj.trade_level.round(2),col_width) << "| "<<spacer(current_price, col_width)
       output << spacer(current_value.round(2), col_width)
 
       if profit_loss < 0 

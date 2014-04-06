@@ -1,5 +1,4 @@
 class Trade
-
   attr_accessor :ticker, :trade_level, :nos_shares, :current_price
 
   def initialize (ticker, trade_level, nos_shares)
@@ -11,7 +10,7 @@ class Trade
 
   def buy_more_shares(trade_level, nos_shares)
     @trade_level = (@trade_level * @nos_shares + trade_level * nos_shares) / (@nos_shares + nos_shares)
-    @nos_shares = @nos_shares - nos_shares
+    @nos_shares = @nos_shares + nos_shares
   end
 
   def sell_shares(nos_shares)

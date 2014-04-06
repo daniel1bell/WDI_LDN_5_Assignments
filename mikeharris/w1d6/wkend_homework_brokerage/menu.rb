@@ -6,18 +6,14 @@ def menu
   print !$data_setting ? "not " : ""
   puts "using internet data"  
   puts "To change goto settings"
-
   puts "\n\n"
-
   puts "1 : List stocks on the exchange"
   puts "2 : Log on as a client to view portfolio and trade"
   puts "3 : Add a CLient"
   puts "\ns : Settings"
   puts "q : Quit"
-
   print '---> '
   gets.chomp
-
 end
 
 def client_menu
@@ -29,40 +25,6 @@ def client_menu
   gets.chomp
 end
 
-def settings
-#sets whether using internet data or not.
-  if $data_setting 
-    puts "Currently using data from the internet"
-  else
-    puts "Currently using local data"
-  end
-
-  puts "Would you like to change the settings?"
-  puts "(y)es/(n)o"
-  change = gets.chomp.downcase
-
-  if change =="y"
-    puts "Changing the setting"
-    $data_setting = $data_setting ? false : true
-  else
-    puts "Not changing"
-  end
-  
-  puts $data_setting ? "Using internet data" : "Using local data"
-  print "Please wait while we update prices."
-
-end
-
-
-def spacer(value, col_width)
-  #formats columns to fixed widths
-  value = value.to_s
-  space = ""
-  (col_width - value.size).times { space << " "}
-  value += space 
-end
-
-
 def buy_stock(b, client_name)
   client = b.clients[client_name]
   puts "You have £#{client.show_money} to spend. Here are a lits of stocks"
@@ -70,12 +32,13 @@ def buy_stock(b, client_name)
   puts "\nWhich one would you like to buy? Enter ticker"
   stock_ticker = gets.chomp.upcase
   stock = b.show_stock(stock_ticker)
-  stock_price = stock[:@lastTrade]
+  
   
   if stock
+    stock_price = stock[:@lastTrade]
     puts "Great choice.  My mum is even trying to buy those."
     nos_can_buy = (client.show_money / stock_price).floor
-    puts "You can buy up to #{nos_can_buy}. How many would you like to buy?"
+    puts "You can buy up to #{nos_can_buy} shares. How many would you like to buy?"
 
     nos_to_buy = gets.chomp.to_i
     
@@ -84,7 +47,7 @@ def buy_stock(b, client_name)
       nos_to_buy = gets.chomp.to_i
     end
 
-    puts "Congratualtioin - you have bought #{nos_to_buy} at a price of £#{stock_price} each"
+    puts "Congratulations - you have bought #{nos_to_buy} shares at a price of £#{stock_price} each"
     client.buy_stock(stock_ticker,stock_price,nos_to_buy)
     puts "You now have £#{client.show_money} left in your account" 
     puts "Here is your current portfolio"
@@ -160,13 +123,9 @@ def log_on(b)
       else
         puts "That's not an option"
       end
-
-      # print "\nHit Enter to continue"
-      # gets  
       client_response = client_menu
     end 
-    
-
+  
   else 
     puts "No such client"
   end
@@ -174,12 +133,35 @@ def log_on(b)
  end
 
 
- 
-
 def pause
    print "\nHit Enter to continue"
    gets
 end
+
+def spacer(value, col_width)
+  #formats columns to fixed widths
+  value = value.to_s
+  space = ""
+  (col_width - value.size).times { space << " "}
+  value += space 
+end
+
+def rolling_ticker
+  string_to_roll = "Hello"
+  col_with = 20
+  space = ""
+  while i < col_width 
+    puts `clear`
+    output = space << string_to_roll
+    print output
+    space << " "
+    sleep(1)
+  end
+
+end
+
+
+
   
 
 
