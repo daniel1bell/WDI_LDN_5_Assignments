@@ -5,7 +5,15 @@ class Portfolio
     @stocks = []
   end
 
+def  buy_stock(code, quantity)
+  stocks << Stock.new(code, quantity)
+end
+
+def sell_stock(code)
+  stocks[].delete(code)
+end
+
   def to_s
-    "Stocks: #{@stocks.join(', ')}"
+    "#{@stocks.join('/n')}"
   end
 end

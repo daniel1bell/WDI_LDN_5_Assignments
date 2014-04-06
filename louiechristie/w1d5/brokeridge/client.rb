@@ -16,6 +16,10 @@ class Client
     portfolios[portfolio_name] = portfolio
   end
 
+  def remove_portfolio(portfolio_name)
+    portfolios.delete(portfolio_name)
+  end
+
   def to_s
     "#{@name} has balance #{@balance}"
   end

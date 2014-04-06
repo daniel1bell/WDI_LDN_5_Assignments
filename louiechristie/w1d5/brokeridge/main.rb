@@ -1,4 +1,5 @@
 require 'pry'
+require 'yahoofinance'
 
 require_relative 'stock'
 require_relative 'portfolio'
@@ -14,10 +15,12 @@ brokeridge.clients['Jil'] = Client.new('Jil', 46000)
 brokeridge.clients['Sam'] = Client.new('Sam', 87000)
 
 #portfolios new
-brokeridge.clients['Bob'].add_portfolio("High risk")
-brokeridge.clients['Bob'].add_portfolio("Medium risk")
-brokeridge.clients['Bob'].add_portfolio("Low risk")
+brokeridge.clients['Bob'].add_portfolio("high risk")
+brokeridge.clients['Bob'].add_portfolio("medium risk")
+brokeridge.clients['Bob'].add_portfolio("low risk")
 
+#stocks
+brokeridge.clients['Bob'].portfolios['high risk'].buy_stock("AAPL", 10)
 
 response = menu(brokeridge)
 while response.upcase != 'Q'
@@ -36,6 +39,18 @@ while response.upcase != 'Q'
       gets
     when '5'
       client_add_portfolio(brokeridge)
+      gets
+    when '6'
+      client_remove_portfolio(brokeridge)
+      gets
+    when '7'
+      portfolio_list_stocks(brokeridge)
+      gets
+    when '8'
+      portfolio_buy_stock(brokeridge)
+      gets
+    when '9'
+      portfolio_sell_stock(brokeridge)
       gets
   end
 
