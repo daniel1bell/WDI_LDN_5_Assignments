@@ -30,21 +30,30 @@ require_relative 'portfolios'
 require_relative 'securities'
 require_relative 'navigation'
 require_relative 'brokerage'
+require_relative 'position'
 
 #create inital clients
 b = Brokerage.new("Ben's Brokerage")
 
 clients = [ ]
-clients << Client.new("Ben", "1000000")
-clients << Client.new("Goodwin", "1000")
+clients << Client.new(:Ben, 1000000)
+clients << Client.new(:Goodwin, 1000)
 
 clients.each { |client| b.users[client.name] = client }
 
-portfolios = { }
-positions = { }
 
-id = 1
+b.users[:Ben].portfolios["Portfolio ID: 1"] = Portfolio.new("Portfolio ID: 1")
+b.users[:Goodwin].portfolios["Portfolio ID: 2"] = Portfolio.new("Portfolio ID: 2")
+id = 2
 
+aapl = Security.new('AAPL')
+goog = Security.new('GOOG')
+appl_position = Position.new(100, aapl)
+goog_position = Position.new(100, goog)
+b.users[:Ben].portfolios["Portfolio ID: 1"].positions['AAPL'] = appl_position
+b.users[:Ben].portfolios["Portfolio ID: 1"].positions['GOOG'] = goog_position
+
+# binding.pry
 #Define the menus
 
 main_menu = Menu.new("Welcome to Your Brokerage App, Main Menu",
@@ -84,20 +93,29 @@ while response != :q
   
   when :view
     puts "What user's portfolios do you want to view?"
-    user = valid_string_input(b.clients.keys)
-    user.list_portfolios #todo
+    user = valid_string_input(b.users.keys)
+    # binding.pry
+    puts " "
+    puts b.users[user].list_portfolios 
+    puts " "
     response = user_menu.display
     #go int0 the user menu
   when :c_port  
-    id = id + 1
-    Portfolio.create_portfolio(id) 
+    id = "Portfolio ID: #{id + 1}"
+    # binding.pry
+    b.users[user].portfolios[id] = Portfolio.create_portfolio(id) 
+    puts " "
+    puts b.users[user].list_portfolios 
+    puts " "
     response = user_menu.display
 
   when :main
     response = main_menu.display
 
   when :m_port
-    portfolio = lookup("portfolio", portfolios)#todo
+    puts "What number portfolio do you want to manage?"
+    portfolio = "Portfolio ID: #{valid_number_input}"
+    binding.pry
     portfolio.list_positions #todo
     response = portfolio_menu.display #to do
   
@@ -118,36 +136,3 @@ while response != :q
 
 end
 
-# response = menu.downcase
-
-# while response != 'q'
-
-#   case response
-#     when "1"
-#       puts s.list_animals
-
-#     when "2"
-#       puts s.give_up_animal 
-
-#     when "3"
-#       puts s.list_clients
-
-#     when '4'
-#       create_new_animal #todo
-
-#     when '5'
-#       create_new client # todo
-
-#     when '6'
-#       adopt_animal # to do
-
-#     else
-#       puts "invalid menue choice"
-
-#   end
-#   puts "\n press enter to continue"
-#   gets
-
-#   response = menu
-
-# end

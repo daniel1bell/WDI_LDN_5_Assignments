@@ -5,15 +5,14 @@ class Portfolio
 
   def initialize(id)
     @id = id
-    positions = { }
+    @positions = { }
   end
 
-  def Portfolio.create_portfolio
-    puts " "
-    return Portfolio.new(id)
+  def Portfolio.create_portfolio(id)    
     puts " "
     puts "A new portfolio has been created"
     puts " "
+    Portfolio.new(id)
   end
 
   def buy_securities
@@ -28,8 +27,11 @@ class Portfolio
 
   end
 
-  def list_positions
-
+  def list_positions(user, portfolio)
+    puts "#{user}: #{portfolio}"
+    binding.pry
+    users[user].portfolios[portfolio].each { 
+     |key, values| }
   end
 
 

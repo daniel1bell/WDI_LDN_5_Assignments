@@ -6,21 +6,30 @@ class Client
   def initialize(name, opening_balance)
     @name = name
     @opening_balance = opening_balance
-    @portfolios =  [ ]
+    @portfolios =  { }
   end
 
   def Client.create_user
     puts " "
     puts "What is the new client's name?"
-    name = gets.chomp
+    name = gets.chomp.to_sym
     puts " "
     puts "What is #{name}'s opening balance?"
-    opening_balance = valid_number_input
+    opening_balance = valid_number_input.to_i
     return Client.new(name, opening_balance)
     puts " "
     puts "A new user has been created"
     puts " "
 
+  end
+
+  def list_portfolios
+   
+    if portfolios != { }
+      portfolios.keys.join("\n")
+    else 
+      "You have no portfolios!"
+    end
   end
 
 end
