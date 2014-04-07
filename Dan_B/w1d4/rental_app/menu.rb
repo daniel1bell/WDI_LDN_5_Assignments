@@ -24,7 +24,7 @@ def let_flat(building)
     print "Which prospect? "
     print "(#{building.list_prospects})\n"
     prospect_name = gets.chomp
-
+    
     prospect = building.prospects.delete(prospect_name)
     flat = building.flats[flat_name]
 
@@ -38,25 +38,27 @@ def let_flat(building)
 end
 
 def evict_tenant(building)
-  if (building.list_occupied_flats).empty?
-    puts "Sorry, there are no tennants in flats to be evicted."
-  else
-    print "Which flat? "
-    print "(#{building.list_occupied_flats})\n"
-    flat_name = gets.chomp
-    print "Which tenants? "
-    print "Tenants"  #{}"(#{list_tenants})\n"
+  print 'Which flat? '
+  print "(#{building.list_occupied_flats}) "
+  flat_name = gets.chomp
+
+  flat = building.flats[flat_name]
+
+  if flat
+    print 'Which tenant? '
+    print "(#{flat.list_tenants}) "
     tenant_name = gets.chomp
-
-    flat = building.flats[flat_name]
-    tenant = building.tenants.delete(prospect_name)
   end
-  # if tenant && flat && flat.occupied?
-  #   flat
 
+  tenant = flat.tenants.delete(tenant_name) if flat
 
+  if flat && tenant
+    puts "Tenant #{tenant_name} has been evicted."
+  else
+    errors = []
+    errors << "tenant name is invalid" if flat && !tenant
+    errors << "flat name is invalid" unless flat
 
-  
-binding.pry  
+    puts "The #{errors.join(' and the ')}."    
+  end
 end
-

@@ -36,9 +36,6 @@ f3.tenants[p3.name] = p3
 b.prospects[p6.name] = p6
 
 
-all_tenants = flats.map {|flat| flat.tenants.keys.join(", ")}
-list_tenants = all_tenants.join(", ").chomp
-
   def add_prospect(building)
     puts "What is the prospect's name?"
     prospect_name = gets.chomp.capitalize
@@ -73,7 +70,7 @@ while response != "q"
   when "5"
     puts b.list_empty_flats
   when "6"
-    puts list_tenants
+    puts b.list_tenants
   when "7"
     add_prospect(b)
   else
