@@ -37,9 +37,6 @@ b.prospects[p4.name] = p4
 b.prospects[p5.name] = p5
 
 
-
-binding.pry
-
 response = menu.downcase
 while response != "q"
 
@@ -58,6 +55,8 @@ while response != "q"
         b.list_tenants 
       when '7'
         puts b.create_prospect 
+      when '8'
+        puts b.create_flat
       else
         puts "Invalid, please try again"
       end
