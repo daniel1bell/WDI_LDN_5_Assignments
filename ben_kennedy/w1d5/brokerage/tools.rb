@@ -16,7 +16,7 @@ def valid_number_input
   input = gets.chomp
   while is_a_number(input) == false
     puts "Not a valid entry."
-    puts "Opening balance must be a number."
+    puts "The input must be a number."
     input = gets.chomp
   end
   input

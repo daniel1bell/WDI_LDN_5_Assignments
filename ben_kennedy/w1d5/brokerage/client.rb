@@ -1,11 +1,11 @@
 require 'pry'
 
 class Client
-  attr_accessor :name, :opening_balance, :portfolios
+  attr_accessor :name, :balance, :portfolios
 
   def initialize(name, opening_balance)
     @name = name
-    @opening_balance = opening_balance
+    @balance = opening_balance
     @portfolios =  { }
   end
 
@@ -32,4 +32,18 @@ class Client
     end
   end
 
+  def balance_check(balance_reduce)
+    if @balance < balance_reduce
+      "ERROR"
+    else
+      "OK"
+    end
+  end
+
+  def reduce_balance(balance_reduce)
+    if balance_check(balance_reduce) == "OK"
+      @balance = @balance - balance_reduce
+    else false
+    end
+  end
 end

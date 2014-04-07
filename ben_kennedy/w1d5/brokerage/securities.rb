@@ -9,7 +9,10 @@ class Security
     @price = YahooFinance::get_standard_quotes(ticker)[ticker].lastTrade
   end
 
-
+  def Security.create(ticker)
+    Security.new(ticker)
+    #check to confirm ticker is valid
+  end
 
 
 end
