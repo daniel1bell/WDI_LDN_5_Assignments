@@ -12,7 +12,7 @@ require_relative 'data'
 
 #this determines whether to use internet data or not.
 $data_setting = false
-stock_tickers = ["AAIT","AAL","AAME","ACFN", "ACTS", "GOOG"]
+stock_tickers = ["AAIT","AAL","AAME","ACFN", "ACTS"]
 
 #option to import x number of tickers from file
 stock_tickers = import_ticker_file(20)

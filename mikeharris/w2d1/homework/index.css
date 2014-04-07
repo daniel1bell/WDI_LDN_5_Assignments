@@ -1,0 +1,27 @@
+
+* {
+  background: #d6d6d6;
+    background-image: url("images/background.jpg");
+  background-repeat:repeat-x;
+background-attachment:fixed;
+background-position:top center; 
+  color: #000000;
+}
+
+body {
+  width: 940px;
+  margin: 0 auto;
+
+
+}
+
+.headerimg {
+  margin: 40px auto;
+  width: 100px;
+  display: block;
+}
+
+
+a {
+  color: #cc6633;
+}
