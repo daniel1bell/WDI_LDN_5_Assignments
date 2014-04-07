@@ -15,9 +15,12 @@ margin-left: auto;
 }
 
 .sidebar, .blog_post{
+
   display:inline-block;
   position:relative;
   margin: 5px;
+  float: left;
+
 }
 
 .blog_post{
@@ -25,7 +28,13 @@ margin-left: auto;
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
-  width: 650px;
+  width: 600px;
+ 
+}
+
+.sidebar{
+  background-color: #FFFFFF;
+  
 }
 
 .comments{
@@ -33,8 +42,7 @@ margin-left: auto;
   border-bottom: 3px solid black;
 }
 
-.sidebar{
-
-
+.bottom_bit{
+  
 }
 
