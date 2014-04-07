@@ -1,0 +1,26 @@
+
+Main Menu
+  Create User
+  Login as user [optional]
+  List users
+
+Portfolio Menu
+  create portfolio
+  manage portfolio
+  list portfolios, summary [part of menu]
+
+Mange Portfolios
+  buy stock
+  sell stock
+  get cash [optional]
+
+  Methods: 
+   list
+   create
+
+Classes
+  Users
+  Portfolios
+  Securities
+  Cash
+  Menu
