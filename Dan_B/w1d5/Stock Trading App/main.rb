@@ -13,12 +13,12 @@ s3 = Stock.new("ADSK", 50, "Autodesk, Inc.", 50)
 s4 = Stock.new("MSG", 50, "The Madison Squar", 68.2)
 
 p1 = Portfolio.new("Dan p1")
-  p1.stocks[s1.name] = s1
-  p1.stocks[s3.name] = s3
+  p1.stocks[s1.code] = s1
+  p1.stocks[s3.code] = s3
 p2 = Portfolio.new("Dan p2")
 p3 = Portfolio.new("Paul p1")
-  p3.stocks[s2.name] = s2
-  p3.stocks[s4.name] = s4
+  p3.stocks[s2.code] = s2
+  p3.stocks[s4.code] = s4
 
 c1 = Client.new("Dan", 10000.0, "please")
   c1.portfolios[p1.name] = p1

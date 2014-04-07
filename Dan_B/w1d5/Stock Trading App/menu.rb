@@ -115,7 +115,7 @@ def buy_stock(brokerage)
 
       if purchase_quantity <= available_stock
         brokerage.clients.fetch(client_name).cash = new_client_cash
-        brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks[code_name] = Stock.new(code, purchase_quantity, code_name, code_trade)
+        brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks[code] = Stock.new(code, purchase_quantity, code_name, code_trade)
 
         puts "\nCongratulations! You've just bought #{purchase_quantity} shares of #{code}.\nWe have deducted $#{purchase_value.round(2)} from your account."
         brokerage.list_client(client_name)
@@ -148,16 +148,16 @@ def sell_stock(brokerage)
       code_trade = YahooFinance::get_standard_quotes(code)[code].lastTrade
       client_cash = brokerage.clients.fetch(client_name).cash
       available_stock = (client_cash/code_trade).floor
-      bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code_name).stock_price
-      bought_amount = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code_name).number_stocks
+      bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).stock_price
+      bought_amount = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).number_stocks
       sell_value = bought_amount * code_trade
       new_client_cash = client_cash + sell_value
       sell_profit = (bought_amount * code_trade) - (bought_amount * bought_value)
 
       if bought_value < code_trade
-        profit_loss = "loss"
-      else
         profit_loss = "profit"
+      else
+        profit_loss = "loss"
       end
 
       puts "Current Stock Prices:"
@@ -172,7 +172,7 @@ def sell_stock(brokerage)
 
       if sell_response == "y"
         brokerage.clients.fetch(client_name).cash = new_client_cash
-        brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.delete(code_name)
+        brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.delete(code)
 
         puts "\nYou've just sold #{bought_amount} shares of #{code}.\nYour #{profit_loss} of $#{sell_profit.round(2)} and sell value of #{sell_value.round(2)} has been updated in your client cash account.\nYour new client balance is $#{new_client_cash.round(2)}"
         brokerage.list_client(client_name)
