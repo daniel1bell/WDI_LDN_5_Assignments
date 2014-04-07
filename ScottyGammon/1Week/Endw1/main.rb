@@ -1,79 +1,60 @@
+require 'YahooFinance'
 require 'pry'
 
-# load files
-require_relative 'portfolio'
-require_relative 'client'
-require_relative 'brokerage'
+#BIG thanks to Sam. I worked with him on Saturday. He helped me to get lookup stock working
+#load files
 require_relative 'menu'
+require_relative 'brokerage'
+require_relative 'client'
+require_relative 'portfolio'
 require_relative 'stock'
 
-# setup initial data
-b = Brokerage.new
+#setup initial data
+b = Brokerage.new('WTIT')
+c1 = Client.new('Michael',10000)
+c2 = Client.new('Alex',7500)
+c3 = Client.new('Imran',5000)
+c4 = Client.new('Scott',1000)
 
-f1 = Client.new('Michael', 75000)
-
-f2 = Client.new('Alex', 5000)
-
-f3 = Client.new('Imran', 1000)
-
-[f1,f2,f3].each do |client|
-  b.clients[client.name] = client
+[c1,c2,c3,c4].each do |client|
+	b.clients[client.name] = client
 end
 
-p1 = Portfolio.new('Growth Tech')
-p2 = Portfolio.new('Emerging Markets')
-p3 = Portfolio.new('Blue Chips')
+p1 = Portfolio.new('Blue Chips')
+p2 = Portfolio.new('Growth')
 
-f1.portfolios[p1.name] = p1
-f1.portfolios[p2.name] = p2
-f2.portfolios[p3.name] = p3
-
-b.portfolios['Julien'] = Portfolio.new('Julien')
-
-# binding.pry
-
+c1.portfolios[p1.name] = p1
+c2.portfolios[p2.name] = p2
 
 # run command line interaction
-
 response = menu.downcase
 while response != "q"
 
-  case response
-    when '1'
-      puts b.list_clients 
-
-    when '2'
-      puts b.list_portfolios
-
-    when '3'
-      let_client(b)
-
-    when '4'    
-      evict_portfolio(b)
-
-    when '5'    
-      puts b.list_vacant_clients
-
-    when '6'    
-      puts b.list_portfolios
-
-    when '7'    
-      create_portfolio(b)
-
-    when '8'
-      create_client(b)
-
-    when '9'
-      puts b.potential_monthly_income
-
-    else
-      puts "invalid menu choice."
-  end
-  puts "\npress enter to continue."
-  gets
-
-  response = menu
-
+	case response
+		when "1"
+ 		b.create_client
+		when "2"
+		b.create_portfolio
+		when "3"
+		b.purchase_stocks
+		when "4"
+		b.sell_stocks
+		when "5"
+		b.list_clients
+		when "6"
+    	b.list_portfolios
+  		when "7"
+    	lookup_stocks
+    	when "8"
+ 		b.view_balance
+ 		when "9"
+ 		b.new_funds
+ 		else
+ 		print "Invalid menu choice. Please try again."
+ 		end
+ 		puts "\nPress enter to continue."
+ 		gets
+ 		response=menu
 end
-
 # binding.pry
+# deleted all methods in menu class
