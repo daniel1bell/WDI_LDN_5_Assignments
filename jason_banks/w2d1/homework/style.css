@@ -33,6 +33,7 @@ img {
   background-color: white;
   width: 68%;
   margin-top: 30px;
+  padding-bottom: 55px;
 }
 
 .sidebar {
@@ -40,6 +41,7 @@ img {
   background-color: white;
   width: 30%;
   margin-top: 30px;
+  padding-bottom: 30px;
 }
 
 nav {
@@ -98,5 +100,15 @@ ul a {
 
 .author p {
   margin: 0px;
+}
+
+footer {
+  min-height: 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer img {
+  display: inline-block;
 }
 
