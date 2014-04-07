@@ -1,0 +1,107 @@
+body {
+  font-family: "Helvetica", "Gadget", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/*header {
+  height: 157px;
+  width: 1172px;
+}*/
+
+h1 {
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+#logo {
+  width: 120px;
+  height: 120px;
+}
+
+.menu {
+  font-family: 'Helvetica', Gadget, sans-serif;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.menu ul li a {
+  color: red;
+  text-decoration: none;
+  
+}
+
+.menu ul li a:hover {
+  font-weight: bold;
+}
+
+.menu ul li {
+  display: inline-block; 
+  margin-right: 20px;
+}
+
+
+#container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#container > section {
+  border-top: 2px dashed red;
+
+}
+
+
+.astronauts {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+#concepts {
+  clear: both;
+}
+
+.concepts > div {    /*> direct child*/
+  float: left;
+  font-size: 12px;
+}
+
+.concepts > div ul {
+  list-style: none;
+}
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+#instructors-thumbnails {
+  display: inline-block;
+  text-decoration: none;
+  width: 128px;
+  height: 128px;
+}
+
+
+footer {
+  text-align: center;
+  border-top: 1px solid red;
+}
