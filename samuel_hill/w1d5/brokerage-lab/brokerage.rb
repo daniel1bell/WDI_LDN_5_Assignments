@@ -35,64 +35,60 @@ class Brokerage
 		 clients[client_name].portfolios.each do |name, portfolio|
 				puts "#{client_name} has the following portfolios: #{portfolio.name}."
 		end
-
 	end
 
-	def create_portfolio
+  def create_portfolio
 		list_clients
 
  		puts "What is the name of the client?:"
-  		client_name = gets.chomp
-  		puts "What is the name of the portfolio?:"
-   		portfolio_name = gets.chomp
+  	client_name = gets.chomp
+  	puts "What is the name of the portfolio?:"
+   	portfolio_name = gets.chomp
 
-    	clients[client_name].portfolios[portfolio_name] = Portfolio.new(portfolio_name)
+    clients[client_name].portfolios[portfolio_name] = Portfolio.new(portfolio_name)
 
-    	puts "Thanks for creating a new portfolio!"
-  	end
+    puts "Thanks for creating a new portfolio!"
+  end
 
-  	def purchase_stocks
-  		list_clients
+  def purchase_stocks
+  	list_clients
 
-  		puts "Which client wishes to purchase stocks?:"
-  		client_name = gets.chomp
+  	puts "Which client wishes to purchase stocks?:"
+  	client_name = gets.chomp
 
-  		clients[client_name].portfolios.each do |name, portfolio|
-				puts "The following portfolios are available: #{portfolio.name}."
-			end
+  	clients[client_name].portfolios.each do |name, portfolio|
+			puts "The following portfolios are available: #{portfolio.name}."
+		end
 
-  		puts "Which portfolio do they want it to be addded to?:"
-  		add_to_portfolio = gets.chomp
+  	puts "Which portfolio do they want it to be addded to?:"
+  	add_to_portfolio = gets.chomp
 
-  		puts "What is the stock code for the company they wish to purchase?:"
-  		stock_symbol = gets.chomp
+  	puts "What is the stock code for the company they wish to purchase?:"
+  	stock_symbol = gets.chomp
 
-  		stock_price = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol].lastTrade.to_i
+  	stock_price = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol].lastTrade.to_i
 
-  		puts "The latest price for #{stock_symbol} is #{stock_price}."
+  	puts "The latest price for #{stock_symbol} is #{stock_price}."
 
-  		puts "How many would they like to purchase?:"
-  		stock_quantity = gets.chomp.to_i
+  	puts "How many would they like to purchase?:"
+  	stock_quantity = gets.chomp.to_i
 
-  		total_cost = stock_price * stock_quantity
+  	total_cost = stock_price * stock_quantity
 
-  		if total_cost > clients[client_name].balance
-  			puts "#{client_name} does not have enough funds to purchase these stocks."
-  		else
+  	if total_cost > clients[client_name].balance
+  		puts "#{client_name} does not have enough funds to purchase these stocks."
+  	else
+  	clients[client_name].portfolios[add_to_portfolio].stocks = Stock.new(stock_symbol,stock_quantity)
 
-  		clients[client_name].portfolios[add_to_portfolio].stocks = Stock.new(stock_symbol,stock_quantity)
+  	clients[client_name].balance = clients[client_name].balance - total_cost 
 
-  		clients[client_name].balance = clients[client_name].balance - total_cost 
+  	puts "Thanks! #{client_name} has just purchased #{stock_quantity} shares in #{stock_symbol}. The total cost for this transaction was £#{total_cost}."
 
-  		puts "Thanks! #{client_name} has just purchased #{stock_quantity} shares in #{stock_symbol}. The total cost for this transaction was £#{total_cost}."
+  	puts "The new balance of #{client_name}'s account is £#{clients[client_name].balance}."		
+    end
+  end
 
-  		puts "The new balance of #{client_name}'s account is £#{clients[client_name].balance}."
-  		
-  		end
-
-  	end
-
-  	def view_balance
+  def view_balance
   		list_clients
 
   		puts "Who's balance would you like to view?:"
@@ -101,9 +97,9 @@ class Brokerage
   		client_balance = clients[client_name].balance
 
   		puts "#{client_name}'s account has a balance of £#{client_balance}."
-  	end
+  end
 
-  	def sell_stocks
+  def sell_stocks
   		list_clients
 
   		puts "Which client wishes to sell some stocks?:"
@@ -142,9 +138,7 @@ class Brokerage
   		puts "These shares have been sold for £#{money_made} and have been added to #{client_name}'s balance."
   		puts "The new balance for the account is £#{clients[client_name].balance}."
   		end
-  	end
-
- 
+  end
 
 	def new_funds
 		list_clients

@@ -43,7 +43,7 @@ while response != "q"
   when "6"
     # abandon_pet
   when "7"
-    puts adopt_animal
+    s.adopt_animal
   else
     print "Invalid menu choice. Please try again."
   end

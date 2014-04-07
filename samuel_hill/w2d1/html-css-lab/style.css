@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	text-align: left;
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img {
+	float: left;
+}
+
+h1 {
+	margin-top: 30px;
+	font-size: 150%;
+	font-style: bold;
+	color: black;
+}
+
+h2 {
+	font-size: 200%;
+	font-style: bold;
+	color: black;
+}
+
+ul {
+	font-size: 100%;
+	font-style: bold;
+	color: blue;
+	margin-top: 0px;
+	display: inline-block;
+	width: 90px;
+}
+
+h3 {
+	font-size: 200%;
+	font-style: bold;
+}
