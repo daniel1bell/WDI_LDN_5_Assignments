@@ -178,8 +178,8 @@ class Management
         puts "\n#{units} of #{stock_symbol} have been purchased for #{client.name}."
       else
         puts "\n#{client.name}'s account cannot afford to make this investment at this time."
-        return
       end
+      return
     end
   end
 
