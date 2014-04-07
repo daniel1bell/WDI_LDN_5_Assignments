@@ -115,8 +115,6 @@ def sell_stock(brokerage)
 
   stock_value = stock_price * stock_quantity 
 
-  puts stock_value
-
   #new cash balance
   brokerage.clients[client_name].cash = client_cash - stock_value
 
@@ -128,24 +126,6 @@ def sell_stock(brokerage)
 end
 
 
-# if brokerage.clients.fetch(client_name).portfolios.has_key?("#{portfolio_name}")
-#       puts "\nWhich stock would you like to sell? (Enter a valid NASDAQ stock code) ->"
-#       code = gets.chomp.upcase
-#       code_name = YahooFinance::get_standard_quotes(code)[code].name
-#       code_trade = YahooFinance::get_standard_quotes(code)[code].lastTrade
-#       client_cash = brokerage.clients.fetch(client_name).cash
-#       available_stock = (client_cash/code_trade).floor
-#       bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code_name).stock_price
-#       bought_amount = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code_name).number_stocks
-#       sell_value = bought_amount * code_trade
-#       new_client_cash = client_cash + sell_value
-#       sell_profit = (bought_amount * code_trade) - (bought_amount * bought_value)
-
-#       if bought_value < code_trade
-#         profit_loss = "loss"
-#       else
-#         profit_loss = "profit"
-#       end
 
 
 
