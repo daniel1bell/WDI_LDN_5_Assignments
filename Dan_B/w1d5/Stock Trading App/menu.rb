@@ -144,40 +144,44 @@ def sell_stock(brokerage)
     if brokerage.clients.fetch(client_name).portfolios.has_key?("#{portfolio_name}")
       puts "\nWhich stock would you like to sell? (Enter a valid NASDAQ stock code) ->"
       code = gets.chomp.upcase
-      code_name = YahooFinance::get_standard_quotes(code)[code].name
-      code_trade = YahooFinance::get_standard_quotes(code)[code].lastTrade
-      client_cash = brokerage.clients.fetch(client_name).cash
-      available_stock = (client_cash/code_trade).floor
-      bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).stock_price
-      bought_amount = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).number_stocks
-      sell_value = bought_amount * code_trade
-      new_client_cash = client_cash + sell_value
-      sell_profit = (bought_amount * code_trade) - (bought_amount * bought_value)
+      if brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.has_key?("#{code}")
+        code_name = YahooFinance::get_standard_quotes(code)[code].name
+        code_trade = YahooFinance::get_standard_quotes(code)[code].lastTrade
+        client_cash = brokerage.clients.fetch(client_name).cash
+        available_stock = (client_cash/code_trade).floor
+        bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).stock_price
+        bought_amount = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).number_stocks
+        sell_value = bought_amount * code_trade
+        new_client_cash = client_cash + sell_value
+        sell_profit = (bought_amount * code_trade) - (bought_amount * bought_value)
 
-      if bought_value < code_trade
-        profit_loss = "profit"
+        if bought_value < code_trade
+          profit_loss = "profit"
+        else
+          profit_loss = "loss"
+        end
+
+        puts "Current Stock Prices:"
+        puts "\n\nStock Code:\t\t#{code}"
+        puts "Company Name:\t\t#{code_name}"
+        puts "Last Trade Value:\t#{code_trade}"
+        puts
+        puts "You bought your shares in #{code} at a price of $#{bought_value}. You currently have #{bought_amount} #{code} shares in this portfolio."
+        puts
+        puts "If you sold today you would receive a #{profit_loss} of $#{sell_profit.round(2)}.\n$#{sell_value.round(2)} would be deposited in your client cash account making the new balance $#{new_client_cash.round(2)}.\n\nDO YOU WANT TO SELL YOUR STOCK in #{code} from your portfolio: #{portfolio_name}? (y/n)"
+        sell_response = gets.chomp.downcase
+
+        if sell_response == "y"
+          brokerage.clients.fetch(client_name).cash = new_client_cash
+          brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.delete(code)
+
+          puts "\nYou've just sold #{bought_amount} shares of #{code}.\nYour #{profit_loss} of $#{sell_profit.round(2)} and sell value of #{sell_value.round(2)} has been updated in your client cash account.\nYour new client balance is $#{new_client_cash.round(2)}"
+          brokerage.list_client(client_name)
+        else
+          puts "Returning you to the main menu."
+        end
       else
-        profit_loss = "loss"
-      end
-
-      puts "Current Stock Prices:"
-      puts "\n\nStock Code:\t\t#{code}"
-      puts "Company Name:\t\t#{code_name}"
-      puts "Last Trade Value:\t#{code_trade}"
-      puts
-      puts "You bought your shares in #{code} at a price of $#{bought_value}. You currently have #{bought_amount} #{code} shares in this portfolio."
-      puts
-      puts "If you sold today you would receive a #{profit_loss} of $#{sell_profit.round(2)}.\n$#{sell_value.round(2)} would be deposited in your client cash account making the new balance $#{new_client_cash.round(2)}.\n\nDO YOU WANT TO SELL YOUR STOCK in #{code} from your portfolio: #{portfolio_name}? (y/n)"
-      sell_response = gets.chomp.downcase
-
-      if sell_response == "y"
-        brokerage.clients.fetch(client_name).cash = new_client_cash
-        brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.delete(code)
-
-        puts "\nYou've just sold #{bought_amount} shares of #{code}.\nYour #{profit_loss} of $#{sell_profit.round(2)} and sell value of #{sell_value.round(2)} has been updated in your client cash account.\nYour new client balance is $#{new_client_cash.round(2)}"
-        brokerage.list_client(client_name)
-      else
-        puts "Returning you to the main menu."
+          puts "\nYou can't sell stock that you don't have. Please try again."
       end
     else
       puts "The portfolio name was invalid. Please try again."
