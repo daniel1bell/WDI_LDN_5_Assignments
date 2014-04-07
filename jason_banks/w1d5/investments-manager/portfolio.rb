@@ -1,7 +1,6 @@
 class Portfolio
 
   attr_accessor :type, :stocks
-  attr_reader
 
   def initialize(type)
     @type = type

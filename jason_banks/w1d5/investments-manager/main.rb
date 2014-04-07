@@ -76,7 +76,7 @@ p1 = Portfolio.new(:Tech) # for Miranda
 p2 = Portfolio.new(:Tech) # for Chandler
 p3 = Portfolio.new(:Finance) # for Jack
 p4 = Portfolio.new(:Auto) # for Jack
-p5 = Portfolio.new(:FMCG) # for Leslie
+p5 = Portfolio.new(:Fmcg) # for Leslie
 p6 = Portfolio.new(:Finance) # for Miranda
 
 c1 = Client.new("Miranda", 1111, 120_000)

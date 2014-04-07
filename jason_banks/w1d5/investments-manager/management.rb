@@ -9,7 +9,7 @@ class Management
   def list_clients
     if clients.any?
       puts "\nWe have #{clients.length} clients.\n\n"
-      clients.values.join("\n")
+      clients.values.join("\n\n")
       puts "\n\n"
     else
       puts "\nWe have no clients.\nQuel bromaggedon!"
@@ -166,8 +166,9 @@ class Management
       if client.balance_check(stock_symbol, additional_units)
         stock.buy_more_units(additional_units)
       else
-        puts "\n#{client.name}'s account cannot afford to make this investment at this time."
+        puts "\n#{client.name}'s account cannot afford to make this investment at this time.\n"
       end
+      puts client.to_s
     else
       print "\nEnter number of units of #{stock_symbol} to purchase: "
       units = confirm_units(gets.chomp)
@@ -191,12 +192,12 @@ class Management
       portfolio = confirm_portfolio(client)
     end
 
-    print "\nEnter stock symbol (#{portfolio.stocks.keys.join(", ")}: "
+    print "\nEnter stock symbol (#{portfolio.stocks.keys.join(", ")}): "
     stock_symbol = gets.chomp.upcase
     while !portfolio.stocks.keys.include?(stock_symbol)
       puts "\nInvalid choice."
       print "Please enter stock symbol: "
-      stock_symbol = gets.chomp
+      stock_symbol = gets.chomp.upcase
     end
     stock = portfolio.stocks[stock_symbol]
     puts "\nCurrent units of #{stock_symbol}: #{stock.units}"
@@ -207,8 +208,14 @@ class Management
       return
     else
       stock.calc_stock_sale(units_to_sell)
+      if stock.units == 0 && stock.start_investment == 0
+        binding.pry
+        client.portfolios.delete(portfolio)
+      end
+      puts client.to_s
       return
     end
+    
   end
       
 

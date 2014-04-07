@@ -1,6 +1,6 @@
 class Stock
 
-  attr_reader :stock_symbol, :investment, :stock, :start_investment, :stock_name, :units
+  attr_accessor :stock_symbol, :investment, :stock, :start_investment, :stock_name, :units, :stock_name_combo
 
   def initialize(stock_symbol, units)
     @stock_symbol = stock_symbol.upcase
@@ -9,6 +9,7 @@ class Stock
     @stock_name = stock.name
     @start_stock_price = stock.lastTrade
     @start_investment = @start_stock_price * units
+    @stock_name_combo = "#{@stock_name} (#{@stock_symbol}, #{units} units)"
   end
 
   def get_current_stock_price
@@ -34,9 +35,13 @@ class Stock
     return_investment = units_to_sell * get_current_stock_price
     @start_investment -= return_investment
     @units -= units_to_sell
-    puts "\n#{units_to_sell} units of #{stock_symbol} have been purchased."
+    binding.pry
+    puts "\n#{units_to_sell} units of #{stock_symbol} have been sold.\n\n"
   end
 
+  def to_s
+    print stock_name_combo
+  end
 
 
 

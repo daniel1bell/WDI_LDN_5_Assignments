@@ -32,16 +32,6 @@ class Client
     end
   end
 
-  # def buy_stock
-  #   print "\nStock Symbol: "
-  #   stock_symbol = gets.chomp.upcase
-  #   loop do
-  #     if portfolios.keys.include?(stock_symbol)
-  #       puts "#{stock_symbol}"
-  #     end
-  #   end
-  # end
-
   def balance_check(stock_symbol, additional_units)
     stock_price = YahooFinance::get_standard_quotes(stock_symbol)[stock_symbol].lastTrade
     proposal = stock_price * additional_units
@@ -51,10 +41,19 @@ class Client
   def to_s
     puts "Client: #{name}"
     puts "  Phone: #{phone}"
-    puts "  Portfolios: #{portfolios.keys.join(", ")}"
     puts "  Opening Balance: $#{sprintf("%.2f", opening_balance)}"
-    puts "  Current Balance: $#{sprintf("%.2f", calc_current_balance)}\n"
-
+    puts "  Current Balance: $#{sprintf("%.2f", calc_current_balance)}"
+    print "  Portfolio(s): "
+    if portfolios.any?
+      puts
+      portfolios.each { |portfolio, values|
+      print "     #{values.type} stocks: "
+      values.stocks.values.join(", ") 
+      puts}
+      puts "\n\n"
+    else
+      print "none\n\n"
+    end
   end
 
 
