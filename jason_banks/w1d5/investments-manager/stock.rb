@@ -25,9 +25,18 @@ class Stock
 
   def buy_more_units(additional_units)
     @units += additional_units
-    @start_investment += (additional_units * get_current_stock_price)
-    puts "\n#{additional_units} of #{stock_symbol} have been purchased."
+    additional_investment = additional_units * get_current_stock_price
+    @start_investment += additional_investment
+    puts "\n#{additional_units} units of #{stock_symbol} have been purchased."
   end
+
+  def calc_stock_sale(units_to_sell)
+    return_investment = units_to_sell * get_current_stock_price
+    @start_investment -= return_investment
+    @units -= units_to_sell
+    puts "\n#{units_to_sell} units of #{stock_symbol} have been purchased."
+  end
+
 
 
 

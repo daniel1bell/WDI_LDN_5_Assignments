@@ -183,7 +183,37 @@ class Management
   end
 
   def sell_stock
-    
+    client = confirm_client
+    if client.portfolios.empty?
+      puts "\n#{client.name} has no investments.\n"
+      return
+    else
+      portfolio = confirm_portfolio(client)
+    end
+
+    print "\nEnter stock symbol (#{portfolio.stocks.keys.join(", ")}: "
+    stock_symbol = gets.chomp.upcase
+    while !portfolio.stocks.keys.include?(stock_symbol)
+      puts "\nInvalid choice."
+      print "Please enter stock symbol: "
+      stock_symbol = gets.chomp
+    end
+    stock = portfolio.stocks[stock_symbol]
+    puts "\nCurrent units of #{stock_symbol}: #{stock.units}"
+    print "Number of units to sell: "
+    units_to_sell = confirm_units(gets.chomp)
+    if units_to_sell > stock.units
+      puts "\nThis amount exceeds the number of units available."
+      return
+    else
+      stock.calc_stock_sale(units_to_sell)
+      return
+    end
+  end
+      
+
+
+
 
 
 end
