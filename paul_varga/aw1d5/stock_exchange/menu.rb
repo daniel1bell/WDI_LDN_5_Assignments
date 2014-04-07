@@ -101,22 +101,24 @@ def sell_stock(brokerage)
   puts "Which portfolio do you want to sell from?"
   portfolio_name = gets.chomp
 
-  puts "Which stock do you want to sell (please enter a valid ticker)?"
+  puts "What´s the ticker of the stock you want to sell?"
   stock_ticker = gets.chomp.upcase
   stock_name = YahooFinance::get_standard_quotes(stock_ticker)[stock_ticker].name
   stock_price = YahooFinance::get_standard_quotes(stock_ticker)[stock_ticker].lastTrade
 
-  # client_cash = brokerage.clients[client_name].cash
+  puts "What´s the name of the stock you want to sell?"
+  stock_name = gets.chomp.capitalize
 
-  # stock_price = brokerage.clients[client_name].portfolios[portfolio_name].stocks[stock_ticker].price(stock_ticker)
-  # stock_quantity = brokerage.clients[client_name].portfolios[portfolio_name].stocks[stock_ticker].quantity(stock_ticker)
+  client_cash = brokerage.clients[client_name].cash
+  
+  stock_quantity = brokerage.clients[client_name].portfolios[portfolio_name].stocks[stock_name].quantity
 
-  # stock_value = stock_price * stock_quantity 
+  stock_value = stock_price * stock_quantity 
 
-  # puts stock_value
+  puts stock_value
 
-  # #new cash balance
-  # brokerage.clients[client_name].cash = client_cash - stock_value
+  #new cash balance
+  brokerage.clients[client_name].cash = client_cash - stock_value
 
   #remove stock
   removed_stock = brokerage.clients[client_name].portfolios[portfolio_name].stocks.delete(stock_ticker)
