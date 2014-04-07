@@ -1,3 +1,5 @@
+require 'pry'
+
 def menu
   puts `clear`
   puts "***CalcIt***"
@@ -93,13 +95,14 @@ def trip_calc
   mi = gets.to_f
   print "How many miles per gallon does the car get? "
   mpg = gets.to_f
-  print "How much does gas cost per gallon? "
+  print "How much does gas cost per gallon?($) "
   cpg = gets.to_f
   print "How fast will you drive?(mph) "
   speed = gets.to_f
+  binding.pry
   time = mi / speed
   cost = (mi / mpg) * cpg
-  puts "Your trip will take #{time}hours and cost $#{cost}"
+  puts "Your trip will take #{time}hour(s) and cost $#{cost}"
   print "Press any key to continue: "
   gets
 end
