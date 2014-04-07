@@ -24,7 +24,7 @@ class Building
   end
 
   def list_prospects
-    if prospects.empty?
+    if prospects.empty? # could have used .any?
       "There are no prospective tenants."
     else 
       prospects.keys.join(", ")
