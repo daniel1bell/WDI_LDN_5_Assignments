@@ -1,25 +1,64 @@
 
-* {
+
+
+html {
   background: #d6d6d6;
-    background-image: url("images/background.jpg");
+  background-image: url("images/background.jpg");
   background-repeat:repeat-x;
-background-attachment:fixed;
-background-position:top center; 
+  background-attachment:fixed;
+  background-position:top center; 
   color: #000000;
 }
 
-body {
+body{
   width: 940px;
   margin: 0 auto;
-
-
 }
 
-.headerimg {
-  margin: 40px auto;
+header img {
+  margin: 35px auto;
   width: 100px;
   display: block;
 }
+
+main {
+  margin-top: 50px;
+  margin-right: 10px;
+  background: #ffffff;
+  padding: 40px 15px;
+  width: 610px;
+  float: left;
+}
+
+nav {
+  margin-top: 50px;
+  background: #ffffff;
+  width: 280px;
+  float: left;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+#nyc {
+  width: 100%;
+}
+
+p {
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+aside {
+  border-top: 2px dotted black;
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif; 
+}
+
+
+
+
 
 
 a {
