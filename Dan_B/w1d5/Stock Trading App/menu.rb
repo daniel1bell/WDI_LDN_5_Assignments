@@ -52,9 +52,9 @@ def add_portfolio(brokerage)
     puts
     unless brokerage.clients.fetch(client_name).portfolios.empty?
       puts "#{client_name} currently has the following portfolios:"
-        brokerage.clients.fetch("#{client_name}").portfolios.each do |key, value|
-          puts key
-        end
+      brokerage.clients.fetch("#{client_name}").portfolios.each do |key, value|
+        puts key
+      end
       puts
     end
     
