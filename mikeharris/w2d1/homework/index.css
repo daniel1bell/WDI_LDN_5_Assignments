@@ -1,5 +1,7 @@
 
-
+* {
+  font-family: Verdana, Geneva, sans-serif; 
+}
 
 html {
   background: #d6d6d6;
@@ -8,6 +10,7 @@ html {
   background-attachment:fixed;
   background-position:top center; 
   color: #000000;
+  background-size: 500px;
 }
 
 body{
@@ -16,8 +19,8 @@ body{
 }
 
 header img {
-  margin: 35px auto;
-  width: 100px;
+  margin: 35px auto 20px auto;
+  width: 150px;
   display: block;
 }
 
@@ -25,35 +28,86 @@ main {
   margin-top: 50px;
   margin-right: 10px;
   background: #ffffff;
-  padding: 40px 15px;
-  width: 610px;
+  padding: 40px 20px;
+  width: 600px;
   float: left;
 }
 
-nav {
-  margin-top: 50px;
-  background: #ffffff;
-  width: 280px;
-  float: left;
+section {
+  border-bottom: 2px solid black;
+  margin-bottom: 50px;
+}
+
+section img {
+  width: 100%;
+  margin: 25px 0;
 }
 
 h2 {
   font-size: 20px;
 }
 
-#nyc {
-  width: 100%;
-}
-
 p {
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
+  line-height: 1.75;
+}
+
+section a {
+  color: #cc6633;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+
 }
 
 aside {
+  padding: 5px 0;
   border-top: 2px dotted black;
+  font-size: 12px;  
+}
+
+nav {
+  padding: 60px 15px;
+  margin-top: 50px;
+  background: #ffffff;
+  width: 250px;
+  float: left;
   font-size: 12px;
-  font-family: Verdana, Geneva, sans-serif; 
+  font-weight: bold;
+}
+
+h3 {
+   font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+ul {
+ list-style: none;
+ margin-bottom: 20px;
+
+}
+
+li {
+  margin-left: 20px;
+  padding: 5px;
+}
+
+nav img {
+  margin: 10px auto;
+  width: 100%;
+}
+
+footer {
+  clear: both;
+  padding: 50px 0;
+  margin: auto;
+  width: 180px;
+}
+
+footer img {
+  width: 50px;
 }
 
 
@@ -61,6 +115,3 @@ aside {
 
 
 
-a {
-  color: #cc6633;
-}
