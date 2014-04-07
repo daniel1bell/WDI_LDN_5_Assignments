@@ -1,0 +1,73 @@
+body {
+  background: url("./images/background.jpg"), #d6d6d6;
+  background-repeat: repeat-x;
+  color: #000000;
+}
+
+a {
+  color:  #cc6633;
+}
+
+header {
+  min-height: 200px;
+}
+
+.container {
+  width: 940px;
+  margin: auto;
+}
+
+.main {
+  width: 640px;
+  background-color: white;
+  float: left;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: white;
+  float: right;
+}
+
+.sidebar_container {
+  width: 240px;
+  margin: auto;
+ }
+
+h1 {
+  background: url("./images/logo.png") 0 0 no-repeat;
+  text-indent: -9999px;
+  min-height: 213px;
+}
+
+h1 container {
+  width: 640px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 12px;
+}
+
+article {
+
+}
+
+.posted_by {
+  border-top: 3px dotted black;
+  border-bottom: 3px solid black;
+}
+
+.download {
+  text-transform:uppercase;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+  padding: 60px 0;
+}
