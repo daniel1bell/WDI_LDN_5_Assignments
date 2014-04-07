@@ -20,8 +20,6 @@ def let_flat(building)
   print  'Which Prospect? '
   # todo- write list of prospects
   prospect_name = gets.chomp
-
-  prospect = building.prospects.delete(prospect_name)
   flat = building.flats[flat_name]
 
   if prospect && flat && flat.vacant?
