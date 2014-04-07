@@ -1,18 +1,26 @@
 require 'pry'
 
 class Client
+  attr_accessor :name, :opening_balance, :portfolios
 
   def initialize(name, opening_balance)
     @name = name
     @opening_balance = opening_balance
+    @portfolios =  [ ]
   end
 
-  def create
-    Puts "What is the new client's name?"
+  def Client.create_user
+    puts " "
+    puts "What is the new client's name?"
     name = gets.chomp
-    Puts "What is #{name}'s opening balance?"
+    puts " "
+    puts "What is #{name}'s opening balance?"
     opening_balance = valid_number_input
-    Client.new(name, opening_balance)
+    return Client.new(name, opening_balance)
+    puts " "
+    puts "A new user has been created"
+    puts " "
+
   end
-  
+
 end

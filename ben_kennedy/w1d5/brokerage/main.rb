@@ -26,39 +26,95 @@ require 'pry'
 require 'yahoofinance'
 require_relative 'menu'
 require_relative 'client'
+require_relative 'portfolios'
+require_relative 'securities'
+require_relative 'navigation'
+require_relative 'brokerage'
 
 #create inital clients
+b = Brokerage.new("Ben's Brokerage")
+
 clients = [ ]
 clients << Client.new("Ben", "1000000")
 clients << Client.new("Goodwin", "1000")
 
+clients.each { |client| b.users[client.name] = client }
+
+portfolios = { }
+positions = { }
+
+id = 1
+
 #Define the menus
 
-main_menu = Menu.new("Welcome to Your Brokerage App",
+main_menu = Menu.new("Welcome to Your Brokerage App, Main Menu",
             c_user: "Create new user",
             l_user: "List users",
-            view: "View a user's portfolios"
+            view: "View a user's portfolios",
             q: "Quit program")
 
-user_menu = Menu.new("Portfolios",
+user_menu = Menu.new("Portfolios Overview",
             c_port: "Create a new portfolio",
             m_port: "Manage portfolio",
+            main: "Back to the Main Menu",
             q: "Quit program" )
 
 portfolio_menu = Menu.new("Manage Portfolio",
             buy: "Buy stocks",
-            sell: "Sell stocks"
+            sell: "Sell stocks",
+            port_overview: "Back to the Portfolios Overview Menu",
             q: "Quit program")
+            
 
 response = main_menu.display
 
 while response != :q
   case response
   when :c_user
-
+    new_user = Client.create_user
+    b.users[new_user.name] = new_user 
+    response = main_menu.display
+  
   when :l_user
-
+    
+    puts " " 
+    puts b.list_users
+    puts " "
+    response = main_menu.display
+  
   when :view
+    puts "What user's portfolios do you want to view?"
+    user = valid_string_input(b.clients.keys)
+    user.list_portfolios #todo
+    response = user_menu.display
+    #go int0 the user menu
+  when :c_port  
+    id = id + 1
+    Portfolio.create_portfolio(id) 
+    response = user_menu.display
+
+  when :main
+    response = main_menu.display
+
+  when :m_port
+    portfolio = lookup("portfolio", portfolios)#todo
+    portfolio.list_positions #todo
+    response = portfolio_menu.display #to do
+  
+  when :buy
+  portfolios.buy_securities #todo
+  response = portfolio_menu.display
+  
+  when :sell
+  portfolios.sell_securities #todo
+  response = portfolio_menu.display
+  
+  when :port_overview
+  response = user_menu.display 
+
+  end
+
+
 
 end
 

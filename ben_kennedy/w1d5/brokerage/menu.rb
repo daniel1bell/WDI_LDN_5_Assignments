@@ -19,9 +19,6 @@ class Menu
     valid_string_input(@menu_items.keys)
   end
 
-  def execute
-    
-  end
 end
 
 # def create_new_animal(shelter)
