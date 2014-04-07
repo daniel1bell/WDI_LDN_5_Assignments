@@ -27,6 +27,24 @@ class Position
     end
   end
 
+  def Position.update_position(brokerage, portfolio, user, security)
+    security = Security.create(security)
+    puts "The share price is #{security.price}"
+    binding.pry
+    old_share_count = brokerage.users[user].portfolios[portfolio].positions[security].shares
+    puts "How many shares will you purchase?"
+   # binding.pry
+    add_shares_count = valid_number_input.to_i 
+    new_share_count = add_shares_count + old_share_count
+        if brokerage.users[user].reduce_balance(security.price * add_shares_count) != false
+      brokerage.users[user].reduce_balance(security.price * add_shares_count)
+      puts "Portfolio updated"
+      Position.new(new_share_count, security)
+    else
+      puts "ERROR.  You do not have sufficient funds."
+    end
+  end
+
   def sell_securities
 
   end

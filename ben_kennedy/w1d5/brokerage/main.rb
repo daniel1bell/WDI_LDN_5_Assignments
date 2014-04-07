@@ -123,7 +123,11 @@ while response != :q
   when :buy
   puts "Enter the ticker of the stock to buy"
   security_ticker = gets.chomp
-  b.users[user].portfolios[portfolio].positions[security_ticker] = Position.buy_securities(security_ticker, user, b)
+    if security_check(b, portfolio, user, security_ticker) == false
+      b.users[user].portfolios[portfolio].positions[security_ticker] = Position.buy_securities(security_ticker, user, b)
+    else
+      b.users[user].portfolios[portfolio].positions[security_ticker] = Position.update_position(b, portfolio, user, security_ticker)
+    end
   list_positions(b, user, portfolio)
   puts " " 
   response = portfolio_menu.display
