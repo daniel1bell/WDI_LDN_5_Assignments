@@ -23,8 +23,8 @@ p2 = Portfolio.new("Matt p2")
 
 
 c1 = Client.new('John', 200000)
-  c1.portfolios[p1.name] = p1
-  c1.portfolios[p2.name] = p2
+  # c1.portfolios[p1.name] = p1
+  # c1.portfolios[p2.name] = p2
 # c2 = Client.new('Matt', 300000)
 #   c2.portfolios[p2.name] = p3
 
