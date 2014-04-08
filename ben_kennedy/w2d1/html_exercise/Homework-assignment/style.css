@@ -92,18 +92,14 @@ p {
   line-height: 20px;
 }
 
-footer {
-  clear: both;
-  height: 150px;
-}
-.foot img {
+footer img {
   padding: 50px 2px;
 }
-
-.foot {
+footer {
   width: 150px;
   margin: auto auto;
-  height: 150px;
+  height: 100px;
+  clear: both;
 }
 
 
