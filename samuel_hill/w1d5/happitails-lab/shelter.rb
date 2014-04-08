@@ -43,6 +43,17 @@ class Shelter
     puts "Thanks for adding #{animal_name} the #{animal_breed} as a new animal."
   end
 
+  def adopt_animal
+  print "Which Animal?: #{list_available_pets}"
+  animal_name = gets.chomp
+  puts "Which prospect?: #{list_prospects}"
+  new_owner = gets.chomp
+
+  
+
+  end 
+
+
   # def list_clients
   # clients[pets].any?
   # end

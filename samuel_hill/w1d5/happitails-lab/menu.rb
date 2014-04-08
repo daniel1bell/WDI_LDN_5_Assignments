@@ -16,10 +16,7 @@ def menu
   gets.chomp.downcase
 end
 
-# def adopt_animal(shelter)
-
-#   print "Which Animal?"
-#   print "#{shelter.list_available_pets}"
+   
 #   animal_name = gets.chomp
 #   print "Which Prospect?"
 #   print "#{shelter.list_prospects}"

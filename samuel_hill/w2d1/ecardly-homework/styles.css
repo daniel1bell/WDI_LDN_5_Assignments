@@ -1,0 +1,99 @@
+h1 {
+	background-image: url("images/background.jpg");
+	height: 162px;
+}
+
+#logo{
+	width: 185px;
+	display: inline-block;
+	margin-top: 25px;
+}
+
+body {
+	background-color: #d6d6d6;
+	color: #000000;
+	text-align: center;
+	font-family: helvetica, arial, sans-serif;
+}
+
+.content {
+	max-width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.content-left {
+	float: left;
+	width: 640px;
+	background-color: white;
+	margin-right: 10px;
+	margin-top: 80px;
+	text-align: left;
+}
+
+.content-right {
+	float: left;
+	width: 280px;
+	background-color: white;
+	margin-left: 10px;
+	margin-top: 80px;
+}
+
+h2{
+	font-size: 20px;
+	margin: 30px 0px 30px 20px;
+}
+
+h3 {
+	text-align: left;
+	margin: 30px 0px 15px 30px;
+	font-weight: bold;
+}
+
+.caption {
+	border-top: 1px dashed black;
+	border-bottom: 1px solid black;
+	margin: 30px 20px 30px 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.download {
+	color: red;
+	float: right;
+	margin-right: 375px;
+}
+
+.text {
+	margin: 20px 20px 0px 20px;
+	line-height: 1.6;
+}
+
+ul {
+	text-align: left;
+	margin-left: 60px;
+}
+
+#ad1 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#ad2 {
+	margin-bottom: 20px;
+}
+
+#ad3 {
+	margin-bottom: 40px;
+}
+
+#image {
+	margin-left: 20px;
+}
+
+footer {
+	min-height: 100px;
+	padding-top: 50px;
+	display: block;
+	clear: both;
+}

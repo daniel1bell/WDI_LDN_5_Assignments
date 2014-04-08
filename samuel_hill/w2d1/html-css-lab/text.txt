@@ -1,0 +1,132 @@
+ Web Development Immersive General Assembly: Autumn/Winter 2013
+
+ProgramStudentsConceptsRuby On RailsInstructors
+
+The Program
+12 weeks of intensive web development training learning a range of programming techniques and languages.
+
+The Students
+The London WDI Session 3 Coding Collective
+
+We faced missing routes, broken links, aborted rake tasks, rejected mass-assignments, failed deployments, nilClasses, illegal nestings, conflicted merges, rougue debuggers, unexpected keyword ends, incomplete divs, unintentional infinite loops, uncooperative asset pipelines, empty migrations, unresponsive APIs, undefined defined methods, overly-sassy css, dirty data, faulty gems, terrible animated gifs, excessive pizza, punchy classmates, demanding instructors and long days. And we won!
+
+The Concepts
+We were taught a lot of concepts. Over 12 weeks with three projects, one hackathon and not much sleep, we learned and practiced a full range of front- and back-end concepts. Take a look at some of what we covered...
+
+OOP
+Agile Development
+TDD
+BDD
+Ruby
+Variables
+Conditionals
+Blocks
+Enumerators
+Strings, Symbols
+Arrays, Hashes
+Methods
+Classes
+Inheritance
+Scope
+Patterns
+Refactoring
+HTTP Requests
+URL, URI
+Networking
+SSH
+Sessions
+Authentication
+Authorization
+Web Scraping
+Cookies
+HTTP APIs
+RESTful APIs
+HTTParty
+Uploads
+File I/O
+Amazon S3 AWS
+Sublime
+Environment variables
+Version Control
+Git and Github
+Sinatra
+Rails
+MVC
+Models
+Views
+Controllers
+Routing
+i18n
+Helpers
+Mailers
+Serializers
+Modules
+Callbacks
+Rake Tasks
+Rails Console
+ActiveRecord
+Migrations
+Validations
+Relational DBs
+SQL
+Joins
+Includes
+MongoDB
+Redis
+Query string
+Deploying
+Heroku
+Mandrill
+Twilio
+Exceptions
+Exception Handling
+Logs
+Cancan
+Carrierwave
+Bcrypt
+Devise
+Sidekiq
+Textacular
+Factory Girl
+High Voltage
+Rspec
+Nokogiri
+Acts as Draggable
+Acts as Taggable
+Will Paginate
+Nested Forms
+Geocoder
+Jekyll
+Better Errors
+Javascript
+jQuery
+Coffeescript
+JSON
+AJAX
+Ember
+Jasmine
+Underscore.js
+Templates
+Responsive design
+HTML
+HAML
+Handlebars
+ERB
+CSS
+SCSS, SASS
+Bootstrap
+Ruby On rails
+Web development that doesn't hurt
+
+
+Ruby on Rails, often simply Rails, is an open source web application framework which runs via the Ruby programming language. It is a full-stack framework: it allows creating pages and applications that gather information from the web server, talk to or query the database, and render templates out of the box. As a result, Rails features a routing system that is independent of the web server.
+
+Ruby on Rails emphasizes the use of well-known software engineering patterns and principles, such as active record pattern,convention over configuration (CoC) ,don't repeat yourself (DRY) , and model–view–controller (MVC) .
+
+The Instructors
+They taught us everything we know
+
+Well, let's be honest. They taught us a lot more than we know, but some of it didn't commit to memory. But we are hackers now, thanks to these four.
+
+
+Web Development Immersive Course Webpage General Assembly London 2013
