@@ -1,0 +1,87 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+header {
+      text-align: center;
+      background-size: cover;
+}
+header a {
+      color: red;
+      text-decoration: none;
+      font-weight: normal;
+}
+header ul {
+      padding: 10px;
+      text-align: left;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+}
+header li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+}
+
+.ebtf {
+  max-width: 960px;
+  margin: auto;
+}
+
+h1 {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 200%;
+}
+
+h2 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+  border-top: 3px dashed red;
+  width: 100%;
+  float: left;
+}
+
+.concepts > div {
+  float: left;
+}
+
+.concepts li {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.concepts ul {
+  width 67%
+  display: inline-block;
+}
+
+
+
+thead {
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+footer {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-top: 150px;
+  border-top: 1px solid red;
+} 

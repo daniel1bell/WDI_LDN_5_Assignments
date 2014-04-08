@@ -1,0 +1,115 @@
+body {
+  background-image: url(/Users/nirajvyas/Documents/Work/assignments/Niraj/Week2/w2d1/images/background.jpg);
+}
+
+.topImage {
+  text-align: center;
+}
+
+.content {
+  padding: 0 10%;
+}
+
+.content:after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+.content aside {
+  border: 1px solid black;
+  background-color: white;
+  width: 34%;
+  float: right;
+  height: 830px;
+  /*margin: 0 2%;*/
+}
+
+.content .posts {
+  border: 1px solid black;
+  background-color: white;
+  float: left;
+  width: 60%;
+  margin-left: 2%;
+}
+
+.post {
+  padding-bottom: 5%;
+}
+
+.post img {
+  margin-left: 6%;
+}
+
+.post h2 {
+  margin-left: 6%;
+}
+
+.post .preview {
+  margin-left: 6%;
+  width:86%;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.post .info {
+  margin-left: 6%;
+  border-top: 1px dotted black;
+  border-bottom: 1px solid black;
+  width: 88%;
+  font-family: helvetica, arial, sans-serif;
+}
+
+ h3 {
+  text-align: left;
+  margin-left: 10px;
+  font-family: helvetica, arial, sans-serif;
+}
+
+ul {
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+  list-style: none;
+  line-height: 25px;
+}
+
+ul li {
+  text-align: left;
+}
+
+.sideImage {
+margin-left: 22%;
+}
+
+.sideImage3 {
+margin-left: 22%;
+
+}
+
+#contentImage1 {
+  margin-left: 40px;
+}
+
+#paragraph1 {
+  text-align: left;
+  width: 95%;
+  font-family: helvetica, arial, sans-serif;
+  border-bottom: 1px dotted;
+}
+
+#date {
+  border-bottom: 1px solid black;
+  width: 95%;
+}
+
+aside h3 {
+  margin-left: 20px;
+}
+
+aside ul {
+  margin-left: 20px;
+}
+
+.socialmedia {
+  margin-left: 50%;
+  padding-top: 1%;
+}

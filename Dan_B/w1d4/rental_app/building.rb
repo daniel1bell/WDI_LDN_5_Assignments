@@ -16,6 +16,18 @@ class Building
     prospects.keys.join(", ")
   end
 
+  def tenants
+    flats.values.inject({}) { |tenants, flat| tenants.merge(flat.tenants)}
+  end
+
+  def list_tenants
+    if tenants.any?
+      tenants.keys.join(", ")
+    else
+      "There are no tenants at the moment.\nGo let some flats!"
+    end
+  end
+
   def list_empty_flats
     vacant_flats = flats.select { |key, flat| flat.vacant? }
     vacant_flats.keys.join(', ')

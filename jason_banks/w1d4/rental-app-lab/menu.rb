@@ -18,7 +18,7 @@ def menu
 
 end
 
-def let_flat(building)
+def let_flat(building) # this has a bug that deletes prospects even if building name is invalid
   print "\nWhich flat (#{building.list_empty_flats})? "
 
   flat_name = gets.chomp
