@@ -1,0 +1,48 @@
+body{
+background-color: #C0C0C0;
+}
+
+img.top_logo{
+  
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header{
+background-image:url('background.jpg');
+margin-right: auto;
+margin-left: auto;
+}
+
+.sidebar, .blog_post{
+
+  display:inline-block;
+  position:relative;
+  margin: 5px;
+  float: left;
+
+}
+
+.blog_post{
+  background-color: #FFFFFF;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  width: 600px;
+ 
+}
+
+.sidebar{
+  background-color: #FFFFFF;
+  
+}
+
+.comments{
+  border-top: 1px dotted black;
+  border-bottom: 3px solid black;
+}
+
+.bottom_bit{
+  
+}
+
