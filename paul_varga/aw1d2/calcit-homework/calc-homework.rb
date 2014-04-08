@@ -1,3 +1,5 @@
+require "pry"
+
 # Function definitions first
 def menu
   # Clear the screen, and present the user with a menu

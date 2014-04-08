@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #99f;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.ebtf {
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 200%
+}
+
+img {
+  float: right;
+  margin: 0 0 10px 10px;
+  max-width: 200px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 140%;
+  /*background-color: #f2d213;
+  padding: 20px;*/
+  margin: 10px 0;
+  /*border: 5px solid green;*/
+  clear: both;
+}
+
+.likes li {
+  vertical-align: top;
+  display: inline-block;
+  width: 20%;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 120%;
+  margin: 10px 0;
+}
+
+aside {
+  vertical-align: top;
+  display: inline-block;
+  width: 20%;
+  border: 1px solid gray;
+  padding: 2px;
+  background-color: #bbf;
+  border-radius: 5px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+
+thead tr td {
+  font-weight: bold;
+}
+
+em {}
+
+strong {
+  font-weight: bold;
+}
+
+footer {
+  display: block; /*the footer tag is not always understood by some older browsers, so telling it to display block, that should solve the issue*/
+  background-color: #444;
+  color: #eee;
+  text-align: center;
+  padding: 4px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  min-height: 100px;
+}

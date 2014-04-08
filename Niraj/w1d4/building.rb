@@ -11,6 +11,10 @@ class Building
 
     def list_flats
       flats.keys.join(', ')
+      #if.flats.any?
+      #flats.keys.join("\n")
+      #else
+      #"There are no flats at the moments.\n Go find some landlords "
     end
 
     def list_prospects
@@ -32,7 +36,7 @@ class Building
       flats.each do |name, flat|
         flat.tenants.delete(evicted_person)
         end
-       puts "#{evicted_person} has been deted from the database"
+       puts "#{evicted_person} has been deleted from the database"
     end
 
     def list_empty_flats
@@ -53,4 +57,13 @@ class Building
      puts "#{prospects_name} and #{phone_number} has been added to the database"
     end
 
+    def create_flat
+      puts "Enter flat name"
+      flat_name = gets.chomp
+      puts "enter address"
+      flat_address = gets.chomp
+
+      flats[flat_name] = Flat.new(flat_name, flat_address)
+      puts "#{flat_name} and #{flat_address} has been added to the database"
+    end
 end

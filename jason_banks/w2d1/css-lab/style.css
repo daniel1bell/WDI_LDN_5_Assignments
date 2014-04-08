@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: Helvetica;
+}
+
+header {
+  margin-bottom: 15px;
+}
+
+/*header img {
+  float: left;
+  display: inline;
+}*/
+
+h1 {
+  font-size: 200%;
+  font-family: "Arial Black", Arial, sans-serif;
+  clear: right;
+  margin-bottom: 30px;
+  bottom: 0;
+}
+
+nav {
+  color: red;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  clear: both;
+}
+
+nav li {
+  display: inline;
+  padding: 10px;
+}
+
+.torso {
+  clear: both;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.torso article img {
+  float: left;
+
+}
+
+article {
+  border-top: 3px dashed red;
+  margin: 20px auto;
+}
+
+h2 {
+  font-size: 150%;
+  font-weight: bold;
+  font-family: "Comic Sans MS";
+  margin: 5px 0 20px 0;
+}
+
+h3 {
+  font-size: 120%;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 10px auto;
+  line-height: 1.2;
+}
+
+.torso li {
+  font-size: 90%;
+  vertical-align: top;
+  display: inline-block;
+  width: 15%;
+  text-align: 
+}
+
+
+

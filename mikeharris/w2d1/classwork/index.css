@@ -1,0 +1,110 @@
+p {
+  font-family:"Arial", arial ,sans-serif;
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 { 
+  margin-top: 30px;
+  display: inline-block;
+}
+
+nav {
+  clear:both;
+  margin-top: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+ 
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+ 
+  display: inline-block;
+  width: 100px;
+  color: red;
+  font-weight: bold;
+}
+
+nav ul li a {
+  color: red;
+}
+
+.content{
+  clear:both;
+  display: block;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.imgcenter {
+  clear:both;
+  display: block;
+  width: 900px;
+  margin: 20px auto;
+
+}
+
+h3 {
+  clear:both;
+  border-top: 3px dashed red;
+  margin-top: 40px;
+  padding: 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+}
+
+.columns ul {
+  list-style: none;
+}
+
+.columns ul {
+  display: inline-block;
+
+}
+
+.columns ul li {
+  float: left;
+  width: 200px;
+}
+
+
+.columns p {
+  float: left;
+}
+
+.ruby {
+  float:left;
+
+  margin-right: 20px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+
+footer {
+  border-top: 2px solid red;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+

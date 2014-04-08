@@ -14,9 +14,15 @@ class Building
 	end
 
 	def list_prospects
-		prospects.keys.join(', ')
-		puts "You have the following prospects: #{prospects.keys.join(', ')}."
-		puts "Press Enter to continue."
+		if 	prospects.any?
+			prospects.keys.join(', ')
+			puts "You have the following prospects: #{prospects.keys.join(', ')}."
+			puts "Press Enter to continue."
+		else
+			puts "You have no prospects!"
+			puts "Press Enter to continue."
+		end
+
 	end
 
 	def list_empty_flats

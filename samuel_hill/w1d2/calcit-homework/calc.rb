@@ -1,3 +1,5 @@
+require 'pry'
+
 def menu
   # Clear the screen, and present the user with a menu
   puts `clear`
@@ -106,7 +108,6 @@ def bmi_calc
 	when 'i'
 		imperial
 	end	
-
 end
 
 def travel_calc
@@ -118,7 +119,7 @@ def travel_calc
 	fuel_cost = gets.chomp.to_f
 	puts "How fast will you drive in MPH?"
 	speed = gets.chomp.to_f
-
+	binding.pry
 	time = distance / speed
 	cost = (distance / mpg) * fuel_cost
 

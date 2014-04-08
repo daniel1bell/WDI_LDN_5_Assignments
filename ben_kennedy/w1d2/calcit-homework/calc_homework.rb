@@ -1,4 +1,16 @@
 # Function definitions first
+require 'pry'
+
+def is_a_number(s)
+  s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+end
+
+def number_check(s, method)
+  check = is_a_number(s)
+  puts "That's not a number, try again." if check == false
+  method if check = true
+end
+
 def menu
   # Clear the screen, and present the user with a menu
   puts `clear`
@@ -42,8 +54,10 @@ def trip
     puts "What is the cost of petrol in $ per gallon?"
     price = gets.chomp.to_f
     puts "You're a nut job.  I'm not getting in your car" if speed >= 100
-    time = (distance / speed ).round(1)
+    binding.pry
+    time = (distance / speed).round(1)
     cost = (distance / mpg * price)
+    binding.pry
     puts "All your inputs must be numbers.  Don't mess with me by trying to enter" if time.nan? or cost.nan?
     puts "'cucumber' for distance or some such nonsense.  Try again." if time.nan? or cost.nan?
   end
