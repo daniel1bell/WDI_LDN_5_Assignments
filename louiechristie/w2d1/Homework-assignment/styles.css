@@ -25,10 +25,6 @@ header {
   padding-bottom: 60px;
 }
 
-.main a {
-  color: black;
-}
-
 .sidebar {
   width: 280px;
   background-color: white;
@@ -68,6 +64,10 @@ h2 {
   font-size: 20px;
 }
 
+h2 a {
+  color: black;
+}
+
 p {
   font-size: 12px;
   line-height: 1.7em;
@@ -77,13 +77,13 @@ article {
   padding: 20px;
 }
 
+.download a {
+  text-transform:uppercase;
+}
+
 .posted_by {
   border-top: 3px dotted black;
   border-bottom: 3px solid black;
-}
-
-.download {
-  text-transform:uppercase;
 }
 
 footer {
