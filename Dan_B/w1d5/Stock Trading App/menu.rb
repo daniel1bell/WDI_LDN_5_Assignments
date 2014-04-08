@@ -1,7 +1,8 @@
-def menu
+def menu(brokerage)
   puts `clear`
   puts "********** Welcome to your Brokerage Management System ********\n"
   puts
+  puts "The current Total Brokerage Balance is\t$#{brokerage.broker_balance}"
   puts
   puts "1\t:\tView Client Details"
   puts "2\t:\tCheck a Stock Value"

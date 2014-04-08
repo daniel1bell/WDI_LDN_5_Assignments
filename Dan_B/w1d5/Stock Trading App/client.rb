@@ -6,18 +6,22 @@ attr_accessor :name, :cash, :portfolios, :password, :stock_value, :balance
     @cash = cash
     @password = password
     @portfolios = {}
-    @stock_value = stock_value
-    @balance = balance
   end
 
-  # stock_value = portfolios.each{|name, values| values.inject{|sum,x| sum + x}}
-  # balance = stock_value+cash
+  def stock_value
+    sv_array = portfolios.map {|code, info| info.total.compact}
+    sv_array.compact.reduce(:+)
+  end
+
+  def balance
+    cash + stock_value
+  end
 
   def to_s
     if portfolios.empty?
-      "#{name}:\t Cash Balance:   $#{cash.round(2)}\n(#{name} currently has no portfolios.)\n\n"
+      "#{name}:\tCash Amount:   $#{cash.round(2)}\\n(#{name} currently has no portfolios.)\n\n"
     else
-      "\n#{name}:\t Cash Balance:   $#{cash.round(2)}\n\n"
+      "\n#{name}:\tCash Amount:   $#{cash.round(2)}\tPortfolios Value:    $#{stock_value}\tAccount Balance:    $#{balance}\n\n"
     end
   end
 

@@ -31,7 +31,7 @@ b = Brokerage.new("SuperStock")
 b_clients = [c1, c2]
 b_clients.each {|client| b.clients[client.name] = client}
 
-response = menu
+response = menu(b)
 while response != "q"
 
   case response
@@ -52,7 +52,7 @@ while response != "q"
   end
 puts "\nPress enter to continue."
 gets
-  response=menu
+  response=menu(b)
 end
 
 

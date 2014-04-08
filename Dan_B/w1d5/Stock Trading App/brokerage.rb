@@ -4,7 +4,11 @@ attr_accessor :name, :clients
   def initialize(name)
     @name = name
     @clients = {}
-    # @balance = clients.values_at(stock_value).inject{|sum,x| sum + x}
+  end
+
+  def broker_balance
+    balance_array = clients.map {|code, info| info.balance}
+    balance_array.compact.reduce(:+)
   end
 
   def list_clients

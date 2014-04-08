@@ -6,15 +6,16 @@ attr_accessor :name, :stocks
     @stocks = {}
   end
 
-  # def total
-  #   stocks.values_at
-  # end
+  def total
+    port_array = stocks.map {|code, info| info}
+    port_array.compact.reduce(:+)
+  end
 
   def to_s
     if stocks.empty?
       "#{name}: doesn't yet contain any stocks."
     else
-      "#{name}:\tTotal Portfolio Value of $#{} with stocks in:\n\t#{stocks.values.join("\n\t")}"
+      "#{name}:\tTotal Portfolio Value of $#{total.round(2)} with stocks in:\n\t#{stocks.values.join("\n\t")}"
     end
   end
 
