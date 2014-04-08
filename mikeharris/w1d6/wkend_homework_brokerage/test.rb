@@ -1,8 +1,9 @@
-def rolling_ticker
+def rolling_ticker(input)
   require 'pry'
   print `clear`
   time_int = 20
-  output_string = "Hello                   "
+  line-length = 30
+  output_string =  input + (line_length - input.size).times {print " "}
   print output_string
   (1..100).each do |i|
     sleep(1.0/time_int)
