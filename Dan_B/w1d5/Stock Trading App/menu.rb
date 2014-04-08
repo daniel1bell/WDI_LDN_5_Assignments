@@ -146,8 +146,9 @@ def sell_stock(brokerage)
       puts "\nWhich stock would you like to sell? (Enter a valid NASDAQ stock code) ->"
       code = gets.chomp.upcase
       if brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.has_key?("#{code}")
-        code_name = YahooFinance::get_standard_quotes(code)[code].name
-        code_trade = YahooFinance::get_standard_quotes(code)[code].lastTrade
+        code_req = YahooFinance::get_standard_quotes(code)[code]
+        code_name = code_req.name
+        code_trade = code_req.lastTrade
         client_cash = brokerage.clients.fetch(client_name).cash
         available_stock = (client_cash/code_trade).floor
         bought_value = brokerage.clients.fetch(client_name).portfolios.fetch(portfolio_name).stocks.fetch(code).stock_price

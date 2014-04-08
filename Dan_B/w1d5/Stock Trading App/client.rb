@@ -9,8 +9,11 @@ attr_accessor :name, :cash, :portfolios, :password, :stock_value, :balance
   end
 
   def stock_value
-    sv_array = portfolios.map {|code, info| info.total.compact}
-    sv_array.compact.reduce(:+)
+    sv_array = portfolios.map {|code, info| info.total}
+    sv_array.compact!
+    unless sv_array.empty?
+      sv_array.reduce(:+)
+    end
   end
 
   def balance

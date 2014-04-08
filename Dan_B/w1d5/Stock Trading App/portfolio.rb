@@ -7,8 +7,11 @@ attr_accessor :name, :stocks
   end
 
   def total
-    port_array = stocks.map {|code, info| info}
-    port_array.compact.reduce(:+)
+    port_array = stocks.map {|code, info| info.value}
+    port_array.compact!
+    unless port_array.empty?
+      port_array.reduce(:+)
+    end
   end
 
   def to_s
