@@ -115,12 +115,21 @@ while response != :q
   when :m_port
     puts "What number portfolio do you want to manage?"
     portfolio = "Portfolio ID: #{valid_number_input}"
-    binding.pry
-    portfolio.list_positions #todo
-    response = portfolio_menu.display #to do
+    # binding.pry
+    list_positions(b, user, portfolio) 
+    puts "What action will you take?"
+    response = portfolio_menu.display 
   
   when :buy
-  portfolios.buy_securities #todo
+  puts "Enter the ticker of the stock to buy"
+  security_ticker = gets.chomp
+    if security_check(b, portfolio, user, security_ticker) == false
+      b.users[user].portfolios[portfolio].positions[security_ticker] = Position.buy_securities(security_ticker, user, b)
+    else
+      b.users[user].portfolios[portfolio].positions[security_ticker] = Position.update_position(b, portfolio, user, security_ticker)
+    end
+  list_positions(b, user, portfolio)
+  puts " " 
   response = portfolio_menu.display
   
   when :sell
