@@ -56,7 +56,8 @@ a {
 }
 
 a:hover {
-  color: rgba(200.200.200.1);
+  color: white;
+  text-decoration: underline;
 }
 
 #body_content {
@@ -92,4 +93,8 @@ a:hover {
   height: 150px;
   background-image: url("/pythagoras.png");
   margin: 0 auto;
+}
+
+.active_calc form select {
+  margin: 10px 0 10px 0;
 }
