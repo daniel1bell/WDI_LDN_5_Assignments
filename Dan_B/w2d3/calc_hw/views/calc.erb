@@ -1,0 +1,17 @@
+
+<% if @result %>
+  <section>
+    <header><h1>Results</h1></header>
+    <p>
+      the result of <%=@first%> <%=@operator%> <%=@second%> is <%= @result %>
+    </p>
+  </section>
+<% end %>
+
+<form action='/calc' method='get'>
+  first: <input type='number' name='first'>
+  operator: <input type='text' name='operator'>
+  second: <input type='number' name='second'>
+  <button>calculate!</button>
+
+</form>

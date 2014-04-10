@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Calc.it</title>
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Cinzel|Lato|Montserrat' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id='all_content'>
+      <header>
+        <div id='logo'></div>
+        <nav>
+          <ul>
+            <span class='menu_item'><a href='/simple'>Web Calculator</a></span>
+            <span class='menu_item'><a href='/mortgage'>Mortgage Calculator</a></span>
+            <span class='menu_item'><a href='/bmi'>BMI Calculator</a></span>
+            <span class='menu_item'><a href='/trip'>Trip Calculator</a></span>
+            <span class='menu_item'><a href='/pythagoras'>Pythagoras' Calculator</a></span>
+          </ul>
+        </nav>
+      </header>
+      <div id='body_content'>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

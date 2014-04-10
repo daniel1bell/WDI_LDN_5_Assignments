@@ -1,0 +1,30 @@
+<h2>Mortgage Calculator</h2>
+
+<section class='intro'>
+<p>We'll need you to have the following information available: the Principal Amount; the Interest Rate and the Number of Payments you want to set the mortgage over.</p>
+<p>We'll give you back the monthly payment you'll need to make.</p>
+</section>
+
+<section class='active_mortgage' id='mortgage'>
+  <form action='/mortgage' method='get'>
+    <p>What is the principal amount?</p>
+    <input type='number' name='principal' placeholder='What is the amount you would like to borrow?'>
+    </br>
+    <p>What is the interest rate?</p>
+    <input type='number' name='i_rate' placeholder='%'>
+    </br>
+    <p>How many years would you like to take the mortgage over?</p>
+    <input type='number' name='payment_yrs' placeholder='Years'>
+    <br><br>
+    <button>submit</button>
+  </form>
+</section>
+
+<% if @mortgage_result && @mortgage_result > 0 %>
+  <section>
+    <h2>Result</h2>
+    <p>
+      You will have to pay your mortgage back in monthly payments of £<%= @mortgage_result.round(2) %>
+    </p>
+  </section>
+<% end %>

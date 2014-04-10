@@ -1,0 +1,95 @@
+/*#all_content {
+  min-height: 500px;
+  display: table-cell;
+  vertical-align: middle;
+}
+*/
+
+#logo {
+  padding-top: 75px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding-bottom: 100px;
+  width: 250px;
+  height: 150px;
+  background: url('/logo.png') no-repeat;
+}
+
+ul {
+  margin: 0;
+}
+
+header {
+  background-color: rgba(0,0,0,0.85);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu_item {
+  padding: 0 10px 0 10px;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+/*  background: url("/bg.jpg") no-repeat bottom right fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+
+h1 {
+  color: white;
+  font-size: 25px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+a {
+  font-size: 8;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgba(200.200.200.1);
+}
+
+#body_content {
+  max-width: 700px;
+  background: rgba(0,0,0,0.85);
+  margin: 0 auto;
+  color: white;
+  padding: 30px;
+/*  margin-top: 70px;
+*/  margin-bottom: 70px;
+  text-align: center;
+}
+
+#body_content form placeholder, input, optgroup, select, textarea, button {
+  color: gray;
+  text-align: center;
+}
+
+#body_content form input, select {
+  width: 60%;
+}
+
+#body_content form input[type="radio"] {
+  width: auto;
+}
+
+.radio_inline {
+  padding-left: 20px;
+}
+
+#pythagoras_img {
+  width: 300px;
+  height: 150px;
+  background-image: url("/pythagoras.png");
+  margin: 0 auto;
+}

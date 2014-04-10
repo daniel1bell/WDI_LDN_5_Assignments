@@ -1,0 +1,40 @@
+<h2>Trip Calculator</h2>
+
+<section class='intro'>
+<p>Welcome to the Trip Calculator.</p>
+</section>
+
+<section class='active_trip' id='trip'>
+  <form action='/trip' method='get'>
+    <p>How far are you driving?</p>
+    <input type='radio' name='distance_measure' value='miles' checked> Miles
+    <span class='radio_inline'>
+    <input type='radio' name='distance_measure' value='km'> Kilometres
+    </span></br>
+    <input type='number' step='any' name='distance' placeholder='Enter your distance'>
+    </br></br>
+    <p>What is the fuel efficiency of your car?</p>
+    <input type='number' step='any' name='f_efficiency' placeholder='MPG'>
+    </br></br>
+    <p>How much does your fuel cost you?</p>
+    <input type='number' step='any' name='f_cost' placeholder='pence per litre'>
+    </br></br>
+    <p>What will be your average speed?</p>
+    <input type='radio' name='speed_measure' value='miles' checked> mph
+    <span class='radio_inline'>
+    <input type='radio' name='speed_measure' value='km'> kmph
+    </span></br>
+    <input type='number' name='speed' placeholder='Enter your speed'>
+    </br></br>
+    <button>submit</button>
+  </form>
+</section>
+
+<% if @time && @cost > 0 %>
+  <section>
+    <h2>Result</h2>
+    <p>
+      Your trip will take you <%= @time.round(1) %> hours and cost you £<%= @cost.round(2) %>
+    </p>
+  </section>
+<% end %>

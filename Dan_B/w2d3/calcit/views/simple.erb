@@ -1,0 +1,26 @@
+<h2>Simple Calculator</h2>
+
+<section class='active_calc' id='calc'>
+  <form action='/simple' method='get'>
+    <input type='number' step="any" name='first' placeholder='Enter your first number to action here.'><br>
+    <select name='operator'>
+      <option value='+'>(+) plus</option>
+      <option value='-'>(−) minus</option>
+      <option value='*'>(×) multiply by</option>
+      <option value='/'>(÷) divided by</option>
+      <option value='p'>(⋀) to the power of</option>
+      <option value='sqr'>(√) square root</option>
+    </select><br>
+    <input type='number' step="any" name='second' placeholder='Enter your second number to action here.'><br><br>
+    <button>submit</button>
+  </form>
+</section>
+
+<% if @result %>
+  <section>
+    <h1>Results</h1>
+    <p>
+      <%=@first%> <%=@operator%> <%=@second%> is <%= @result.round(2) %>
+    </p>
+  </section>
+<% end %>

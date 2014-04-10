@@ -1,0 +1,34 @@
+<h2>BMI Calculator</h2>
+
+<section class='intro'>
+<p>Welcome to the Body Mass Index calculator.</p>
+</section>
+
+<section class='active_bmi' id='bmi'>
+  <form action='/bmi' method='get'>
+    <p>What weight are you?</p>
+    <input type='radio' name='weight_measure' value='kg' checked> Metric
+    <span class='radio_inline'>
+    <input type='radio' name='weight_measure' value='lb'> Imperial
+    </span></br>
+    <input type='number' name='weight' placeholder='Enter your weight here'>
+    </br></br>
+    <p>What height are you?</p>
+    <input type='radio' name='height_measure' value='cm' checked> Metric
+    <span class='radio_inline'>
+    <input type='radio' name='height_measure' value='inches'> Imperial
+    </span></br>
+    <input type='number' name='height' placeholder='Enter your height here'>
+    </br></br>
+    <button>submit</button>
+  </form>
+</section>
+
+<% if @bmi_result && @bmi_result > 0 %>
+  <section>
+    <h2>Result</h2>
+    <p>
+      You have a BMI of <%= @bmi_result.round(1) %>
+    </p>
+  </section>
+<% end %>

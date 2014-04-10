@@ -1,0 +1,46 @@
+<h2>Pythagoras' Calculator</h2>
+
+<section class='intro'>
+<p>Gone, c. 495 BC, but not forgotten!</p>
+<div id='pythagoras_img'></div>
+</section>
+
+<section class='active_pythagoras' id='pythagoras'>
+  <form action='/pythagoras' method='get'>
+    <p>Which side of the triangle would you like to work out?<br>
+    <small>You must know at least two sides' lengths in order to use Pythagoras' calculator.</small></p><br>
+    
+    <p>What is the first side you know?</p>
+    <input type='radio' name='side_1_select' value='opposite' checked> Opposite
+    <span class='radio_inline'>
+    <input type='radio' name='side_1_select' value='adjacant'> Adjacant
+    </span><span class='radio_inline'>
+    <input type='radio' name='side_1_select' value='hypotenuse'> Hypotenuse
+    </span></br>
+    <input type='number' step='any' name='side_1_length' placeholder='enter the length of side 1 here'>
+    <br><br>
+    <p>What is the second side you know?</p>
+    <input type='radio' name='side_2_select' value='opposite'> Opposite
+    <span class='radio_inline'>
+    <input type='radio' name='side_2_select' value='adjacant' checked> Adjacant
+    </span><span class='radio_inline'>
+    <input type='radio' name='side_2_select' value='hypotenuse'> Hypotenuse
+    </span></br>
+    <input type='number' step='any' name='side_2_length' placeholder='enter the length of side 2 here'>
+    
+    <br><br>
+    <button>submit</button>
+  </form>
+</section>
+
+<% if @pythag_result && @pythag_result > 0 %>
+  <section>
+    <h2>Result</h2>
+    <p>
+      The missing side is: <%= @pythag_result %>
+    </p>
+  </section>
+<% end %>
+
+
+
