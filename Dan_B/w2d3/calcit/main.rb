@@ -93,11 +93,11 @@ get '/pythagoras' do
   @side_2_length = (params[:side_2_length]).to_f
 
   if (@side_1_select == 'opposite' && @side_2_select == 'adjacant') || (@side_1_select == 'adjacant' && @side_2_select == 'opposite')
-    @pythag_result = (@side_1_length**2) + (@side_2_length**2)
+    @pythag_result = Math.sqrt((@side_1_length**2) + (@side_2_length**2))
   elsif (@side_1_select == 'opposite' && @side_2_select == 'hypotenuse') || (@side_1_select == 'adjacant' && @side_2_select == 'hypotenuse')
-    @pythag_result = (@side_2_length**2) - (@side_1_length**2)
+    @pythag_result = Math.sqrt((@side_2_length**2) - (@side_1_length**2))
   elsif (@side_1_select == 'hypotenuse' && @side_2_select == 'opposite') || (@side_1_select == 'hypotenuse' && @side_2_select == 'adjacant')
-    @pythag_result = (@side_1_length**2) - (@side_2_length**2)
+    @pythag_result = Math.sqrt((@side_1_length**2) - (@side_2_length**2))
   end
 
   erb :pythagoras
