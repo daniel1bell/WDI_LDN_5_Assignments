@@ -14,7 +14,8 @@
     <h6>Deadline:</h6>
     <input type='date' name='deadline' min='2014-04-10' value='<%= todo['deadline'] %>'>
     <select name='status' class='form-control' value='<%= todo['status'] %>'>
-      <option value='Current'>Current</option>
+      <option value='Backlog'>Backlog</option>
+      <option value='Current'>Current Sprint</option>
       <option value='Completed'>Completed</option>
     </select>
     <input type='text' name='description' placeholder='Description' value='<%= todo['description'] %>'>

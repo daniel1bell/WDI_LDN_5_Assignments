@@ -13,7 +13,7 @@ after do
 end
 
 get '/' do
-  sql_list = "select * from todo"
+  sql_list = "select * from todo order by status desc"
 
   @todos = @db.exec(sql_list)
 
@@ -29,7 +29,7 @@ post '/create' do
   description = params[:description]
   deadline = params[:deadline]
   
-  sql_entry = "insert into todo (title, description, deadline, status, created_on) values (#{sql_string(title)}, #{sql_string(description)}, #{sql_string(deadline)}, 'Current', current_timestamp)"
+  sql_entry = "insert into todo (title, description, deadline, status, created_on) values (#{sql_string(title)}, #{sql_string(description)}, #{sql_string(deadline)}, 'Backlog', current_timestamp)"
 
   @db.exec(sql_entry)
   
