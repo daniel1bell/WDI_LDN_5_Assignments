@@ -1,0 +1,25 @@
+<h3>Edit your SimplyDo.it</h3>
+
+<% @todos.each do |todo| %>
+<div class='list_todo' id='edit_div'>
+<section id='edit_todo'>
+  <form action='/post/<%= todo['id'] %>' method='post'>
+
+    <p><small>ID: <%= todo['id'] %> | Created on: <%= (todo['created_on']).t_format %>
+    <% if todo['updated_on'] %>
+     | Updated on: <%= (todo['updated_on']).t_format %>
+    <% end %></small></p>
+  
+    <input type='text' name='title' placeholder='Title' value='<%= todo['title'] %>' autofocus>
+    <h6>Deadline:</h6>
+    <input type='date' name='deadline' min='2014-04-10' value='<%= todo['deadline'] %>'>
+    <select name='status' class='form-control' value='<%= todo['status'] %>'>
+      <option value='Current'>Current</option>
+      <option value='Completed'>Completed</option>
+    </select>
+    <input type='text' name='description' placeholder='Description' value='<%= todo['description'] %>'>
+    <button class='btn btn-success'>Save</button>
+  </form>
+</section>
+</div>
+<% end %>

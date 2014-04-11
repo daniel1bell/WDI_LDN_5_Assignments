@@ -1,0 +1,33 @@
+
+<% @todos.each do |todo| %>
+<div class='list_todo'>
+  
+  <div class='todo_items'>
+    <h4><%= todo['title'].capitalize %></h4>
+
+    <h6>Deadline:</h6>
+    <h5><%= todo['deadline'] %></h5>
+    <h6>Status:</h6>
+    <h5><%= todo['status'] %></h5>
+    
+    <p><small>Created on: <%= (todo['created_on']).t_format %>
+      <% if todo['updated_on'] %>
+      Updated on: <%= (todo['updated_on']).t_format %>
+      <% end %>
+    </small></p>
+  </div>
+  <div class='todo_description'>
+    <p><%= todo['description'].capitalize %> </p>
+  </div>
+    
+  <div class='todo_options'>
+
+    <form action='/edit/<%= todo['id'] %>' method='get'>
+    <button class='btn btn-default'>Edit</button></form>
+    <form action='/delete/<%= todo['id'] %>' method='post'>
+    <button class='btn btn-danger'>Delete</button></form>
+
+  </div>
+</div>
+<% end %>
+

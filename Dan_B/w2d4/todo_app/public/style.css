@@ -1,0 +1,175 @@
+header {
+  max-width: 800px;
+  min-height: 200px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+#logo {
+  width: 400px;
+  height: 83px;
+  background: url(/logo.png) no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+
+#home {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  background-position: -32px 0;
+  position: absolute;
+  bottom: 18px;
+  right: 0;
+}
+
+#home:hover {
+  background-position: -32px -32px;
+}
+
+#new {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  position: absolute;
+  bottom: 18px;
+  right: 40px;
+}
+
+#new:hover {
+  background-position: 0 -32px;
+}
+
+.menu_item {
+  padding: 0 10px 0 10px;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+
+#content_area {
+  max-width: 800px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+#new_entry_result {
+  padding-top: 20px;
+}
+
+.list_todo {
+  
+  max-width: 800px;
+  min-width: 500px;
+  min-height: 135px;
+  clear: both;
+  margin: 20px auto;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.list_todo small {
+  font-size: 70%;
+}
+
+.list_todo p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.todo_items {
+  float: left;
+  position: absolute;
+  bottom: 0;
+}
+
+#new_todo h6 {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#edit_todo form h6 {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+input[name="title"] {
+  height: 40px;
+  width: 300px;
+  font-size: 18px;
+}
+
+input[name="description"] {
+  margin-top: 5px;
+  height: 85px;
+  width: 715px;
+}
+
+.todo_items h6 {
+  margin-bottom: 3px;
+}
+.todo_items h5 {
+  margin-top: 3px;
+}
+
+.todo_description {
+  max-width: 500px;
+  float:left;
+  position: absolute;
+  top: 28px;
+  left: 170px;
+}
+
+.todo_options {
+  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#new_todo form button {
+  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#edit_todo form button {
+  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#edit_todo select {
+  display: inline-block;
+  width: 177px;
+  margin-left: 10px;
+  height: 40px;
+  border-radius: 0;
+  background-color: white;
+}
+
+#edit_div {
+  min-height: 155px;
+}
+
+.list_todo button {
+  margin-bottom: 3px;
+  width: 70px;
+  height: 20px;
+  padding: 0;
+  font-size: 11px;
+  line-height: 0.4;
+}
