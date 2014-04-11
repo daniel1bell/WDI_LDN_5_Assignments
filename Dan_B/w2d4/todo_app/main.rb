@@ -37,7 +37,7 @@ post '/create' do
 end
 
 get '/edit/:id' do
-  id = params[:id]
+  id = params[:id].to_i
   sql_list = "select * from todo where id=#{id}"
   @todos = @db.exec(sql_list)
 
@@ -45,7 +45,7 @@ get '/edit/:id' do
 end
 
 post '/post/:id' do
-  id = params[:id]
+  id = params[:id].to_i
   title = params[:title]
   description = params[:description]
   deadline = params[:deadline]
@@ -57,7 +57,7 @@ post '/post/:id' do
 end
 
 post '/delete/:id' do
-  sql = "delete from todo where id = #{params[:id]}"
+  sql = "delete from todo where id = #{params[:id].to_i}"
   @db.exec(sql)
   redirect to('/')
 end
