@@ -13,12 +13,12 @@
     <input type='text' name='title' placeholder='Title' value='<%= todo['title'] %>' autofocus>
     <h6>Deadline:</h6>
     <input type='date' name='deadline' min='2014-04-10' value='<%= todo['deadline'] %>'>
-    <select name='status' class='form-control' value='<%= todo['status'] %>'>
-      <option value='Backlog'>Backlog</option>
-      <option value='Current'>Current Sprint</option>
-      <option value='Completed'>Completed</option>
+    <select name='status' class='form-control'>
+      <option value='Backlog' <% if todo['status']=='Backlog' %>selected='selected'<% end %> >Backlog</option>
+      <option value='Current Sprint' <% if todo['status']=='Current Sprint' %>selected='selected'<% end %> >Current Sprint</option>
+      <option value='Completed' <% if todo['status']=='Completed' %>selected='selected'<% end %> >Completed</option>
     </select>
-    <input type='text' name='description' placeholder='Description' value='<%= todo['description'] %>'>
+    <textarea name='description' class='description_input' placeholder='Description' rows=3  cols=20 ><%= todo['description'] %></textarea>
     <button class='btn btn-success'>Save</button>
   </form>
 </section>

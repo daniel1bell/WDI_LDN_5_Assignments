@@ -114,7 +114,7 @@ input[name="title"] {
   font-size: 18px;
 }
 
-input[name="description"] {
+.description_input {
   margin-top: 5px;
   height: 85px;
   width: 715px;
@@ -158,9 +158,9 @@ input[name="description"] {
 
 #edit_todo select {
   display: inline-block;
-  width: 177px;
+  width: 165px;
   margin-left: 10px;
-  height: 40px;
+  height: 37px;
   border-radius: 0;
   background-color: white;
 }
