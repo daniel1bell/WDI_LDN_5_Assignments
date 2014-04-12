@@ -7,7 +7,7 @@ require_relative 'client'
 require_relative 'portfolio'
 require_relative 'stock'
 
-s1 = Stock.new("FB", 150, "Facebook, Inc.", 16.3)
+s1 = Stock.new("FB", 800, "Facebook, Inc.", 16.3)
 s2 = Stock.new("AAPL", 12, "Apple Inc.", 500.2)
 s3 = Stock.new("ADSK", 50, "Autodesk, Inc.", 50)
 s4 = Stock.new("MSG", 50, "The Madison Squar", 68.2)

@@ -1,0 +1,164 @@
+header {
+  width: 80%;
+  max-width: 1300px;
+  min-height: 200px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+#logo {
+  width: 400px;
+  height: 83px;
+  background: url(/logo.png) no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+
+#home {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  background-position: -32px 0;
+  position: absolute;
+  bottom: 18px;
+  right: 0;
+}
+
+#home:hover {
+  background-position: -32px -32px;
+}
+
+#new {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  position: absolute;
+  bottom: 18px;
+  right: 40px;
+}
+
+#new:hover {
+  background-position: 0 -32px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+
+#content_area {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+.all_movies {
+  max-width: 1400px;
+  width: inherit;
+  margin: 0 auto;
+}
+
+.movie_port {
+  max-width: 322px;
+  padding: 10px;
+  margin: 0 auto;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.movie_port h3 {
+  margin-top: 0;
+}
+
+#movie_info {
+  margin-bottom: 50px;
+}
+
+#movie_options {
+  width: 100%;
+  position: absolute;
+  margin-bottom: 5px;
+  bottom: 0;
+}
+
+#movie_buttons {
+  float: right;
+  display: inline-flex;
+  margin-right: 15px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.movie_port button {
+  margin-bottom: 3px;
+  margin-right: 3px;
+  width: 40px;
+  height: 20px;
+  padding: 0;
+  font-size: 11px;
+  line-height: 0.4;
+}
+
+#movie_options p {
+  float: left;
+  margin: 0;
+}
+
+#movie_options p[name='Updated'] {
+  margin-top: -5px;
+}
+
+#new_vid h6 {
+  display: inline-block;
+}
+
+#new_vid select {
+  width: 33%;
+  display: inline-block;
+}
+
+#new_vid form input[name='title'] {
+  height: 34px;
+  width: 55%;
+}
+
+#new_vid form input[name='url'] {
+  height: 34px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.description_input {
+  width: 100%;
+}
+
+.list_vids {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 542px;
+}
+
+.list_vids div {
+  margin-top: 20px;
+}
+
+.list_vids button {
+  margin: 10px;
+  width: 80px;
+  height: 25px;
+  padding: 0;
+  font-size: 13px;
+  line-height: 0.4;
+}

@@ -1,0 +1,29 @@
+<div class='all_movies'>
+  <% @all_movies.each do |movie| %>
+  <div class='movie_port'>
+    <div id='movie_info'>
+      <h3><%= movie['title'].split.map(&:capitalize).join(' ') %></h3>
+
+      <h6>Category: <%= movie['category'] %></h6>
+
+      <iframe width="300" height="168.7" src="//www.youtube.com/embed/<%= movie['url'].split('=')[-1] %>" frameborder="0" allowfullscreen></iframe>
+
+      <p class='movie_desc'><%= movie['description'].capitalize %> </p>
+    </div>
+    <div id='movie_options'>
+      <p><small>Created on: <%= (movie['created_on']).t_format %>
+        <% if movie['updated_on'] %></small></p>
+        <br><p name='Updated'><small>Updated on: <%= (movie['updated_on']).t_format %>
+        <% end %>
+      </small></p>
+
+      <div id='movie_buttons'>
+        <form action='/edit/<%= movie['id'] %>' method='get'>
+        <button class='btn btn-default'>Edit</button></form>
+        <form action='/delete/<%= movie['id'] %>' method='post'>
+        <button class='btn btn-danger'>Delete</button></form>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

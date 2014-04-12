@@ -1,25 +1,32 @@
-require 'pry'
-
-my_array = (1..105).to_a
-
-my_array.each do |num|
-  if num % 7 == 0 && num % 5 == 00 && num % 3 == 00
-    puts "Pling-Plang-Plong"
-  elsif num % 7 == 0 && num % 5 == 00
-    puts "Plang-Plong"
-  elsif num % 5 == 0 && num % 3 == 00
-    puts "Pling-Plang"
-  elsif num % 7 == 0 && num % 3 == 00
-    puts "Pling-Plong"
+(1..10000000).each do |num|
+  if num % 7 == 0 && num % 5 == 0 && num % 3 == 0
+    print "Pling-Plang-Plong"
+  elsif num % 7 == 0 && num % 5 == 0
+    print "Plang-Plong"
+  elsif num % 5 == 0 && num % 3 == 0
+    print "Pling-Plang"
+  elsif num % 7 == 0 && num % 3 == 0
+    print "Pling-Plong"
   elsif num % 7 == 0
-    puts "Plong"
+    print "Plong"
   elsif num % 5 == 0
-    puts "Plang"
+    print "Plang"
   elsif num % 3 == 0
-    puts "Pling"
+    print "Pling"
   else
-    puts num.to_s
+    print num.to_s
   end
 end
 
-# binding.pry
+# (1..105).each do |num|
+#   case num
+#     when num % 7 == 0
+#       print 'Plong'
+#     when num % 5 == 0
+#       print 'Plang'
+#     when num % 3 == 0
+#       print 'Pling'
+#     else
+#       print num.to_s
+#   end
+# end  
