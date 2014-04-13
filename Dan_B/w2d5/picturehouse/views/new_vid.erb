@@ -1,5 +1,5 @@
 <div class='list_vids'>
-<h4>Add a new video to your PictureHouse!</h4>
+<h4>Add a new video to your library.</h4>
 
 <div>
 <section id='new_vid'>
@@ -7,17 +7,14 @@
     <input type='text' name='title' placeholder='Title' maxlength='100' autofocus required>
     <h6>Category:</h6>
     <select name='category' class='form-control'>
-      <option value='Inspiring'>Inspiring</option>
-      <option value='Humour'>Humour</option>
-      <option value='Popular Culture'>Popular Culture</option>
-      <option value='Music'>Music</option>
-      <option value='Sports'>Sports</option>
-      <option value='Other'>Other</option>
+      <% @categories.each do |category| %>
+      <option value='<%= category['name'] %>'><%= category['name'] %></option>
+      <% end %>
     </select>
     <br>
     <input type='url' name='url' placeholder='Your YouTube URL here.' maxlength='100' required>
     <br>
-    <textarea name='description' class='description_input' placeholder='Description' rows=3  cols=20 ></textarea>
+    <textarea name='description' class='description_input' placeholder='Description' rows=3  cols=20 maxlength='300'></textarea>
     <br>
     <button class='btn btn-success'>Save</button>
   </form>

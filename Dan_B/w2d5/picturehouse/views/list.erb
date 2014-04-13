@@ -1,3 +1,14 @@
+<div class='categories_list'>
+  <h4>Categories -</h4>
+  <a href="/categories"><button class='btn btn-default'>Edit Categories</button></a>
+  <% @categories.each do |category| %>
+    <a href="/list/<%= category['name'] %>">
+    <h5><%= category['name'] %></h5></a>
+  <% end %>
+    <a href="/">
+    <h5>All</h5></a>
+</div>
+
 <div class='all_movies'>
   <% @all_movies.each do |movie| %>
   <div class='movie_port'>
@@ -8,7 +19,7 @@
 
       <iframe width="300" height="168.7" src="//www.youtube.com/embed/<%= movie['url'].split('=')[-1] %>" frameborder="0" allowfullscreen></iframe>
 
-      <p class='movie_desc'><%= movie['description'].capitalize %> </p>
+      <p class='movie_desc'><%= movie['description'] %> </p>
     </div>
     <div id='movie_options'>
       <p><small>Created on: <%= (movie['created_on']).t_format %>

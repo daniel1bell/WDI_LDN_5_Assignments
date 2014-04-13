@@ -1,0 +1,25 @@
+<div class='categories_page'>
+  <h3>Categories -</h3>
+
+  <% @categories.each do |category| %>
+    <div class='ind_category'>
+      <h4><%= category['name'] %></h4>
+      <form action='/delete/category/<%= category['id'] %>' method='post'>
+      <button class='btn btn-danger'>Delete</button></form>
+      <h5><%= category['description'] %></h5>
+    </div>
+  <% end %>
+
+<div>
+  <section id='new_category'>
+    <h3><small>Add a New Category</small></h4>
+    <form action='/create/category' method='post'>
+      <input type='text' name='name' placeholder='Category Name' maxlength='100' autofocus required>
+      <button class='btn btn-success'>Save</button>
+      <br>
+      <textarea name='description' class='description_input' placeholder='Category Description' rows=3  cols=20 ></textarea>
+    </form>
+  </section>
+</div>
+
+</div>
