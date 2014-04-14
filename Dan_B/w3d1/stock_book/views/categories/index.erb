@@ -1,0 +1,11 @@
+<h1>Categories for the StockBook</h1>
+
+<a href='/categories/new'>New Category</a>
+
+<% @categories.each do |category| %>
+<div class='display'>
+  <h3><%= category.name %> - <small><%= (category.portfolios.map {|portfolio| portfolio.name}).join(', ') %></small></h3>
+  <a href='/categories/<%= category.id %>/edit'><button type="button" class="btn btn-default btn-xs">Edit</button></a>
+  <a href='/categories/<%= category.id %>/delete'><button type="button" class="btn btn-danger btn-xs">Delete</button></a>
+</div>
+<% end %>

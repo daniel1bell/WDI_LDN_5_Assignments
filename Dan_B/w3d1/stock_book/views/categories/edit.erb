@@ -1,0 +1,7 @@
+<h1>Edit your category.</h1>
+
+<form class='standard' action='/categories/<%= @category.id %>' method='post'> 
+  <%= erb :'categories/_form' %>
+
+  <button>Save</button>
+</form>

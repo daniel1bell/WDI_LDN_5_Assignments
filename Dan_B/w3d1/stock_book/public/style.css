@@ -1,0 +1,94 @@
+header {
+  width: 80%;
+  max-width: 1300px;
+  min-height: 200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+#logo {
+  width: 419px;
+  height: 100px;
+  background: url(/logo.png) no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  #logo {
+    width: 200px;
+    height: 47px;
+    background: url(/logo_sm.png) no-repeat;
+    position: absolute;
+    bottom: 70px;
+  }
+}
+
+#home {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  background-position: -32px 0;
+  position: absolute;
+  bottom: 18px;
+  right: 0;
+}
+
+#home:hover {
+  background-position: -32px -32px;
+}
+
+#new {
+  width: 32px;
+  height: 32px;
+  background: url(/menu_sprite.png) no-repeat;
+  position: absolute;
+  bottom: 18px;
+  right: 40px;
+}
+
+#new:hover {
+  background-position: 0 -32px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+#content_area {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+.standard select {
+  width: 156px;
+  margin-bottom: 20px;
+}
+
+small {
+  font-size: 70%;
+}
+
+.display {
+  border-bottom: 1px solid #eee;
+}
+
+.display h3 {
+  font-size: 14px;
+}
+
+.display button {
+  height: 15px;
+  width: 35px;
+  font-size: 8px;
+  margin-bottom: 10px;
+}

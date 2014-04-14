@@ -1,0 +1,24 @@
+<dl>
+  <dt>
+    <label for='portfolio_name'>Name:</label>
+  </dt>
+  <dd>
+    <input id='portfolio_name' type='text' name='portfolio[name]' value='<%= @portfolio.name %>' maxlength='255' required autofocus>
+  </dd>
+</dl>
+<dl>
+  <dt>
+    <label for='portfolio_description'>Description:</label>
+  </dt>
+  <dd>
+    <input id='portfolio_description' type='text' name='portfolio[description]' value='<%= @portfolio.description %>' maxlength='1000' required >
+  </dd>
+</dl>
+<label for='portfolio[category_id]'>Category:</label>
+<select multiple name='portfolio[category_id]' class='form-control'>
+    <% @categories.each do |category| %>
+    <option value='<%= category.id %>'<% if @portfolio.category_id == category.id %> selected='selected' <% end %> ><%= category.name %></option>
+    <% end %>
+</select>
+
+<div class='clear_both'></div>

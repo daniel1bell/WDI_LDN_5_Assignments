@@ -1,0 +1,7 @@
+<h1>Edit your portfolio.</h1>
+
+<form class='standard' action='/portfolios/<%= @portfolio.id %>' method='post'> 
+  <%= erb :'portfolios/_form' %>
+
+  <button>Save</button>
+</form>
