@@ -19,7 +19,7 @@ CREATE TABLE stocks
   symbol varchar(10) not null,
   name varchar(255),
   holding integer,
-  current_price decimal,
+  bought_price decimal,
   created_on timestamp,
   portfolio_id integer
 );

@@ -1,0 +1,7 @@
+<h1>Create a new stock.</h1>
+
+<form class='standard' action='/portfolios/<%= params[:id].to_s %>/stocks' method='post'> 
+  <%= erb :'stocks/_form' %>
+
+  <button>Save</button>
+</form>

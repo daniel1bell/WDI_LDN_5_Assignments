@@ -1,0 +1,18 @@
+<dl>
+  <dt>
+    <label for='stock[symbol]'>Stock Symbol:</label>
+  </dt>
+  <dd>
+    <input id='stock_symbol' type='text' name='stock[symbol]' value='<%= @stock.name %>' maxlength='255' placeholder='Stock Symbol' required autofocus>
+  </dd>
+</dl>
+<dl>
+  <dt>
+    <label for='stock_holding'>Holding Amount:</label>
+  </dt>
+  <dd>
+    <input id='stock_holding' type='number' name='stock[holding]' value='<%= @stock.holding %>' max='999' required >
+  </dd>
+</dl>
+
+<div class='clear_both'></div>

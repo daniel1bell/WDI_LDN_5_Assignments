@@ -1,0 +1,7 @@
+<h1>Search a stock.</h1>
+
+<form class='standard' action='/portfolios/<%= params[:id].to_s %>/stocks' method='get'> 
+  <input id='stock_symbol' type='text' name='stock[symbol]' maxlength='255' placeholder='Stock Symbol' required autofocus>
+
+  <button>Check</button>
+</form>

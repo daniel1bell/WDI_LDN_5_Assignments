@@ -6,6 +6,7 @@
 <% @portfolios.each do |portfolio| %>
 <div class='display'>
   <h3><%= portfolio.name %> - <small><%= portfolio.category.name %></small></h3>
+  <a href='/portfolios/<%= portfolio.id %>'><button type="button" class="btn btn-default btn-xs">Show</button></a>
   <a href='/portfolios/<%= portfolio.id %>/edit'><button type="button" class="btn btn-default btn-xs">Edit</button></a>
   <a href='/portfolios/<%= portfolio.id %>/delete'><button type="button" class="btn btn-danger btn-xs">Delete</button></a>
 </div>
