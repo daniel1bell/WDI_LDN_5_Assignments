@@ -4,7 +4,7 @@ require 'sinatra/reloader' if development?
 require 'yahoofinance'
 require 'pg'
 
-# require_relative 'controllers/stocks_controller'
+require_relative 'controllers/stocks_controller'
 require_relative 'controllers/portfolios_controller'
 require_relative 'controllers/categories_controller'
 require_relative 'models/db_base'

@@ -1,12 +1,20 @@
-# get '/portfolios/:id/stocks/new' do
-#   @stock = Stock.new
+get '/portfolios/:id/stocks' do
+  @portfolio = Portfolio.find(params[:id])
 
-#   erb :'stocks/new'
-# end
+  erb :'stocks/search'
+end
 
-# post '/portfolios/:id/stocks' do
-#   @stock = Stock.new(params[:stock])
-#   @stock.save
+get '/portfolios/:id/stocks/new' do
+  @portfolio = Portfolio.find(params[:id])
+  @stock = Stock.new
 
-#   redirect to('/portfolios/:id')
-# end
+  erb :'stocks/new'
+end
+
+post '/portfolios/:id/stocks' do
+  @portfolio = Portfolio.find(params[:id])
+  @stock = Stock.new(params[:stock])
+  @stock.save
+
+  redirect to('/portfolios')
+end

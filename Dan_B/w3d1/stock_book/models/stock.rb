@@ -9,9 +9,9 @@ class Stock < DBBase
   def initialize(params={})
     @id = params['id']
     @symbol = params['symbol']
-    @name = ""
+    @name = params['name']
     @holding = params['holding']
-    @bought_price = ""
+    @bought_price = params['bought_price']
     prices = []
     @current_price = prices.last
     @portfolio_id = params['portfolio_id']
