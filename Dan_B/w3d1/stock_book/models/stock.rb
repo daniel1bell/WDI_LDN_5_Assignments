@@ -9,9 +9,9 @@ class Stock < DBBase
   def initialize(params={})
     @id = params['id']
     @symbol = params['symbol']
-    @name = YahooFinance::get_standard_quotes(@symbol)[@symbol].name
+    @name = ""
     @holding = params['holding']
-    @bought_price = YahooFinance::get_standard_quotes(@symbol)[@symbol].lastTrade
+    @bought_price = ""
     prices = []
     @current_price = prices.last
     @portfolio_id = params['portfolio_id']
@@ -19,7 +19,7 @@ class Stock < DBBase
     # get_code = YahooFinance::get_standard_quotes('@symbol')['@symbol']
 
     # @name << get_code.name
-    # prices << get_code.lastTrade
+    # @bought_price << get_code.lastTrade
   end
 
   def category
