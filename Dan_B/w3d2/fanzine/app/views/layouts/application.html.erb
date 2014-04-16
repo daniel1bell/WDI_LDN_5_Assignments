@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blame it on the Boogie</title>
+  <%= stylesheet_link_tag "normalize", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>Don't Blame it on the Boogie</h1>
+    <ul>
+    <button class='btn btn-default btn-xs'><%= link_to 'Michael Jackson', '/michael'%></button>
+    <button class='btn btn-default btn-xs'><%= link_to 'Jermaine Jackson', '/jermaine'%></button>
+    <button class='btn btn-default btn-xs'><%= link_to 'Tito Jackson', '/tito'%></button>
+    <button class='btn btn-default btn-xs'><%= link_to 'Jackie Jackson', '/jackie'%></button>
+    <button class='btn btn-default btn-xs'><%= link_to 'Marlon Jackson', '/marlon'%></button>
+
+    <button class='btn btn-default btn-xs'><%= link_to 'Tour Dates', '/tour' %></button>
+  </header>
+
+<div id='content_area'>  
+<%= yield %>
+</div>
+
+</body>
+</html>

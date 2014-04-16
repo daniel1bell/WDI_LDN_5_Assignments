@@ -1,0 +1,16 @@
+<div id='input'>
+<%= render 'form' %>
+</div>
+<div id='mta_image'>
+<%= image_tag("mta_map.gif", width: "350", alt: "MTA Map") %>
+</div>
+
+<% if params[:start_train] && params[:stop_train] && params[:stop_a] && params[:stop_b]%>
+<div id='result'>
+<%= render 'result' %>
+</div>
+<% end %>
+
+
+
+
