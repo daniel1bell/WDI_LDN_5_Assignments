@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  make: MyString
+  model: MyString
+  reg_year: 2014-04-16
+  price: 9.99
+  mileage: 1
+  colour: MyString
+  gearbox: MyString
+  fuel: MyString
+  fuel_economy: 1
+  image: MyText
+  number_doors: 1
+  number_seats: 1
+  notes: MyText
+
+two:
+  make: MyString
+  model: MyString
+  reg_year: 2014-04-16
+  price: 9.99
+  mileage: 1
+  colour: MyString
+  gearbox: MyString
+  fuel: MyString
+  fuel_economy: 1
+  image: MyText
+  number_doors: 1
+  number_seats: 1
+  notes: MyText

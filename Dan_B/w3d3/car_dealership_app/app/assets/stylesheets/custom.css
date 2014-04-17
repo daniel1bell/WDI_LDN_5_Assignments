@@ -1,0 +1,103 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  width: 800px;
+  margin: 50px auto 50px auto;
+  text-align: center;
+}
+
+main {
+  width: 800px;
+  margin: 0 auto;
+}
+
+menu {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#index_cars {
+  display: -webkit-inline-box;
+}
+
+.index_car_port {
+  width: 218px;
+  padding: 1%;
+  margin: 10px 10px 0 0;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#index_car_image {
+  width: 200px;
+  height:125px;
+  background-size: 200px ;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.index_car_port h2 {
+  margin: 0 0 10px 0;
+  min-height: 40px;
+  font-size: 20px;
+  color: #0f92bd;
+}
+
+.index_car_port p {
+  color: #a9a9a9;
+  margin: 0;
+  font-weight: 300;
+}
+
+#colour_label {
+}
+
+#index_car_colour {
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 10px 0 12px 10px;
+  vertical-align: middle;
+}
+
+.index_car_port form {
+  display: inline-block;
+}
+
+.index_car_port .btn {
+  padding: 0;
+  font-size: 11px;
+  width: 50px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+#full_car_image {
+  width: 400px;
+  border-radius: 10px;
+  float: right;
+}
+
+#full_car_details {
+  width: 400px;
+}
+
+#full_car_details h2 {
+  font-size: 26px;
+  color: #0f92bd;
+}
+
+#full_car_details details p {
+  margin: 0.5px 0;
+}
+
+#full_car_notes {
+  padding: 30px 0 20px 0;
+  clear: both;
+  border-bottom: 1px solid #eee;
+}

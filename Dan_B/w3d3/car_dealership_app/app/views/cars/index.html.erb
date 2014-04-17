@@ -1,0 +1,25 @@
+<menu>
+    <%= button_to 'Add New Car', new_car_path, method: :get ,class: 'btn btn-default btn-xs' %>
+</menu>
+
+<section id='index_cars'>
+<% @cars.each do |car| %>
+    <div class='index_car_port'>
+
+    <a href="/cars/<%= car.id %>"><h2><%= car.make %> <%= car.model %>: <small>'<%= car.reg_year.strftime("%y") %></small></h2></a>
+    <p>Guide Price: <%= number_to_currency(car.price, unit: '£') %></p>
+    <a href="/cars/<%= car.id %>"><div id='index_car_image' style='background-image:url(<%= car.image %>)'></div></a>
+
+    <span>Colour:<div id='index_car_colour' style='background-color:<%= car.colour %>'></div></span>
+    <br>
+    
+    <p>Mileage: <%= number_with_delimiter(car.mileage) %></p>
+    <p>Gearing: <%= car.gearbox %></p>
+    <p>Fuel Type: <%= car.fuel %></p>
+
+    <td><%= button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-default btn-xs' %></td>
+    <td><%= button_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+    </div>
+<% end %>
+</section>
+
