@@ -12,12 +12,17 @@
   <p><b>Mileage:</b> <%= number_with_delimiter(@car.mileage) %> miles</p>
 
   <span><b>Colour:</b><div id='index_car_colour' style='background-color:<%= @car.colour %>'></div></span>
-  <details>
+  
   <p><b>Gearbox:</b><%= @car.gearbox %></p>
-  <p><b>Fuel:</b><%= @car.fuel %></p>
   <p><b>Fuel economy:</b> <%= @car.fuel_economy %> MPG</p>
   <p><b>Number doors:</b> <%= @car.number_doors %></p>
   <p><b>Number seats:</b> <%= @car.number_seats %></p>
+
+  <details>
+    <summary>Engine Details</summary>
+    <p><b>Engine Size:</b> <%= @car.engine.engine_size %> cc</p>
+    <p><b>Engine Power:</b> <%= @car.engine.power %> BHP</p>
+    <p><b>Fuel Type:</b> <%= @car.engine.fuel_type %></p>
   </details>
   </div>
   <section id='full_car_notes'>

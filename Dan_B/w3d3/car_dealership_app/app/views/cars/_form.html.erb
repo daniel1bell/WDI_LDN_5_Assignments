@@ -40,8 +40,8 @@
     <%= f.select :gearbox, %w[Manual Automatic] %>
   </div>
   <div class="field">
-    <%= f.label :fuel %><br />
-    <%= f.select :fuel, %w[Petrol Diesel LPG\ Autogas Biofuels] %>
+    <%= f.label :engine_id %><br />
+    <%= f.collection_select(:engine_id, Engine.all, :id, :value_for_select) %>
   </div>
   <div class="field">
     <%= f.label :fuel_economy %><br />

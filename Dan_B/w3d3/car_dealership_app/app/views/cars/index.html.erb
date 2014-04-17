@@ -15,7 +15,7 @@
     
     <p>Mileage: <%= number_with_delimiter(car.mileage) %></p>
     <p>Gearing: <%= car.gearbox %></p>
-    <p>Fuel Type: <%= car.fuel %></p>
+    <p>Fuel Type: <%= car.engine.fuel_type %></p>
 
     <%= button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-default btn-xs' %>
     <%= button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>

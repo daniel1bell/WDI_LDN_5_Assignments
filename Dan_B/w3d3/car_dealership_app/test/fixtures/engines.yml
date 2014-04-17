@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  engine_size: 1
+  fuel_type: MyString
+  power: 1
+
+two:
+  engine_size: 1
+  fuel_type: MyString
+  power: 1

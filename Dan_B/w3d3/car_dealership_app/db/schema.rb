@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140416175913) do
+ActiveRecord::Schema.define(:version => 20140417105052) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20140416175913) do
     t.integer  "mileage"
     t.string   "colour"
     t.string   "gearbox"
-    t.string   "fuel"
     t.integer  "fuel_economy"
     t.text     "image"
     t.integer  "number_doors"
@@ -29,6 +28,15 @@ ActiveRecord::Schema.define(:version => 20140416175913) do
     t.text     "notes"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "engine_id"
+  end
+
+  create_table "engines", :force => true do |t|
+    t.integer  "engine_size"
+    t.string   "fuel_type"
+    t.integer  "power"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
