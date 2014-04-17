@@ -77,6 +77,19 @@ menu {
   margin-top: 20px;
 }
 
+.show_cars form {
+  display: inline-block;
+}
+
+.show_cars .btn {
+  padding: 0;
+  font-size: 11px;
+  width: 50px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+
 #full_car_image {
   width: 400px;
   border-radius: 10px;

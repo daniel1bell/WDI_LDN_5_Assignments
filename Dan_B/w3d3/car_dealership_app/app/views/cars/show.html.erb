@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class='show_cars'>
+  <p id="notice"><%= notice %></p>
 
-<img id='full_car_image' src="<%= @car.image %>">
+  <img id='full_car_image' src="<%= @car.image %>">
 
 
-<div id="full_car_details">
-<h2><%= @car.make %> <%= @car.model %>: <small>'<%= @car.reg_year.strftime("%y") %></small></h2>
+  <div id="full_car_details">
+  <h2><%= @car.make %> <%= @car.model %>: <small>'<%= @car.reg_year.strftime("%y") %></small></h2>
 
-<p><b>Price:</b> <%= number_to_currency(@car.price, unit: '£') %></p>
+  <p><b>Price:</b> <%= number_to_currency(@car.price, unit: '£') %></p>
 
-<p><b>Mileage:</b> <%= number_with_delimiter(@car.mileage) %> miles</p>
+  <p><b>Mileage:</b> <%= number_with_delimiter(@car.mileage) %> miles</p>
 
-<span><b>Colour:</b><div id='index_car_colour' style='background-color:<%= @car.colour %>'></div></span>
-<details>
-<p><b>Gearbox:</b><%= @car.gearbox %></p>
-<p><b>Fuel:</b><%= @car.fuel %></p>
-<p><b>Fuel economy:</b> <%= @car.fuel_economy %> MPG</p>
-<p><b>Number doors:</b> <%= @car.number_doors %></p>
-<p><b>Number seats:</b> <%= @car.number_seats %></p>
-</details>
+  <span><b>Colour:</b><div id='index_car_colour' style='background-color:<%= @car.colour %>'></div></span>
+  <details>
+  <p><b>Gearbox:</b><%= @car.gearbox %></p>
+  <p><b>Fuel:</b><%= @car.fuel %></p>
+  <p><b>Fuel economy:</b> <%= @car.fuel_economy %> MPG</p>
+  <p><b>Number doors:</b> <%= @car.number_doors %></p>
+  <p><b>Number seats:</b> <%= @car.number_seats %></p>
+  </details>
+  </div>
+  <section id='full_car_notes'>
+  <p><b>Notes:</b><br><br><%= @car.notes %></p>
+  </section>
+
+
+  <%= button_to 'Back', cars_path, method: :get, class: 'btn btn-default btn-xs' %>
+  <%= button_to 'Edit', edit_car_path(@car), method: :get, class: 'btn btn-default btn-xs' %>
+  <%= button_to 'Delete', @car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
 </div>
-<section id='full_car_notes'>
-<p><b>Notes:</b><%= @car.notes %></p>
-</section>
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>

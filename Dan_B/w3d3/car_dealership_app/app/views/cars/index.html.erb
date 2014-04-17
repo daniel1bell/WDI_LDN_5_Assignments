@@ -17,8 +17,8 @@
     <p>Gearing: <%= car.gearbox %></p>
     <p>Fuel Type: <%= car.fuel %></p>
 
-    <td><%= button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-default btn-xs' %></td>
-    <td><%= button_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+    <%= button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
     </div>
 <% end %>
 </section>
