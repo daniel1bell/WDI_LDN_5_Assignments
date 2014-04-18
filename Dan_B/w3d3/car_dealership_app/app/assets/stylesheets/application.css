@@ -13,6 +13,6 @@
  */
 
 *= require normalize
-*= require bootstrap.min
+*= require bootstrap
 *= require custom
 
