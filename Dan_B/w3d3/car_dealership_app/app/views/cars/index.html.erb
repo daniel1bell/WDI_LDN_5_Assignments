@@ -1,6 +1,3 @@
-<menu>
-    <%= button_to 'Add New Car', new_car_path, method: :get ,class: 'btn btn-default btn-xs' %>
-</menu>
 
 <section id='index_cars'>
 <% @cars.each do |car| %>
@@ -21,5 +18,11 @@
     <%= button_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
     </div>
 <% end %>
+</section>
+<section id='index_engines'>
+  <% @engines.each do |engine| %>
+    <% @engine = engine %>
+    <%= render partial: '/engines/show' %>
+  <% end %>
 </section>
 

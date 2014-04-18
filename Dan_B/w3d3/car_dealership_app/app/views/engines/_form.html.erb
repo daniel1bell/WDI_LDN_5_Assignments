@@ -1,0 +1,30 @@
+<%= form_for(@engine) do |f| %>
+  <% if @engine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@engine.errors.count, "error") %> prohibited this engine from being saved:</h2>
+
+      <ul>
+      <% @engine.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :engine_size %><br />
+    <%= f.number_field :engine_size, min: 0, step: 1, placeholder: 'cc' %>
+  </div>
+  <div class="field">
+    <%= f.label :fuel_type %><br />
+    <%= f.select :fuel_type, %w[Petrol Diesel LPG\ Autogas Biofuels] %>
+  </div>
+  <div class="field">
+    <%= f.label :power %><br />
+    <%= f.number_field :power, min: 0, step: 1, placeholder: 'BHP' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

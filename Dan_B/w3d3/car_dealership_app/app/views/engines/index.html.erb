@@ -1,0 +1,7 @@
+
+<section id='index_engines'>
+  <% @engines.each do |engine| %>
+    <% @engine = engine %>
+    <%= render partial: 'show' %>
+  <% end %>
+</section>

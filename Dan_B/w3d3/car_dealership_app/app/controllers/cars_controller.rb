@@ -3,6 +3,7 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index
     @cars = Car.all
+    @engines = Engine.all
 
     respond_to do |format|
       format.html # index.html.erb

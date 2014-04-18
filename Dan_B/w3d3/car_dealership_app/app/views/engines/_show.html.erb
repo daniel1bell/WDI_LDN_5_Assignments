@@ -1,0 +1,11 @@
+<div class='index_car_port index_engine_port'>
+  <h2>Engine ID <%= @engine.id %>:</h2>
+
+  <p><b>Engine Size:</b> <%= @engine.engine_size %> cc</p>
+  <p><b>Engine Power:</b> <%= @engine.power %> BHP</p>
+  <p><b>Fuel Type:</b> <%= @engine.fuel_type %></p>
+  <div>
+    <%= button_to 'Edit', edit_engine_path(@engine), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Delete', @engine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+  </div>
+</div>
