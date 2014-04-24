@@ -1,0 +1,10 @@
+<section id='index_categories'>
+
+  <%= button_to 'New Recipe', new_recipe_path, method: :get, class: 'btn btn-default btn-xs' %>
+  <%= button_to 'New Category', new_category_path, method: :get, class: 'btn btn-default btn-xs' %>
+
+  <% @recipes.each do |recipe| %>
+    <%= render partial: 'abstract_show', locals: { recipe: recipe } %>
+  <% end %>
+
+</section>

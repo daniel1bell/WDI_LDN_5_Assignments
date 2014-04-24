@@ -1,0 +1,9 @@
+<div class='index_car_port index_engine_port'>
+  <%= image_tag(recipe.recipe_image.thumb) if recipe.recipe_image.url %>
+  <p><b>Recipe Name:</b> <%= recipe.name %></p>
+  <div>
+    <%#= button_to 'Show', show_recipe_path(recipe), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Edit', edit_recipe_path(recipe), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+  </div>
+</div>

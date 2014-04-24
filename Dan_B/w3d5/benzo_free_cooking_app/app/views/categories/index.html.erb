@@ -1,0 +1,7 @@
+<section id='index_categories'>
+  <%= button_to 'New Category', new_category_path, method: :get, class: 'btn btn-default btn-xs' %>
+
+  <% @categories.each do |category| %>
+    <%= render partial: 'show', locals: { category: category } %>
+  <% end %>
+</section>

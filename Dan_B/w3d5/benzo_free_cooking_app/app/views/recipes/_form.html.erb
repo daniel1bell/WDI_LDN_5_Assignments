@@ -1,0 +1,43 @@
+<%= form_for(@recipe) do |f| %>
+
+  <div class='field'>
+  <%= f.label :name %><br />
+  <%= f.text_field :name, placeholder: 'Recipe Name' %>
+  </div>
+
+  <div class='field'>
+  <%= f.label :category_id_id, 'Category' %><br />
+  <%= f.collection_select(:category_id_id, Category.all, :id, :name) %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :serving_size %> <br>
+    <%= f.number_field :serving_size %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :preparation_time %> <br>
+    <%= f.number_field :preparation_time, placeholder: 'Minutes'%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :freezable, 'Freezable?' %> <br>
+    <%= f.check_box :freezable %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :microwavable, 'Microwavable?' %> <br>
+    <%= f.check_box :microwavable %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :recipe_image, 'Upload a pic of your finished recipe here.'%> <br>
+    <%= f.file_field :recipe_image %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

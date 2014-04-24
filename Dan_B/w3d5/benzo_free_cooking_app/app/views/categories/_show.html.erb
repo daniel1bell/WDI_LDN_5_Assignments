@@ -1,0 +1,7 @@
+<div class='index_car_port index_engine_port'>
+  <p><b>Category Name:</b> <%= category.name %></p>
+  <div>
+    <%= button_to 'Edit', edit_category_path(category), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+  </div>
+</div>

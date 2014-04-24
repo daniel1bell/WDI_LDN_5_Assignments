@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  serving_size: 1
+  preparation_time: 1
+  freezable: false
+  microwavable: false
+  category_id: 
+
+two:
+  name: MyString
+  serving_size: 1
+  preparation_time: 1
+  freezable: false
+  microwavable: false
+  category_id: 
