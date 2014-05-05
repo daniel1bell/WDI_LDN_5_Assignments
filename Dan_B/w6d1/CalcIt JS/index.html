@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>JS Calc-It</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="main.js"></script>
+
+
+</head>
+<body>
+
+<header>
+  <h1>JavaScript Calc-It</h1>
+  <sub>Because sometimes making a calculator solely in the browser is important.</sub>
+</header>
+
+<main>
+
+  <input type="number" id="number1" />
+  
+  <select id='operator' onchange="update()">
+    <option name='add'>+</option>
+    <option name='minus'>-</option>
+    <option name='multiply'>*</option>
+    <option name='divide'>/</option>
+    <option name='root'>Square Root</option>
+  </select>
+
+  <input type="number" id="number2"/>
+
+  <button class="btn btn-default btn-xs" onclick="update()">Calculate</button>
+
+
+  <p id='answer'>=</p>
+
+</main>
+
+</body>
+</html>

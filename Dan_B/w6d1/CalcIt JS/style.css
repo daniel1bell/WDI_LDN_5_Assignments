@@ -1,0 +1,29 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+sub {
+  margin-bottom: 20px;
+}
+
+header {
+
+  margin: 0 auto 50px auto;
+  padding: 30px 0 20px 0;
+  background-color: rgba(183, 183, 183, 0.5);
+  text-align: center;
+}
+
+main {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+#answer {
+  display: inline;
+}
+
+form {
+  display: inline;
+}
