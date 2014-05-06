@@ -1,3 +1,5 @@
+var calcIt = calcIt || {};
+
 function numberCheck(input) {
   return !input.value == false && !isNaN(parseFloat(input.value));
 }
@@ -16,45 +18,51 @@ function printAnswer(css_id, answer) {
 }
 
 
-function basicUpdate() {
+calcIt.basicUpdate = function() {
   var num1 = document.getElementById('number1');
   var num2 = document.getElementById('number2');
-  var operator = document.getElementById('operator').value;
+  var operator = document.getElementById('operator');
+  var method = operator.value
 
-  if (operator == "Square Root") {
-    num2.setAttribute('style', 'display: none;');
-  } else if (operator != "Square Root") {
+  // if (method == "Square Root") {
+  //   num2.setAttribute('style', 'display: none;');
+  // } else if (method != "Square Root") {
+  //   num2.setAttribute('style', 'display: inline;');
+  // }
+
+  if (method != "Square Root") {
     num2.setAttribute('style', 'display: inline;');
+  } else {
+    num2.setAttribute('style', 'display: none;');
   }
 
-  if (numberCheck(num1) && numberCheck(num2) == false) {
+  if (numberCheck(num1) && method == "Square Root") {
     var a = parseFloat(num1.value);
   
-    if (operator == "Square Root") {
-      var result = Math.sqrt(a);
-      printAnswer('answer', result);
-    }
-  } else if (numberCheck(num1) && numberCheck(num2)) {
+    var result = Math.sqrt(a);
+    printAnswer('answer', result);
+    
+  } else if (numberCheck(num1) && numberCheck(num2) && method != "Square Root") {
     var a = parseFloat(num1.value);
     var b = parseFloat(num2.value);
 
-    if (operator == "+") {
+    if (method == "+") {
       var result = a + b;
       printAnswer('answer', result);
-    } else if (operator == "-") {
+    } else if (method == "-") {
       var result = a - b;
       printAnswer('answer', result);
-    } else if (operator == "*") {
+    } else if (method == "*") {
       var result = a * b;
       printAnswer('answer', result);
-    } else if (operator == "/") {
+    } else if (method == "/") {
       var result = a / b;
       printAnswer('answer', result);
     }
   }
 }
 
-function mortgageUpdate() {
+calcIt.mortgageUpdate = function() {
   var principal = document.getElementById('principal');
   var rate = document.getElementById('rate');
   var years = document.getElementById('mortgage_length_years');
@@ -71,11 +79,11 @@ function mortgageUpdate() {
   }
 }
 
-function bmiUpdate() {
+calcIt.bmiUpdate = function() {
   var weight = document.getElementById('weight');
   var height = document.getElementById('height');
-  var weight_measure = document.getElementById('weight_measure');
-  var height_measure = document.getElementById('height_measure');
+  var weight_measure = document.getElementById('weight_metric');
+  var height_measure = document.getElementById('height_metric');
 
   if (weight_measure.checked) {
     weight.setAttribute('placeholder', 'Your Weight (kg)');
@@ -107,7 +115,7 @@ function bmiUpdate() {
   }
 }
 
-function tripUpdate() {
+calcIt.tripUpdate = function() {
   var distance = document.getElementById('distance');
   var efficiency = document.getElementById('efficiency');
   var cost = document.getElementById('cost');
@@ -126,3 +134,59 @@ function tripUpdate() {
     answerSpace.innerHTML = "= \u00A3" + roundNumber(journeyCost) + " and a time of " + roundNumber(time) + " hours."
   }
 }
+
+calcIt.setup = function() {
+  var num1 = document.getElementById('number1');
+  var num2 = document.getElementById('number2');
+  var operator = document.getElementById('operator');
+
+  num1.addEventListener('keyup', calcIt.basicUpdate);
+  num1.addEventListener('change', calcIt.basicUpdate);
+  num2.addEventListener('keyup', calcIt.basicUpdate);
+  num2.addEventListener('change', calcIt.basicUpdate);
+  operator.addEventListener('change', calcIt.basicUpdate);
+
+  var principal = document.getElementById('principal');
+  var rate = document.getElementById('rate');
+  var years = document.getElementById('mortgage_length_years');
+
+  principal.addEventListener('keyup', calcIt.mortgageUpdate);
+  principal.addEventListener('change', calcIt.mortgageUpdate);
+  rate.addEventListener('keyup', calcIt.mortgageUpdate);
+  rate.addEventListener('change', calcIt.mortgageUpdate);
+  years.addEventListener('keyup', calcIt.mortgageUpdate);
+  years.addEventListener('change', calcIt.mortgageUpdate);
+
+  var weight = document.getElementById('weight');
+  var height = document.getElementById('height');
+  var weight_metric = document.getElementById('weight_metric');
+  var height_metric = document.getElementById('height_metric');
+  var weight_imperial = document.getElementById('weight_imperial');
+  var height_imperial = document.getElementById('height_imperial');
+
+  weight.addEventListener('keyup', calcIt.bmiUpdate);
+  weight.addEventListener('change', calcIt.bmiUpdate);
+  height.addEventListener('keyup', calcIt.bmiUpdate);
+  height.addEventListener('change', calcIt.bmiUpdate);
+  weight_metric.addEventListener('change', calcIt.bmiUpdate);
+  height_metric.addEventListener('change', calcIt.bmiUpdate);
+  weight_imperial.addEventListener('change', calcIt.bmiUpdate);
+  height_imperial.addEventListener('change', calcIt.bmiUpdate);  
+
+  var distance = document.getElementById('distance');
+  var efficiency = document.getElementById('efficiency');
+  var cost = document.getElementById('cost');
+  var speed = document.getElementById('speed');
+
+  distance.addEventListener('keyup', calcIt.tripUpdate);
+  distance.addEventListener('change', calcIt.tripUpdate);
+  efficiency.addEventListener('keyup', calcIt.tripUpdate);
+  efficiency.addEventListener('change', calcIt.tripUpdate);
+  cost.addEventListener('keyup', calcIt.tripUpdate);
+  cost.addEventListener('change', calcIt.tripUpdate);
+  speed.addEventListener('keyup', calcIt.tripUpdate);
+  speed.addEventListener('change', calcIt.tripUpdate);
+
+}
+
+document.addEventListener('DOMContentLoaded', calcIt.setup);
