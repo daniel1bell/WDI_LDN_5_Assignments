@@ -77,6 +77,18 @@ function bmiUpdate() {
   var weight_measure = document.getElementById('weight_measure');
   var height_measure = document.getElementById('height_measure');
 
+  if (weight_measure.checked) {
+    weight.setAttribute('placeholder', 'Your Weight (kg)');
+  } else {
+    weight.setAttribute('placeholder', 'Your Weight (lb)');
+  }
+
+  if (height_measure.checked) {
+    height.setAttribute('placeholder', 'Your Height (cm)');
+  } else {
+    height.setAttribute('placeholder', 'Your Height (inches)');
+  }
+
   if (numberCheck(weight) && numberCheck(height)) {
     if (weight_measure.checked) {
       var w = parseFloat(weight.value);
