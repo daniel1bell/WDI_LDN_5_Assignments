@@ -97,8 +97,8 @@ function bmiUpdate() {
 
 function tripUpdate() {
   var distance = document.getElementById('distance');
-  var efficiency = document.getElementById('f_efficiency');
-  var cost = document.getElementById('f_cost');
+  var efficiency = document.getElementById('efficiency');
+  var cost = document.getElementById('cost');
   var speed = document.getElementById('speed');
 
   if (numberCheck(distance) && numberCheck(efficiency) && numberCheck(cost) && numberCheck(speed)) {
@@ -110,7 +110,7 @@ function tripUpdate() {
     var time = d/s;
     var journeyCost = (d/e) * (c * 4.54609188);
 
-    var answerSpace = document.getElementById('monthly_payments');
+    var answerSpace = document.getElementById('trip_result');
     answerSpace.innerHTML = "= \u00A3" + roundNumber(journeyCost) + " and a time of " + roundNumber(time) + " hours."
   }
 }
