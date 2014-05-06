@@ -19,22 +19,43 @@
 
 <main>
 
-  <input type="number" id="number1" />
-  
-  <select id='operator' onchange="update()">
+  <h2>The Basic Calculator</h2>
+
+  <input type="number" id="number1" onkeyup="basicUpdate() onchange="mortgageUpdate()""/>
+  <select id='operator' onchange="basicUpdate()">
     <option name='add'>+</option>
     <option name='minus'>-</option>
     <option name='multiply'>*</option>
     <option name='divide'>/</option>
     <option name='root'>Square Root</option>
   </select>
-
-  <input type="number" id="number2"/>
-
-  <button class="btn btn-default btn-xs" onclick="update()">Calculate</button>
-
-
+  <input type="number" id="number2" onkeyup="basicUpdate()" onchange="mortgageUpdate()"/>
   <p id='answer'>=</p>
+
+  <h2>The Mortgage Calculator</h2>
+
+  <input type="number" id="principal" placeholder="Your Principal Amount" onkeyup="mortgageUpdate()" onchange="mortgageUpdate()"/>
+  <input type="number" id="rate" placeholder="Monthly Interest Rate (%)" onkeyup="mortgageUpdate()" onchange="mortgageUpdate()"/>
+  <input type="number" id="mortgage_length_years" placeholder="Mortgage Length (years)" onkeyup="mortgageUpdate()" onchange="mortgageUpdate()"/>
+  <p id='monthly_payments'>=</p>
+
+  <h2>The BMI Calculator</h2>
+
+  <p>What weight are you?</p>
+  <input type='radio' name='weight_measure' id="weight_measure" value='kg' checked onchange="bmiUpdate()"> Metric
+  <span class='radio_inline'>
+  <input type='radio' name='weight_measure' value='lb' onchange="bmiUpdate()"> Imperial
+  </span></br>
+  <input type='number' id='weight' placeholder='Your Weight' onkeyup="bmiUpdate()" onchange="bmiUpdate()">
+  </br></br>
+  <p>What height are you?</p>
+  <input type='radio' name='height_measure' id="height_measure" value='cm' checked onchange="bmiUpdate()"> Metric
+  <span class='radio_inline'>
+  <input type='radio' name='height_measure' value='inches' onchange="bmiUpdate()"> Imperial
+  </span></br>
+  <input type='number' id='height' placeholder='Your Height' onkeyup="bmiUpdate()" onchange="bmiUpdate()"><br>
+  <p id='bmi_result'>=</p>
+  
 
 </main>
 

@@ -27,3 +27,11 @@ main {
 form {
   display: inline;
 }
+
+input[type="radio"] {
+  width: auto;
+}
+
+.radio_inline {
+  padding-left: 20px;
+}
