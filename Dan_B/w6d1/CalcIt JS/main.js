@@ -95,18 +95,22 @@ function bmiUpdate() {
   }
 }
 
+function tripUpdate() {
+  var distance = document.getElementById('distance');
+  var efficiency = document.getElementById('f_efficiency');
+  var cost = document.getElementById('f_cost');
+  var speed = document.getElementById('speed');
 
+  if (numberCheck(distance) && numberCheck(efficiency) && numberCheck(cost) && numberCheck(speed)) {
+    var d = parseFloat(distance.value);
+    var e = parseFloat(efficiency.value);
+    var c = parseFloat(cost.value) / 100;
+    var s = parseFloat(speed.value);
 
+    var time = d/s;
+    var journeyCost = (d/e) * (c * 4.54609188);
 
-
-
-
-
-
-
-
-
-
-
-
-
+    var answerSpace = document.getElementById('monthly_payments');
+    answerSpace.innerHTML = "= \u00A3" + roundNumber(journeyCost) + " and a time of " + roundNumber(time) + " hours."
+  }
+}
