@@ -1,0 +1,45 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  min-height: 200px;
+  padding-bottom: 50px;
+  position: relative;
+  background-color: white;
+}
+
+main {
+  
+}
+
+#logo {
+  width: 400px;
+  height: 83px;
+  background: url(logo.png) no-repeat;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+#new {
+  width: 32px;
+  height: 32px;
+  background: url(menu_sprite.png) no-repeat;
+  float: right;
+  margin-top: 165px;
+}
+
+#new:hover {
+  background-position: 0 -32px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#new_todo {
+  display: none;
+  background-color: rgba(64, 128, 0, 0.25);
+}

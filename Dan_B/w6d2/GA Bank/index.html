@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>GA Bank</title>
+    <meta charset='utf-8'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+  <body>
+    <header class="container">
+      <h1>Bank With Dan</h1>
+      <sub>Because managing whats coming into you and going out of you is really very important.</sub>
+    </header>
+    
+    <main class="container">
+      
+      <div class="row">
+
+      <div class="panel panel-success" id="current_panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Account</h3>
+        </div>
+        <div class="panel-body">
+          <h3>£<span id="current_total">0</span></h3>
+        </div>
+        <div class="panel-footer">
+          <input type="number" class="form-control input-sm amount" id="current_amount" placeholder="Enter Amount" min="0" step="0.01">
+          <button type="button" class="btn btn-success btn-xs" id="current_deposit">
+            <span class="glyphicon glyphicon-circle-arrow-down"></span> Deposit
+          </button> 
+          <button type="button" class="btn btn-danger btn-xs" id="current_withdraw">
+            <span class="glyphicon glyphicon-circle-arrow-up"></span> Withdraw
+          </button>
+        </div>
+      </div>
+
+      <div class="panel panel-success" id="savings_panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">Savings Account</h3>
+        </div>
+        <div class="panel-body">
+          <h3>£<span id="savings_total">0</span></h3>
+        </div>
+        <div class="panel-footer">
+          <input type="number" class="form-control input-sm amount" id="savings_amount" placeholder="Enter Amount" min="0" step="0.01">
+          <button type="button" class="btn btn-success btn-xs" id="savings_deposit">
+            <span class="glyphicon glyphicon-circle-arrow-down"></span> Deposit
+          </button> 
+          <button type="button" class="btn btn-danger btn-xs" id="savings_withdraw">
+            <span class="glyphicon glyphicon-circle-arrow-up"></span> Withdraw
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    </main>
+  </body>
+</html>
